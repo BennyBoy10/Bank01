@@ -595,12 +595,15 @@ const params = getQueryParams();
 
   // Update the bank logo image
   const bankLogoElement = document.getElementById('bank-logo');
-    const bankName = params.bank; // Get the bank name from the parameter
+   const bankName = params.bank; // Get the bank name from the parameter
     if (bankLogoElement && bankName) {
-      // Create the image filename based on the bank name
-      const imageFilename = `${bankName.replace(/\s+/g, '-')}-Logo.png`;
-      bankLogoElement.src = `Images/${imageFilename}`;
-    }
+  // Capitalize the first letter of the bank name
+  const capitalizedBankName = bankName.charAt(0).toUpperCase() + bankName.slice(1);
+  // Create the image filename based on the capitalized bank name
+  const imageFilename = `${capitalizedBankName.replace(/\s+/g, '-')}-Logo.png`;
+  bankLogoElement.src = `Images/${imageFilename}`;
+}
+
 
 });
 
@@ -611,3 +614,4 @@ const params = getQueryParams();
 
 </body>
 </html>
+
