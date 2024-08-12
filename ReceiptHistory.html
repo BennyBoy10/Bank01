@@ -9,7 +9,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #fff;
+    background-color: #000;
     margin: 0;
     padding: 0;
   }
@@ -36,6 +36,7 @@ body {
   }
   #download {
     position: relative;
+    cursor: pointer;
     top: -35px;
     left: 120px;
     color: #00B875;
@@ -46,11 +47,13 @@ body {
   }
   .categories {
     display: flex;
+    cursor: pointer;
     margin-left: 30px;
     font-size: 15px;
     color: #949494;
   }
   #all-status {
+    cursor: pointer;
     margin-left: 80px;
   }
   .rotate {
@@ -63,13 +66,16 @@ body {
   }
   .monthly-transaction p {
     margin-left: 10px;
+    cursor: pointer;
   }
   #month {
     font-weight: bold;
+    cursor: pointer;
   }
   #inout {
     margin-top: -10px;
     font-size: 13px;
+    cursor: pointer;
   }
   .receipt {
     margin-bottom: 10px;
@@ -328,7 +334,6 @@ body {
     <div class="container">
         <div class="header">
           <div class="white-bg">
-    <!--<h2>Transaction History</h2>-->
 <a href="index.html" class="back">&#x276E; &nbsp; Transactions</a>
 <p id="download">Download</p>
         
@@ -340,7 +345,7 @@ body {
         </div>
         <div class="monthly-transaction">
           <p id="month" style="display: inline-block;">Current-Month</p><p class="rotate" style="font-weight: bold; display: inline-block;">&nbsp;></p>
-          <p id="inout" style="color: gray;">In: ₦281,700.00 &nbsp; Out: ₦5,283,580.30</p>
+          <p id="inout" style="color: gray;">In: ₦281,700.00 &nbsp; Out: ₦528,351.30</p>
         
         </div>
 
@@ -360,71 +365,54 @@ body {
 <br></br>
 
 
-    <script>
-    document.getElementById("clearHistoryButton").addEventListener("click", function() {
-        localStorage.removeItem("receipts");
-        alert("Receipts history has been cleared.");
-    });   
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const receipts = JSON.parse(localStorage.getItem("receipts")) || [];
-        const receiptsContainer = document.getElementById("receiptsContainer");
-
-        if (receipts.length === 0) {
-            receiptsContainer.innerHTML = '<p>No transactions found.</p>';
-            return;
-        }
-
-        receipts.reverse();
-
-        receipts.forEach(receipt => {
-            const receiptElement = document.createElement("div");
-            receiptElement.className = "receipt";
-      
-            receiptElement.innerHTML = `
-      
-        <div class="recent-transaction" id="recent-transaction">
-    <hr id="seperator">
-            <img src="Images/Recent-Transaction-Send.jpg" id="the1">
-                     
-            
-            <p id="p1" class="flex-container">
-                <a href="" class="truncate">Transfer to ${receipt.recipient}</a>
-             <span id="sentAmount">-₦ ${receipt.amount}</span>
-              </p>
-              
-
-
-            <p id="time">${receipt.date}</p>
-            <p id="trans-succ">Successful</p>
-            
-            
-            
-                  </div>
-           
-
-            `;
-            receiptsContainer.appendChild(receiptElement);
-        });
-    });
-    </script>
-
 <script>
-  // Array of month abbreviations
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  
-  // Get the current date
-  const now = new Date();
-  
-  // Get the current month index (0-11)
-  const monthIndex = now.getMonth();
-  
-  // Get the current month's abbreviation
-  const currentMonth = months[monthIndex];
-  
-  // Update the <p> element with the id "month"
-  document.getElementById("month").textContent = currentMonth;
-</script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const receipts = JSON.parse(localStorage.getItem("receipts")) || [];
+    const receiptsContainer = document.getElementById("receiptsContainer");
+
+    if (receipts.length === 0) {
+        receiptsContainer.innerHTML = '<p>No transactions found.</p>';
+        return;
+    }
+
+    receipts.reverse();
+
+    receipts.forEach(receipt => {
+        const receiptElement = document.createElement("div");
+        receiptElement.className = "receipt";
+        
+        // Encode URI components for safety
+        const recipient = encodeURIComponent(receipt.recipient);
+        const amount = encodeURIComponent(receipt.amount);
+        const date = encodeURIComponent(receipt.date);
+        const bank = encodeURIComponent(receipt.bank);
+        const account = encodeURIComponent(receipt.account);
+
+        receiptElement.innerHTML = `
+            <div class="recent-transaction" id="recent-transaction">
+                <hr id="seperator">
+                <img src="Images/Recent-Transaction-Send.jpg" id="the1">
+                <p id="p1" class="flex-container">
+                    <a href="Individual-Receipt.html?recipient=${recipient}&amount=${amount}&date=${date}&bank=${bank}&account=${account}" class="truncate">Transfer to ${receipt.recipient}</a>
+                    <span id="sentAmount">-₦ ${receipt.amount}</span>
+                </p>
+                <p id="time">${receipt.date}</p>
+                <p id="trans-succ">Successful</p>
+            </div>
+        `;
+        receiptsContainer.appendChild(receiptElement);
+    });
+});
+
+
+  document.addEventListener("DOMContentLoaded", function() {
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const now = new Date();
+      const monthIndex = now.getMonth();
+      const currentMonth = months[monthIndex];
+      document.getElementById("month").textContent = currentMonth;
+  });
+  </script>
 
 
 </body>
