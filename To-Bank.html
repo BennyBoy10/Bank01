@@ -117,6 +117,7 @@ button:hover {
   width: 350px;
   font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
   border-radius: 8px;
   color: #7e7e7e;
   background-color: #fff;
@@ -183,6 +184,7 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   border-radius: 7px;
   background-color: #fff;
 }
@@ -217,10 +219,10 @@ button:hover {
  <select id="dropdownMenu" name="dropdownMenu">
           
  <option value="Select Bank">Select Bank</option>
- 
+
 <option value="access">Access Bank</option>
 <option value="fidelity">Fidelity Bank</option>
-<option value="firstbank">First Bank</option>
+<option value="first">First Bank</option>
 <option value="gtb">Guaranty Trust Bank</option>
 <option value="jaiz">Jaiz Bank</option>
 <option value="keystone">Keystone Bank</option>
@@ -229,7 +231,7 @@ button:hover {
 <option value="Opay">Opay</option>
 <option value="palmpay">PalmPay</option>
 <option value="uba">United Bank for Africa</option>
- <option value="zenithbank">Zenith Bank</option>
+ <option value="zenith">Zenith Bank</option>
       </select><br>
   <input type="text" id="name" name="name"><br>
     <div class="button-container">
@@ -329,17 +331,17 @@ document.getElementById('details').addEventListener('submit', function(event) {
       case 'fidelity':
             imageFilename = 'Fidelity-Logo.png';
             break;
-      case 'firstbank':
-            imageFilename = 'FirstBank-Logo.png';
+      case 'first':
+            imageFilename = 'First-Logo.png';
             break;
       case 'gtb':
             imageFilename = 'GTB-Logo.png';
             break;
         case 'jaiz':
-            imageFilename = 'JaizBank-Logo.png';
+            imageFilename = 'Jaiz-Logo.png';
             break;
         case 'keystone':
-            imageFilename = 'KeystoneBank-Logo.png';
+            imageFilename = 'Keystone-Logo.png';
             break;
         case 'kuda':
             imageFilename = 'Kuda-Logo.png';
@@ -356,7 +358,7 @@ document.getElementById('details').addEventListener('submit', function(event) {
         case 'uba':
             imageFilename = 'UBA-Logo.png';
             break;
-        case 'zenithbank':
+        case 'zenith':
             imageFilename = 'Zenith-Logo.png';
             break;
         default:
@@ -410,7 +412,7 @@ document.getElementById('dropdownMenu').addEventListener('click', function() {
 
     // Add event listener to account3
     document.getElementById('account3').addEventListener('click', function() {
-        fillDetails('2050181171', 'zenithbank', 'MASE-UTEN DOGARI YIASE');
+        fillDetails('2050181171', 'zenith', 'MASE-UTEN DOGARI YIASE');
     });
 
     // Add similar event listeners for other accounts if needed
