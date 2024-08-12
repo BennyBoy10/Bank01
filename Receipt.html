@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
     
     <title>Opay</title>
-    
+
     <style>
  body {
    font-family: Arial, sans-serif;
@@ -166,6 +166,7 @@
   border-radius: 25px;
   border: 1px solid transparent;
   font-weight: 500;
+  cursor: pointer;
   color: #fff;
   background-color: #00B875;
 }
@@ -234,83 +235,101 @@
  <br></br><br>
 
           <div class="button">
- <button type="button" id="share">Share Receipt</button>
+ <button type="button" id="share" style="font-weight: bold;">Return home</button>
              </div>
 
 </div>
 
 
-<script>document.getElementById("share").addEventListener("click", function() {
-    window.location.href = "index.html";
-});
-
-// Function to get the value of a query parameter by name
-function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
-
-// Get the price, name, bank, and account number values from the URL
-const priceValue = getQueryParam('price');
-const nameValue = getQueryParam('name');
-const bankValue = getQueryParam('dropdownMenu');
-const accountValue = getQueryParam('aza');
-
-// Display the price value in the h3 element
-if (priceValue) {
-    document.querySelector('.price h3').textContent = `₦ ${priceValue}`;
-}
-
-// Update recipient details
-if (nameValue) {
-    document.getElementById('re-name').textContent = nameValue;
-}
-if (bankValue && accountValue) {
-    document.getElementById('re-aza').textContent = `${bankValue} | ${accountValue}`;
-}
-
-// Function to update the current time
-function updateTime() {
-    const now = new Date();
-    const options = { year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
-    document.getElementById('time').textContent = now.toLocaleString('en-GB', options).replace(/,/, '');
-}
-
-updateTime();
-setInterval(updateTime, 120000); // Update every 2 minutes
-
-// Function to generate an 18-digit random number
-function generateRandomNumber() {
-    let randomNumber = '';
-    for (let i = 0; i < 18; i++) {
-        randomNumber += Math.floor(Math.random() * 10).toString();
-    }
-    return randomNumber;
-}
-
-// Update the trans-ref element with the generated random number
-document.getElementById('trans-ref').textContent = generateRandomNumber();
-
-// Save the receipt details to localStorage
-function saveReceipt() {
-    const receipt = {
-        amount: priceValue || "0.00",
-        date: document.getElementById('time').textContent,
-        recipient: document.getElementById('re-name').textContent,
-        account: document.getElementById('re-aza').textContent,
-        refNo: document.getElementById('trans-ref').textContent,
-        serviceAmount: getQueryParam('serviceAmount') || "0.00"
-    };
-
-    let receipts = JSON.parse(localStorage.getItem("receipts")) || [];
-    receipts.push(receipt);
-    localStorage.setItem("receipts", JSON.stringify(receipts));
-}
-
-saveReceipt();
-
+<script>
   
-</script>
+  document.getElementById("share").addEventListener("click", function() {
+      window.location.href = "index.html";
+  });
+  
+  // Function to get the value of a query parameter by name
+  function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+  }
+  
+  // Get the price, name, bank, and account number values from the URL
+  const priceValue = getQueryParam('price');
+  const nameValue = getQueryParam('name');
+  const bankValue = getQueryParam('dropdownMenu');
+  const accountValue = getQueryParam('aza');
+  
+  // Display the price value in the h3 element
+  if (priceValue) {
+      document.querySelector('.price h3').textContent = `₦ ${priceValue}`;
+  }
+  
+  // Update recipient details
+  if (nameValue) {
+      document.getElementById('re-name').textContent = nameValue;
+  }
+  if (bankValue && accountValue) {
+      document.getElementById('re-aza').textContent = `${bankValue} | ${accountValue}`;
+  }
+  
+  // Function to update the current time
+  function updateTime() {
+      const now = new Date();
+      const options = { year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+      document.getElementById('time').textContent = now.toLocaleString('en-GB', options).replace(/,/, '');
+  }
+  
+  updateTime();
+  setInterval(updateTime, 120000); // Update every 2 minutes
+  
+  // Function to generate an 18-digit random number
+  function generateRandomNumber() {
+      let randomNumber = '';
+      for (let i = 0; i < 18; i++) {
+          randomNumber += Math.floor(Math.random() * 10).toString();
+      }
+      return randomNumber;
+  }
+  
+  // Update the trans-ref element with the generated random number
+  const randomRef = generateRandomNumber();
+  document.getElementById('trans-ref').textContent = randomRef;
+  
+  // Save the receipt details to localStorage
+  function saveReceipt() {
+      // Get the recipient name
+      const recipientName = document.getElementById('re-name').textContent;
+  
+      // Get the recipient bank and account number
+      const recipientDetails = document.getElementById('re-aza').textContent.split('|').map(detail => detail.trim());
+      const recipientBank = recipientDetails[0] || "";   // Bank name
+      const recipientAccount = recipientDetails[1] || ""; // Account number
+  
+      // Create an object with receipt details
+      const receipt = {
+          amount: priceValue || "0.00",
+          date: document.getElementById('time').textContent,
+          recipient: recipientName,            // Store recipient name
+          bank: recipientBank,                 // Store bank name separately
+          account: recipientAccount,           // Store account number separately
+          refNo: randomRef,                    // Store generated reference number
+          serviceAmount: getQueryParam('serviceAmount') || "0.00"
+      };
+
+      // Retrieve existing receipts from localStorage or initialize with an empty array
+      let receipts = JSON.parse(localStorage.getItem("receipts")) || [];
+  
+      // Add the new receipt to the array
+      receipts.push(receipt);
+  
+      // Save the updated array back to localStorage
+      localStorage.setItem("receipts", JSON.stringify(receipts));
+  }
+  
+  saveReceipt();
+
+  </script>
+  
 
 
 
