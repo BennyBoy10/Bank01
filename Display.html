@@ -314,14 +314,13 @@ submitButton.addEventListener('click', function() {
 <script>
 
 document.getElementById('price').addEventListener('blur', function(){
-  
-let value = this.value;
-// Append '.00' if the value is not empty
-      if (value) {
-      value += '.00';
+    let value = this.value;
+    // Add '.00' if it does not already end with '.00'
+    if (value && !value.endsWith('.00')) {
+        this.value = value + '.00';
     }
-        this.value = value;
 });
+
   
 </script>
     
