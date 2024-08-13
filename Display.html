@@ -4,171 +4,361 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+ 
 
     <title>Opay</title>
     
     <style>
-  body {
-   font-family: Arial, sans-serif;
+
+
+body {
+    font-family: Arial, sans-serif;
+     background-color: #F8F8FA;
+     margin: 0;
+     padding: 0;
+ }
+ a {
+   text-decoration: none;
+   color: #000000;
+ }
+ .container {
+    margin: 0 auto;
+    width: 340px;
+    padding: 7px;
+    border: 1px solid transparent;
+    border-radius: 8px;
     background-color: #F8F8FA;
-    margin: 0;
-    padding: 0;
-}
-a {
-  text-decoration: none;
-  color: #000000;
-}
-.container {
-   margin: 0 auto;
+ }
+
+ .transparent-bg {
+   display: none;
+   position: fixed;
+   justify-content: center;
+   pointer-events: none;
    width: 340px;
-   padding: 7px;
-   border: 1px solid transparent;
-   border-radius: 8px;
-   background-color: #F8F8FA;
+   height: 39%;
+   background-color: rgba(0, 0, 0, 0.5);
+   z-index: 1000;
+ }
+ .confirm {
+   position: absolute;
+   display: none;
+   font-size: 14px;
+   bottom: 0;
+   width: 320px;
+   height: 365px;
+   padding-left: 10px;
+   padding-right: 10px;
+   border-top-left-radius: 12px;
+   border-top-right-radius: 12px;
+   background-color: #fff;
+ }
+#x {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #C3C6CD;
 }
-.transfer {
-  align-content: center;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  height: 55px;
-  width: 100%;
-  background-color: #fff;
+#sec-amount {
+    margin-top: -10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 26px;
 }
-.transfer p {
-  margin-left: 20px;
-  margin-bottom: 50px;
-  font-size: 17px;
-  
-}
-.details {
+.sec-bank {
   display: flex;
-  
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -20px;
 }
-.pic-bg {
-  width: 50px;
-  padding: 1px;
+.sec-account-no {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -20px;
+}
+.sec-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -20px;
+}
+.sec-amount-two {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -20px;
+}
+.sec-transaction-fee {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -20px;
+}
+.sec-payment-method {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -20px;
+}
+.owealth {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding-left: 10px;
   border-radius: 10px;
-  border: 1px solid #e7e7e7;
-  background-color: transparent;
-}
-.details img {
-  margin: auto;
-  width: 50px;
-  height: 50px;
-}
-.print {
-  position: absolute;
-  margin-top: -73px;
-  margin-left: 65px;
-}
-.print p {
-  margin-top: -10px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #595959;
-}
-.white {
-  margin-left: -20px;
-  width: 114%;
   background-color: #F8F8FA;
 }
-.whitebg {
-  background-color: #fff;
+.owealth svg {
+  margin-left: 75px;
+  text-align: right;
 }
-.whitebg2 {
-  background-color: #fff;
-}
-.price {
-  font-size: 13px;
-  margin-top: -50px;
-  margin-left: 0px;
-  padding: 20px;
-  border-radius: 20px;
-  font-weight: bold;
-  background-color: #fff;
-}
-.price input {
-  margin-top: 7px;
-  margin-left: -10px;
-  width: 280px;
-  height: 28px;
-  padding: 10px;
-  border-radius: 8px;
-  font-size: 18px;
-  border: 1px solid transparent;
-  background-color: #fff;
-}
-  input:focus {
-    border: none;
-    outline: none;
-}
-  input::placeholder {
-    color: #BABABC;
-}
-.buttonDiv {
-  display: flex;
-  justify-content: center;
-  
-}
-  button {
-    margin-left: 15px;
-    margin-top: 20px;
-    width: 280px;
-    height: 45px;
-    border-radius: 30px;
-    font-size: 16px;
-    font-weight: 500;
-    border: 1px solid transparent;
-    color: #fff;
-    background-color: #00B875;
-}
-  button:hover {
-    cursor: pointer;
-    background-color: #17B286;
-}
-
-
-.loading-popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  z-index: 9999;
-}
-
-.loading-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.loading-circle {
-  display: inline-block;
+#owealth-img {
   width: 50px;
   height: 50px;
-  border: 5px solid #00B875;
-  border-radius: 50%;
-  border-top-color: transparent;
-  animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+#owealth {
+  color: #000;
+  font-weight: bold;
+}
+#owealth-balance {
+  font-weight: 500;
 }
 
-  
+#sec-bank, #sec-account-no, #sec-name, #sec-amount-two, #sec-transaction-fee, #sec-payment-method2, #owealth-balance {
+  color: #8C8C8C;
+}
+
+#submit {
+  font-weight: bold;
+}
+
+ .transfer {
+   align-content: center;
+   margin-top: 5px;
+   margin-bottom: 10px;
+   height: 55px;
+   width: 100%;
+   background-color: #fff;
+ }
+ .transfer p {
+   margin-left: 20px;
+   margin-bottom: 50px;
+   font-size: 17px;
+   
+ }
+ .details {
+   display: flex;
+   
+ }
+ .pic-bg {
+   width: 50px;
+   padding: 1px;
+   border-radius: 10px;
+   border: 1px solid #e7e7e7;
+   background-color: transparent;
+ }
+ .details img {
+   margin: auto;
+   width: 50px;
+   height: 50px;
+ }
+ .print {
+   position: absolute;
+   margin-top: -73px;
+   margin-left: 65px;
+ }
+ .print p {
+   margin-top: -10px;
+   font-size: 14px;
+   font-weight: 500;
+   color: #595959;
+ }
+ .white {
+   margin-left: -20px;
+   width: 114%;
+   background-color: #F8F8FA;
+ }
+ .whitebg {
+   background-color: #fff;
+ }
+ .whitebg2 {
+   background-color: #fff;
+ }
+ .price {
+   font-size: 13px;
+   margin-top: -50px;
+   margin-left: 0px;
+   padding: 20px;
+   border-radius: 20px;
+   font-weight: bold;
+   background-color: #fff;
+ }
+ .price input {
+   margin-top: 7px;
+   margin-left: -10px;
+   width: 280px;
+   height: 28px;
+   padding: 10px;
+   border-radius: 8px;
+   font-size: 18px;
+   border: 1px solid transparent;
+   background-color: #fff;
+ }
+   input:focus {
+     border: none;
+     outline: none;
+ }
+   input::placeholder {
+     color: #BABABC;
+ }
+ .buttonDiv {
+   display: flex;
+   justify-content: center;
+   
+ }
+   button {
+     margin-left: 15px;
+     margin-top: 20px;
+     width: 280px;
+     height: 45px;
+     border-radius: 30px;
+     font-size: 16px;
+     font-weight: 500;
+     border: 1px solid transparent;
+     color: #fff;
+     background-color: #00B875;
+ }
+   button:hover {
+     cursor: pointer;
+     background-color: #17B286;
+ }
+ 
+ 
+ .loading-popup {
+   display: none;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(255, 255, 255, 0.9);
+   z-index: 9999;
+ }
+ 
+ .loading-content {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+ }
+ 
+ .loading-circle {
+   display: inline-block;
+   width: 50px;
+   height: 50px;
+   border: 5px solid #00B875;
+   border-radius: 50%;
+   border-top-color: transparent;
+   animation: spin 1s linear infinite;
+ }
+ 
+ @keyframes spin {
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+ }
+ 
 
 
     </style>
 </head>
 <body>
        <div class="container">
+
+
+
+
+
+
+
+
+    <div class="transparent-bg" id="transparent-bg">
+    </div>
+
+
+
+
+
+
+  <div class="confirm" id="confirm">
+<p id="x">✖</p>
+  <div class="sec-amount">
+<p id="sec-amount">₦100.00</p>
+  </div>
+  <div class="sec-bank">
+<p id="sec-bank">Bank</p>
+<p id="sec-bank2">Kuda MFB</p>
+  </div>
+  <div class="sec-account-no">
+<p id="sec-account-no">Account Number</p>
+<p id="sec-account-no2">2029506660</p>
+  </div>
+  <div class="sec-name">
+<p id="sec-name">Name</p>
+<p id="sec-name2">BENJAMIN BULAMA ANAMJA</p>
+  </div>
+    <div class="sec-amount-two">
+<p id="sec-amount-two">Amount</p>
+<p id="sec-amount2">₦100.00</p>
+  </div>
+    <div class="sec-transaction-fee">
+<p id="sec-transaction-fee">Transaction Fee</p>
+<p id="sec-transaction-fee2">₦0.00</p>
+  </div>
+<br>
+    <div class="sec-payment-method">
+<p id="sec-payment-method">Payment Method</p>
+<p id="sec-payment-method2">All ></p>
+  </div>
+
+  <div class="owealth">
+<img id="owealth-img" src="Images/owealth-icon.jpg">
+<p id="owealth">OWealth <span id="owealth-balance">(₦50,000.00)</span></p>
+
+<svg width="25px" height="25px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.5 12.5L10.167 17L19.5 8" stroke="#00B875" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+
+  </div>
+
+  <div class="buttonDiv">
+  <button type="submit" id="submit">Pay</button>
+       </div>
+
+  </div>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
          <div class="transfer">
   <p><a href="To-Bank.html"><b><</b></a> &nbsp;&nbsp;&nbsp;&nbsp;Transfer to Bank Account</p>
            </div> 
@@ -202,7 +392,7 @@ a {
         </div>
         </div>
       <div class="buttonDiv">
-  <button type="submit" id="submit">Confirm</button>
+  <button type="button" id="submit2">Confirm</button>
        </div>
   
     </div>
@@ -215,6 +405,27 @@ a {
   </div>
 </div>
 
+
+
+<script>
+  document.getElementById("x").addEventListener("click", function(){
+    document.getElementById("confirm").style.display = "none";
+    document.getElementById("transparent-bg").style.display = "none";
+  });
+  document.getElementById("submit2").addEventListener("click", function(){
+    const priceValue = document.getElementById("price").value;
+
+  // Pass the price value to the elements
+  document.getElementById("sec-amount").innerText = priceValue;
+  document.getElementById("sec-amount2").innerText = priceValue;
+
+    document.getElementById("confirm").style.display = "block";
+    document.getElementById("transparent-bg").style.display = "block";
+  });
+</script>
+
+
+
 <script>
   document.getElementById("price").addEventListener("focus", function() {
     document.getElementById("hr1").style.borderColor = "green";
@@ -226,6 +437,11 @@ a {
   document.getElementById('displayName').innerText = localStorage.getItem('name');
   document.getElementById('displayDropdownMenu').innerText = localStorage.getItem('dropdownMenu');
   document.getElementById('displayAza').innerText = localStorage.getItem('aza');
+
+  // PIN DIV content
+  document.getElementById('sec-name2').innerText = localStorage.getItem('name');
+  document.getElementById('sec-bank2').innerText = localStorage.getItem('dropdownMenu');
+  document.getElementById('sec-account-no2').innerText = localStorage.getItem('aza');
 
   // Set the bank logo image source
   const bankLogoElement = document.querySelector('.details img');
