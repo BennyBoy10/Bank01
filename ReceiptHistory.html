@@ -23,6 +23,7 @@ body {
     padding: 7px;
     border: 1px solid transparent;
     border-radius: 8px;
+    overflow: auto;
     background-color: #F8F8FA;
   }
   .header {
@@ -343,27 +344,27 @@ body {
         </div>
         </div>
         </div>
-        <div class="monthly-transaction">
-          <p id="month" style="display: inline-block;">Current-Month</p><p class="rotate" style="font-weight: bold; display: inline-block;">&nbsp;></p>
-          <p id="inout" style="color: gray;">In: ₦281,700.00 &nbsp; Out: ₦528,351.30</p>
+      <div class="monthly-transaction">
+<p id="month" style="display: inline-block;">Current-Month</p><p class="rotate" style="font-weight: bold; display: inline-block;">&nbsp;></p>
+<p id="inout" style="color: gray;">In: ₦281,700.00 &nbsp; Out: ₦528,351.30</p>
         
         </div>
 
         <hr id="first-hr">
     <div id="receiptsContainer"></div>
-    </div>
+    
 
     <div class="clear">
         <button type="button" id="clearHistoryButton">Clear Receipts</button>
     </div>
 
+</div>
 
          <div class="menu">
   <img src="Images/Trans-History_Nav-bar.png" alt="Nav-Bar">
 </div>
 <br></br>
 <br></br>
-
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
