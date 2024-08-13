@@ -21,7 +21,6 @@ body {
   padding: 7px;
   border: 1px solid transparent;
   border-radius: 8px;
-  /*background-color: #000000;*/
   background-color: #F8F8FA;
 }
 .profile-pic {
@@ -82,33 +81,33 @@ margin-top: 8px;
   background-color: #fff;
 }
 .recent-transaction #the1 {
-  position: relative;
+  position: absolute;
   display: flex;
-  top: 5px;
-  left: 10px;
+  margin-top: 8px;
+  margin-left: 5px;
   width: 40px;
   height: 40px;
   cursor: pointer;
 }
 .recent-transaction #the2 {
-  position: relative;
+  position: absolute;
   display: flex;
-  top: -62px;
-  left: 10px;
+  margin-top: 53px;
+  margin-left: 5px;
   width: 40px;
   height: 40px;
   cursor: pointer;
 }
 .recent-transaction #p1 {
-  position: relative;
-  top: -42px;
-  left: 50px;
+  position: absolute;
+  margin-top: 11px;
+  margin-left: 45px;
   font-size: 12px;
 }
 .recent-transaction #p2 {
-  position: relative;
-  top: -110px;
-  left: 50px;
+  position: absolute;
+  margin-top: 58px;
+  margin-left: 45px;
   font-size: 12px;
 }
 #sentAmount {
@@ -116,26 +115,24 @@ margin-top: 8px;
   font-weight: bold;
 }
 #time {
-  position: relative;
-  left: 53px;
-  top: -40px;
-  margin-top: -8px;
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 45px;
   font-size: 10px;
   color: grey;
 }
 #time2 {
-  position: relative;
-  left: 53px;
-  top: -110px;
-  margin-top: -8px;
+  position: absolute;
+  margin-left: 45px;
+  margin-top: 77px;
   font-size: 10px;
   color: grey;
 }
 #trans-succ {
-  position: relative;
+  position: absolute;
   width: 51px;
-  left: 273px;
-  top: -63px;
+  margin-left: 268px;
+  margin-top: 28px;
   padding: 0 3px;
   border-radius: 5px;
   font-size: 10px;
@@ -143,10 +140,10 @@ margin-top: 8px;
   background-color: #DDF7EA;
 }
 #trans-succ2 {
-  position: relative;
+  position: absolute;
   width: 51px;
-  left: 273px;
-  top: -132px;
+  margin-left: 268px;
+  margin-top: 78px;
   padding: 0 3px;
   border-radius: 5px;
   font-size: 10px;
@@ -195,7 +192,7 @@ margin-top: 8px;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 340px;
+  width: 360px;
   background-color: #fff;
   cursor: pointer;
 }
@@ -228,7 +225,7 @@ margin-top: 8px;
 
         <div class="balance">
 
- <p>🛡️ Available Balance 
+ <p>🛡 Available Balance 
   <span id="eye-icon" style="cursor: pointer;">
   <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12.0002C20.2531 15.5764 15.8775 19 11.9998 19C8.12201 19 3.74646 15.5764 2 11.9998" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12.0002C20.2531 8.42398 15.8782 5 12.0005 5C8.1227 5 3.74646 8.42314 2 11.9998" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></span> 
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -244,20 +241,15 @@ margin-top: 8px;
 
     
   <div class="recent-transaction" id="recent-transaction">
-    
  <img src="Images/Recent-Transaction-Send.jpg" id="the1">
-          
- 
  <p id="p1">Transfer to BENJAMIN BULAMA AN...&nbsp;&nbsp;<span id="sentAmount">-₦72,000.00</span></p>
  <p id="time"></p>
  <p id="trans-succ">Successful</p>
- 
+
  <img src="Images/Recent-Transaction-Send.jpg" id="the2">
  <p id="p2">Transfer to MASE-UTEN DOGARI YA...&nbsp;&nbsp;<span id="sentAmount">-₦96,000.00</span></p>
  <p id="time2"></p>
  <p id="trans-succ2">Successful</p>
- 
- 
        </div>
 
 
@@ -393,4 +385,3 @@ document.getElementById("eye-icon").addEventListener("click", function() {
 
 </body>
 </html>
-
