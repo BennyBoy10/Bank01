@@ -11,6 +11,7 @@
   <style>
 
 
+
 body {
   font-family: Arial, sans-serif;
   background-color: #fff;
@@ -22,7 +23,7 @@ body {
   width: 330px;
   padding-left: 13px;
   padding-right: 13px;
-  border: 1px solid black;
+  border: 1px solid transparent;
   border-radius: 8px;
   background-color: #FFF;
 }
@@ -259,12 +260,55 @@ body {
 
 
 
+.error-for-buttons {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.white-error {
+  width: 250px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: shadow for better visibility */
+}
+
+.white-error button {
+  display: block;
+  margin: 20px auto 0;
+  width: 80px;
+  height: 33px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #00B875;
+}
+
+
+
 
   </style>
 </head>
 <body>
   <div class="container">
 
+    <div class="error-for-buttons" id="error-for-buttons">
+      <div class="white-error">
+  <p id="error-p">Oops! Our customer service is currently experiencing a high volume of requests. Please try again later.</p>
+  <button id="okay">OK</button>
+    </div>
+      </div>
+  
   <div class="top">
 <p id="Finance">Finance <span id="blueridgeMFB">from BlueRidge Microfinance Bank</span></p>
 <img src="Images/Settings-icon1.jpg" id="settings-image">
@@ -281,7 +325,7 @@ body {
 <p id="bal2">₦ 8,482.91</p>
   </div>
 
-  <div class="owealth">
+  <div class="owealth" id="owealth-div">
 <img src="Images/OWealth-Icon1.jpg" id="owealth-icon">
 <p id="owealth1">OWealth</p>
 <p id="daily-returns">Your daily returns. You can withdraw at any time.</p>
@@ -291,14 +335,14 @@ body {
 <br>
 
   <div class="targets_and_savebox">
-    <div class="targets">
+    <div class="targets" id="targets-div">
 <img src="Images/Target-Icon1.jpg" id="targets-icon">
 <p id="targets">Targets</p>
 <p id="targets1">Save daily, weekly, or monthly towards your goal.</p>
 <br></br>
     </div>
 
-    <div class="savebox">
+    <div class="savebox" id="savebox-div">
 <img src="Images/SafeBox-Icon1.jpg" id="savebox-icon">
 <p id="savebox">SaveBox</p>
 <p id="savebox1">Your daily, weekly or monthly automatic savings.</p>
@@ -308,14 +352,14 @@ body {
 <br>
 
   <div class="fixed_and_spend">
-    <div class="fixed">
+    <div class="fixed" id="fixed-div">
 <img src="Images/Fixed-Icon1.jpg" id="fixed-icon">
 <p id="fixed">Fixed</p>
 <p id="fixed1">Min: ₦1000 <br>Tenor: 7-1000 days</p>
 <br></br>
     </div>
 
-    <div class="spend">
+    <div class="spend" id="spend-div">
 <img src="Images/Spend-Save1.jpg" id="spend-icon">
 <p id="spend">Spend & Save</p>
 <p id="spend1">Your percentage savings every time you spend or transfer.</p>
@@ -324,7 +368,7 @@ body {
   </div>
 <br>
 
- <div class="savings">
+ <div class="savings" id="savings-div">
 <img src="Images/Savings-Report1.jpg" id="savings-icon">
 <p id="savings">Savings Report</p>
 <p id="savings1">Check out your savings journey so far.</p>
@@ -356,6 +400,87 @@ body {
 
   </div>
  
+
+
+
+
+  <script>
+// Select the image and balance elements
+const eyeImage = document.getElementById("eye-image");
+const balance1 = document.getElementById("bal1");
+const balance2 = document.getElementById("bal2");
+const balance3 = document.getElementById("bal3");
+
+// Set initial values
+let isHidden = false;
+const originalValues = {
+    bal1: "₦ 52,820.00",
+    bal2: "₦ 8,482.91",
+    bal3: "₦ 52,820.00"
+};
+
+// Add event listener for image click
+eyeImage.addEventListener("click", () => {
+    if (isHidden) {
+        // Show balances and change image to eye open
+        balance1.textContent = originalValues.bal1;
+        balance2.textContent = originalValues.bal2;
+        balance3.textContent = originalValues.bal3;
+        eyeImage.src = "Images/eye-open.png";
+    } else {
+        // Hide balances and change image to eye close
+        balance1.textContent = "₦ ***";
+        balance2.textContent = "₦ ***";
+        balance3.textContent = "₦ ***";
+        eyeImage.src = "Images/eye-close.png";
+    }
+    // Toggle the hidden state
+    isHidden = !isHidden;
+});
+
+
+  </script>
+
+
+
+
+
+
+
+
+  <script>
+document.getElementById("owealth-div").addEventListener("click", function() {
+  document.getElementById("error-for-buttons").style.display = "flex";
+});
+document.getElementById("targets-div").addEventListener("click", function() {
+  document.getElementById("error-for-buttons").style.display = "flex";
+});
+document.getElementById("savebox-div").addEventListener("click", function() {
+  document.getElementById("error-for-buttons").style.display = "flex";
+});
+document.getElementById("fixed-div").addEventListener("click", function() {
+  document.getElementById("error-for-buttons").style.display = "flex";
+});
+document.getElementById("spend-div").addEventListener("click", function() {
+  document.getElementById("error-for-buttons").style.display = "flex";
+});
+document.getElementById("savings-div").addEventListener("click", function() {
+  document.getElementById("error-for-buttons").style.display = "flex";
+});
+
+
+document.getElementById("okay").addEventListener("click", function() {
+  document.getElementById("error-for-buttons").style.display = "none";
+});
+    </script>
+    
+
+
+
+
+
+
+
  <script>
 document.getElementById('menu').addEventListener('click', function(event) {
       var x = event.clientX;
