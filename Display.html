@@ -36,9 +36,9 @@ body {
    justify-content: center;
    pointer-events: none;
    width: 340px;
-   height: 39%;
+   height: 100%;
    background-color: rgba(0, 0, 0, 0.5);
-   z-index: 1000;
+   z-index: 100;
  }
  .confirm {
    position: absolute;
@@ -46,12 +46,13 @@ body {
    font-size: 14px;
    bottom: 0;
    width: 320px;
-   height: 400px;
+   height: 365px;
    padding-left: 10px;
    padding-right: 10px;
    border-top-left-radius: 12px;
    border-top-right-radius: 12px;
    background-color: #fff;
+   z-index: 101;
  }
 #x {
   margin-left: 10px;
@@ -449,32 +450,6 @@ body {
   bankLogoElement.src = `Images/${bankLogo}`;
  </script>
 
-
-<script> /*
-  // Change the height and width for the MoniePoint logo
- if (bankLogo === 'MoniePoint-Logo.png') {
-      bankLogoElement.style.width = '50px';
-      bankLogoElement.style.height = '50px';
-  }
-  // Change the height and width for the PalmPay logo
- if (bankLogo === 'PalmPay-Logo.png') {
-      bankLogoElement.style.width = '55px';
-      bankLogoElement.style.height = '50px';
-  }
-  // Change the height and width for the Kuda logo
- if (bankLogo === 'Kuda-Logo.png') {
-      bankLogoElement.style.width = '50px';
-      bankLogoElement.style.height = '50px';
-  }
-  
-  // Change the pic-bg border if filename is Kuda-Logo.png
- if (bankLogo === 'Kuda-Logo.png') {
-  document.querySelector('.pic-bg').style.borderRadius = '10px';
-document.querySelector('.pic-bg').style.height = "50px";
-}
-
-*/
-</script> 
 
   
 
