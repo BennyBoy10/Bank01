@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+    
+    <title>Opay</title>
+    
+    <style>
+  body {
+   font-family: Arial, sans-serif;
+   background-color: #fff;
+   margin: 0;
+   padding: 0;
+}
+a {
+  color: #000000;
+  text-decoration: none;
+}
+.container {
+  margin: 0 auto;
+  width: 340px;
+  padding: 7px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background-color: #F8F8FA;
+}
+.back {
+  margin-bottom: 5px;
+  width: 350px;
+  height: 50px;
+  align-content: center;
+  background-color: #fff;
+}
+.free-transfer img {
+  width: 350px;
+  border-radius: 7px;
+}
+.aza {
+  padding: 0.5px 10px;
+  width: 330px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.aza input:focus {
+  border: 1px solid transparent;
+  outline: none;
+}
+.aza input[type="tel"] {
+  width: 305px;
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 17px;
+  border: 1px solid transparent;
+}
+.aza input::placeholder {
+  color: #C6C6C6;
+}
+.aza select {
+  margin-top: 5px;
+  width: 330px;
+  height: 50px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 17px;
+  border: 1px solid transparent;
+  background-color: #fff;
+}
+#name {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+#name {
+  display: none;
+  text-align: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: -1px;
+  padding: 5px 10px 0 20px;
+  width: 300px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 17px;
+  text-transform: uppercase;
+  border: 1px solid #f2f2f2;
+  color: #03B776;
+  background-color: #F0FBF7;
+}
+.button-container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ button {
+   margin: 8px 0 3px 0;
+   width: 280px;
+   height: 45px;
+   border-radius: 25px;
+   font-size: 19px;
+   border: 1px solid transparent;
+   color: #fff;
+   background-color: #00B875;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #17B286;
+}
+.traffic-monitor {
+  margin-top: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.traffic-monitor img {
+  border-radius: 8px;
+}
+.recents {
+  display: flex;
+  margin-top: 5px;
+  width: 350px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #7e7e7e;
+  background-color: #fff;
+}
+.recents p {
+  margin-left: 20px;
+}
+.more-accounts {
+  width: 100%;
+  background-color: #fff;
+}
+.accounts {
+  padding: 3px;
+  margin-top: -14px;
+  border-radius: 7px;
+  background-color: #fff;
+}
+.accounts p{
+  margin-top: 8px;
+  margin-left: 20px;
+}
+.accounts img {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 300px;
+  width: 30px;
+  height: 30px;
+}
+.accounts2 {
+  margin-top: -14px;
+  padding: 3px;
+  border-radius: 7px;
+  background-color: #fff;
+}
+.accounts2 p{
+  margin-top: 8px;
+  margin-left: 20px;
+}
+.accounts2 img {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 290px;
+  width: 50px;
+  height: 40px;
+}
+.accounts3 {
+  margin-top: -14px;
+  padding: 3px;
+  border-radius: 7px;
+  background-color: #fff;
+}
+.accounts3 p{
+  margin-top: 8px;
+  margin-left: 20px;
+}
+.accounts3 img {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 290px;
+  width: 50px;
+  height: 40px;
+}
+.view-all {
+  margin-top: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 7px;
+  background-color: #fff;
+}
+.view-all p {
+  padding: 5px;
+  border-radius: 15px;
+  color: #a2a2a2;
+  background-color: #F8F8FA;
+}
+#all-accounts {
+  display: none;
+}
+    </style>
+    
+</head>
+<body>
+        <div class="container"><br>
+
+          <div class="back">
+   <p>&nbsp;&nbsp;&nbsp;<b><a href="index.html"><</a></b>&nbsp;&nbsp;&nbsp; Transfer to Bank Account&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ReceiptHistory.html"><span style="color: #00B875;">History</span></a></p>
+              </div>
+      
+       <div class="free-transfer">
+   <img src="Images/Free-Transfer.jpg" id="free-transfer">            </div>
+  
+          <div class="aza">
+   <p><b>Recipient Account</b></p>
+  
+    <form id="details">  
+ <input type="tel" id="aza" name="aza" maxlength="10" placeholder="Enter 10 digits Account Number"><br>
+
+ <select id="dropdownMenu" name="dropdownMenu">
+    
+ <option value="Select Bank">Select Bank</option>
+
+<option value="access" data-code="044">Access Bank</option>
+<option value="carbon" data-code="565">Carbon</option>
+<option value="diamond" data-code="063">Diamond Bank</option>
+<option value="eco" data-code="050">Eco Bank</option>
+<option value="fcmb" data-code="214">FCMB Bank</option>
+<option value="fidelity" data-code="070">Fidelity Bank</option>
+<option value="first" data-code="011">First Bank</option>
+<option value="gtb" data-code="058">Guaranty Trust Bank</option>
+<option value="jaiz" data-code="301">Jaiz Bank</option>
+<option value="keystone" data-code="082">Keystone Bank</option>
+<option value="kuda" data-code="50211">Kuda MFB</option>
+<option value="moniepoint" data-code="50515">MoniePoint</option>       
+<option value="Opay" data-code="999992">Opay</option>
+<option value="palmpay" data-code="999991">PalmPay</option>
+<option value="polaris" data-code="076">Polaris Bank</option>
+<option value="paga" data-code="100002">Paga</option>
+<option value="stanbic" data-code="221">Stanbic IBTC Bank</option>
+<option value="standardchartered" data-code="068">Standard chartered Bank</option>
+<option value="sterling" data-code="232">Sterling Bank</option>
+<option value="taj" data-code="302">TAJ Bank</option>
+<option value="uba" data-code="033">United Bank for Africa</option>
+<option value="union" data-code="032">Union Bank</option>
+<option value="wema" data-code="035">Wema Bank</option>
+ <option value="zenith" data-code="057">Zenith Bank</option>
+ <option value="9psb" data-code="120001">9 Payment Service Bank(9 PSB)</option>
+      </select><br>
+
+
+<!--<input type="text" id="name" name="name" class="nameI" style="display: none;">-->
+<p id="name" name="name" class="nameP"></p>
+
+
+
+      <br>
+    <div class="button-container">
+<button type="submit" id="submit">Next</button>     
+                </div>
+</form>
+        </div>
+          
+
+   <div class="traffic-monitor">
+<img src="Images/Traffic-Monitor.jpg" id="traffic-monitor">       <br></br>      </div>
+
+      <div class="recents">
+  <p style="color: #03B776;">Recents</p>&nbsp;<p>Favourites</p>   <p style="margin-left: 110px;">🔍</p>  
+            </div>
+   <hr> 
+     <div class="more-accounts">
+        <a href="#" id="account1">  
+      <div class="accounts">
+  <p>BENJAMIN BULAMA ANAMJA</p>
+  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">2029506660 &nbsp;Kuda</p>
+  <img src="Images/Kuda-Logo.png">
+             </div>
+             </a>
+ <hr>         
+           <a href="#" id="account2">
+      <div class="accounts2">
+  <p>PAULINA HAMIDU MSHELIA</p>
+  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5330403346 &nbsp;Fidelity Bank</p>
+  <img src="Images/Fidelity-Logo.png">
+               </div>
+               </a>
+<hr>     
+        <a href="#" id="account3">
+    <div class="accounts3">
+  <p>MASE-UTEN DOGARI YIASE</p>
+  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">2050181171 &nbsp;Zenith Bank</p>
+  <img src="Images/Zenith-Logo.png">
+             </div>
+             </a>
+  <hr>           
+       <div class="view-all" id="view-all">
+      <p>View All ></p>  
+              </div>
+             <br>
+      <div id="all-accounts">
+  <a href="#" id="account4">  
+      <div class="accounts">
+  <p>BENJAMIN BULAMA ANAMJA</p>
+  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">1615329474 &nbsp;Access Bank</p>
+  <img src="Images/Access-Logo.png">
+             </div>
+             </a>  
+             
+             </div>
+              
+              </div>
+<br></br>
+
+
+
+  <br></br>
+</div>
+
+<script>
+  document.getElementById("view-all").addEventListener("click", function() {
+  document.getElementById("view-all").style.display = "none";
+  document.getElementById("all-accounts").style.display = "flex";
+  });
+
+
+</script>
+
+
+
+<script>
+document.getElementById('dropdownMenu').addEventListener('click', function() {
+    document.getElementById('name').style.display = 'flex';
+});
+
+document.getElementById('details').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
+    // Get the form data
+    const aza = document.getElementById('aza').value;
+    const dropdownMenu = document.getElementById('dropdownMenu').value;
+    const name = document.getElementById('name').textContent;
+
+    // Store the data in local storage
+    localStorage.setItem('aza', aza);
+    localStorage.setItem('dropdownMenu', dropdownMenu);
+    localStorage.setItem('name', name.toUpperCase());
+
+  
+
+// Get the selected bank value
+let selectedBank = document.getElementById('dropdownMenu').value.toLowerCase();
+// Capitalize the first letter and construct the image filename
+let imageFilename = selectedBank.charAt(0).toUpperCase() + selectedBank.slice(1) + '-Logo.png';
+// Store the image filename in localStorage
+localStorage.setItem('bankLogo', imageFilename);
+
+
+
+
+    // Redirect to Display.html
+    window.location.href = 'Display.html';
+});
+
+// Function to check and update button state
+function checkButtonState() {
+    const nameElement = document.getElementById('name');
+    const submitButton = document.getElementById('submit');
+    const content = nameElement.textContent.trim();
+    
+    if (content === 'Error verifying account Check your internet' || content === '' || content === 'Invalid account or bank') {
+        submitButton.disabled = true;
+        document.getElementById("submit").style.cursor = "not-allowed"
+        document.getElementById("submit").style.backgroundColor = "#BAE9D5"
+    } else {
+        submitButton.disabled = false;
+        document.getElementById("submit").style.cursor = "pointer"
+        document.getElementById("submit").style.backgroundColor = "#00B875"
+    }
+}
+
+// Add event listener for name display update
+document.getElementById('dropdownMenu').addEventListener('change', function() {
+    // Get the account number entered by the user
+    const accountNumber = document.getElementById('aza').value;
+
+    // Get the selected dropdown menu option
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    // Extract the bank code from the data-code attribute of the selected option
+    const dropdownMenuCode = dropdownMenu.options[dropdownMenu.selectedIndex].getAttribute('data-code');
+
+    // Your secret key for Paystack's API (ensure this is kept private and secure)
+    const secretKey = 'sk_live_85e46d5a6da16aec07876f13b58f856467e6c121'; 
+
+    // Construct the API URL to resolve the bank account details
+    const apiUrl = `https://api.paystack.co/bank/resolve?account_number=${accountNumber}&bank_code=${dropdownMenuCode}`;
+
+    // Make an HTTP GET request to the Paystack API
+    fetch(apiUrl, {
+        method: 'GET',
+        headers: {
+            // Authorization header with Bearer token (using your secret key)
+            'Authorization': `Bearer ${secretKey}`,
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json()) // Convert the response to JSON
+    .then(data => {
+        // If the API call is successful, display the account holder's name
+        if (data.status) {
+            document.getElementById('name').textContent = `${data.data.account_name}`;
+        } else {
+            // If there's an error (e.g., account not found), show an error message
+            document.getElementById('name').textContent = 'Invalid account or bank';
+        }
+        // Update button state based on new content
+        checkButtonState();
+    })
+    .catch(error => {
+        // If the fetch call itself fails (e.g., network error), show a general error message
+        console.error('Error:', error);
+        document.getElementById('name').textContent = 'Error verifying account Check your internet';
+        // Update button state based on new content
+        checkButtonState();
+    });
+});
+
+// Initial check for button state on page load
+checkButtonState();
+</script>
+
+ 
+  
+    
+<script>
+document.getElementById('dropdownMenu').addEventListener('click', function() {
+    document.getElementById('name').style.display = 'flex';
+});
+</script>
+
+<script>
+             //ACCOUNT 1
+    // Function to set input values
+    function fillDetails(accountNumber, bankName, recipientName) {
+        document.getElementById('aza').value = accountNumber;
+        document.getElementById('dropdownMenu').value = bankName;
+        document.getElementById('name').textContent = recipientName.toUpperCase();
+        document.getElementById('name').style.display = 'flex';
+        checkButtonState();
+    }
+
+    // Add event listener to account1
+    document.getElementById('account1').addEventListener('click', function() {
+        fillDetails('2029506660', 'kuda', 'BENJAMIN BULAMA ANAMJA');
+    });
+
+</script>
+
+
+<script>
+
+    // Add event listener to account2
+    document.getElementById('account2').addEventListener('click', function() {
+        fillDetails('5330403346', 'fidelity', 'PAULINA HAMIDU MSHELIA');
+    });
+
+</script>
+
+
+<script>
+
+    // Add event listener to account3
+    document.getElementById('account3').addEventListener('click', function() {
+        fillDetails('2050181171', 'zenith', 'MASE-UTEN DOGARI YIASE');
+    });
+
+    // Add similar event listeners for other accounts if needed
+</script>
+
+<script>
+
+    // Add event listener to account4
+    document.getElementById('account4').addEventListener('click', function() {
+        fillDetails('1615329474', 'access', 'BENJAMIN BULAMA ANAMJA');
+    });
+
+    // Add similar event listeners for other accounts if needed
+</script>
+
+
+
+
+</body>
+</html>
