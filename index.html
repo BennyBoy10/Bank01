@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
-
+    
     <title>Opay</title>
   
   <style>
+
 
 body {
    font-family: Arial, sans-serif;
@@ -98,6 +99,32 @@ margin-top: 8px;
   height: 40px;
   cursor: pointer;
 }
+
+
+#recipient1 {
+  display: inline-block; /* Allow width to be set */
+  max-width: calc(100% - 9px); /* Adjust the max-width to account for sentAmount1 width */
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis when text overflows */
+}
+
+#sentAmount1 {
+  white-space: nowrap; /* Prevent wrapping */
+}
+#recipient2 {
+  display: inline-block; /* Allow width to be set */
+  max-width: calc(100% - 9px); /* Adjust the max-width to account for sentAmount1 width */
+  white-space: nowrap; /* Prevent wrapping */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis when text overflows */
+}
+
+#sentAmount2 {
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+
 .recent-transaction #p1 {
   position: absolute;
   margin-top: 11px;
@@ -110,11 +137,21 @@ margin-top: 8px;
   margin-left: 45px;
   font-size: 12px;
 }
-#sentAmount {
+#sentAmount1 {
+  position: absolute;
+  margin-top: 7px;
+  margin-left: 260px;
   font-size: 13px;
   font-weight: bold;
 }
-#time {
+#sentAmount2 {
+  position: absolute;
+  margin-top: -2px;
+  margin-left: -8px;
+  font-size: 13px;
+  font-weight: bold;
+}
+#time1 {
   position: absolute;
   margin-top: 30px;
   margin-left: 45px;
@@ -205,6 +242,7 @@ margin-top: 8px;
 }
 
 
+
   </style>  
     
     
@@ -241,15 +279,46 @@ margin-top: 8px;
 
 
   <div class="recent-transaction" id="recent-transaction">
+
+<!--
  <img src="Images/Recent-Transaction-Send.jpg" id="the1">
  <p id="p1">Transfer to BENJAMIN BULAMA AN...&nbsp;&nbsp;<span id="sentAmount">-₦72,000.00</span></p>
  <p id="time"></p>
  <p id="trans-succ">Successful</p>
 
  <img src="Images/Recent-Transaction-Send.jpg" id="the2">
- <p id="p2">Transfer to MASE-UTEN DOGARI YA...&nbsp;&nbsp;<span id="sentAmount">-₦96,000.00</span></p>
+ <p id="p2">Transfer to MASE-UTEN DOGARI YA...&nbsp;&nbsp;<span id="sentAmount2">-₦96,000.00</span></p>
  <p id="time2"></p>
  <p id="trans-succ2">Successful</p>
+
+  -->
+
+
+
+
+ <img src="Images/Recent-Transaction-Send.jpg" id="the1">
+
+ <div class="first">
+ <p id="p1"><span id="recipient1"></span>&nbsp;&nbsp;</p>
+ <p id="sentAmount1"></p>
+</div>
+
+ <p id="time1"></p>
+ <p id="trans-succ">Successful</p>
+
+ <img src="Images/Recent-Transaction-Send.jpg" id="the2">
+ <p id="p2"><span id="recipient2"></span>&nbsp;&nbsp;<span id="sentAmount2"></span></p>
+ <p id="time2"></p>
+ <p id="trans-succ2">Successful</p>
+
+
+
+
+
+
+
+
+
        </div>
 
 
@@ -326,26 +395,37 @@ if (x < width * 0.2) {
 
 
 <script>
-  function formatDate(date) {
-  const options = { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' };
-  return date.toLocaleString('en-GB', options).replace(',', '');
-}
 
-  function showDelayedDates() {
-  const now = new Date();
-  const delayedTime1 = new Date(now.getTime() - ((24 * 60 + 2 * 60 + 10) * 60 * 1000)); // 1 day, 2 hours, 10 mins in milliseconds
-  const delayedTime2 = new Date(delayedTime1.getTime() - (2 * 60 + 7) * 60 * 1000); // 2 hours, 7 mins in milliseconds
+document.addEventListener("DOMContentLoaded", function() {
+            const receipts = JSON.parse(localStorage.getItem("receipts")) || [];
+            receipts.reverse();
 
-  const formattedDate1 = formatDate(delayedTime1);
-  const formattedDate2 = formatDate(delayedTime2);
+            if (receipts.length === 0) {
+                console.log("No transactions found.");
+                return;
+            }
 
-  document.getElementById('time').textContent = formattedDate1;
-  document.getElementById('time2').textContent = formattedDate2;
-}
+            // Get only the first two receipts
+            const firstTwoReceipts = receipts.slice(0, 2);
 
-window.onload = showDelayedDates;
-    
-    </script>
+            // Set the textContent for each paragraph according to the receipt data
+            if (firstTwoReceipts.length > 0) {
+                document.getElementById("recipient1").textContent = `Transfer to ${firstTwoReceipts[0].recipient}`;
+                document.getElementById("time1").textContent = firstTwoReceipts[0].date;
+                document.getElementById("sentAmount1").textContent = `-₦${firstTwoReceipts[0].amount}`;
+            }
+
+            if (firstTwoReceipts.length > 1) {
+                document.getElementById("recipient2").textContent = `Transfer to ${firstTwoReceipts[1].recipient}`;
+                document.getElementById("time2").textContent = firstTwoReceipts[1].date;
+                document.getElementById("sentAmount2").textContent = `-₦${firstTwoReceipts[1].amount}`;
+            }
+        });
+
+
+
+
+</script>
 
 
 
