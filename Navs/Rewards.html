@@ -10,9 +10,11 @@
   <style>
 
 
+
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #fff;
+  background-color: #FFF;
   margin: 0;
   padding: 0;
 }
@@ -39,19 +41,26 @@ a {
   height: 80px;
 }
 .rewards {
+  position: fixed;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: -20px;
+  margin-left: -13px;
   margin-bottom: -18px;
+  width: 355px;
   background-color: #E1F5EA;
+  z-index: 1000;
 }
 #rewards {
+  margin-top: 20px;
+  margin-left: 20px;
   font-size: 18px;
   font-weight: 900;
 }
 #rewards-top {
   margin-top: 25px;
-  margin-right: 10px;
+  margin-right: 25px;
   width: 28px;
   height: 28px;
 }
@@ -132,7 +141,7 @@ a {
   padding: 7px;
   border-radius: 10px;
   background-color: #FFF;
-  z-index: 1000;
+  z-index: 100;
 }
 #friday-freebie {
   margin-top: -53px;
@@ -282,14 +291,66 @@ a {
   background-color: #10B876;
 }
 
+
+.airtel-section {
+  position: absolute;
+  margin-top: -50px;
+  width: 310px;
+  height: 60px;
+  padding: 7px;
+  border-radius: 10px;
+  background-color: #FFF;
+  z-index: 1000;
+}
+#airtel-airtime {
+  margin-top: -53px;
+  margin-left: 57px;
+  font-size: 14px;
+  font-weight: bold;
+}
+#airtel-airtime1 {
+  margin-top: -11px;
+  margin-left: 58px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #8C8C8C;
+}
+#airtel-airtime2 {
+  margin-top: -11px;
+  margin-left: 58px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #8C8C8C;
+}
+#airtel-section-img {
+  margin-top: 5px;
+  width: 48px;
+  height: 48px;
+}
+#go3 {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 255px;
+  width: 45px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background-color: #10B876;
+}
+
+
+
 .view-all {
   position: absolute;
   display: flex;;
   text-align: center;
   justify-items: center;
   justify-content: center;
-  margin-top: -60px;
+  margin-top: 20px;
   margin-left: 125px;
+  z-index: 1000;
 }
 #view-all {
   font-size: 12px;
@@ -311,6 +372,14 @@ a {
   width: 356px;
   height: 150px;
 }
+.white-bg {
+  position: absolute;
+  margin-top: -75px;
+  margin-left: -13px;
+  width: 355px;
+  height: 75px;
+  background-color: #F8F8FA;
+}
 
 
 
@@ -331,6 +400,9 @@ a {
 
 
 
+
+
+
   </style>
 </head>
 <body>
@@ -342,6 +414,7 @@ a {
 <p id="rewards">Rewards</p>
 <img src="Images/Rewards-top.jpg" id="rewards-top">
     </div>
+<br></br>
 
     <div class="cashback">
 <p id="cashback">🪙 Cashback</p>
@@ -365,6 +438,7 @@ a {
 
   <div class="other-bg">
 <p id="daily-bonus">Daily Bonus</p>
+
   </div>
 
 
@@ -395,9 +469,30 @@ a {
 <a href=""><button id="go2">Go</button></a>
   </div>
 
+
+  <div class="airtel-section">
+<img src="Images/Little-phone.jpg" id="airtel-section-img">
+<p id="airtel-airtime">Airtel Airtime🪙<spain id="green" style="color: #10B876;">+1%</spain></p>
+<p id="airtel-airtime1">Buy Airtime and get up to</p>
+<p id="airtel-airtime2">3% cashback</p>
+<a href=""><button id="go3">Go</button></a>
+  </div>
+
+
+
+
   <div class="view-all">
   <a href=""><p id="view-all">View all &#x276F;</p></a>
   </div>
+
+  <br><br>
+  <br><br>  
+
+  <div class="white-bg">
+
+
+  </div>
+
 
 <img src="Images/Rewards-bottom.jpg" id="rewards-bottom">
   <div class="bottom">
