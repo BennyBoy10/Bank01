@@ -38,16 +38,17 @@ body {
   border-radius: 50px;
   cursor: pointer;
 }
-#ben {
+#greetings {
   margin-top: 5px;
   margin-left: 5px;
-  margin-right: 30%;
+  margin-right: 30px;
+  margin-bottom: 20px;
   font-size: 15px;
 }
 .support-buttons img {
- position: relative;
- left: 10px;
- top: -10px;
+ position: absolute;
+ margin-left: 40px;
+ margin-top: -10px;
  width: 140px;
  height: 40px;
  cursor: pointer;
@@ -255,7 +256,7 @@ margin-top: 8px;
 <a href="Profile.html">
   <img src="Images/Benny.png">
 </a>
- <span id="ben">Hi, BEN</span>
+ <span id="greetings">Hi, BEN</span>
 
     <div class="support-buttons">
  <img src="Images/Support-buttons.jpg">
@@ -441,7 +442,9 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 
  document.addEventListener("DOMContentLoaded", function() {
-    
+    var nickName = localStorage.getItem("nickName");
+    var greetingsPar = document.getElementById("greetings");
+    greetingsPar.textContent = `Hi, ${nickName}`
 });
 </script>
 
