@@ -4,15 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+    <link rel="stylesheet" href="None">
     
     <title>Opay</title>
     
-    <style>
-  body {
-   font-family: Arial, sans-serif;
-   background-color: #fff;
-   margin: 0;
-   padding: 0;
+<style>
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
 }
 a {
   color: #000000;
@@ -136,6 +139,17 @@ button:hover {
   width: 100%;
   background-color: #fff;
 }
+.recent-accounts {
+  display: none;
+  width: 100%;
+  background-color: #fff;
+}
+#no-account {
+  margin: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
 .accounts {
   padding: 3px;
   margin-top: -14px;
@@ -205,7 +219,11 @@ button:hover {
 #all-accounts {
   display: none;
 }
-    </style>
+
+
+
+
+</style>
     
 </head>
 <body>
@@ -273,10 +291,23 @@ button:hover {
 <img src="Images/Traffic-Monitor.jpg" id="traffic-monitor">       <br></br>      </div>
 
       <div class="recents">
-  <p style="color: #03B776;">Recents</p>&nbsp;<p>Favourites</p>   <p style="margin-left: 110px;">🔍</p>  
+<p id="recents">Recents</p>&nbsp;
+<p id="favourites" style="color: #03B776;">Favourites</p>
+<p style="margin-left: 110px;">🔍</p>  
             </div>
-   <hr> 
-     <div class="more-accounts">
+
+   <hr>
+
+  <div class="recent-accounts" id="recent-accounts">
+<p id="no-account">No recent accounts!</p>
+  </div>
+
+
+
+
+
+
+     <div class="more-accounts" id="more-accounts">
         <a href="#" id="account1">  
       <div class="accounts">
   <p>BENJAMIN BULAMA ANAMJA</p>
@@ -329,6 +360,27 @@ button:hover {
   document.getElementById("view-all").style.display = "none";
   document.getElementById("all-accounts").style.display = "flex";
   });
+
+  const recentsElement = document.getElementById("recents")
+  const favouritesElement = document.getElementById("favourites")
+  const recentAccountElement = document.getElementById("recent-accounts")
+  const moreAccountElement = document.getElementById("more-accounts")
+
+  recentsElement.addEventListener("click", function(){
+    favouritesElement.style.color = "#000";
+    recentsElement.style.color = "#03B776";
+    moreAccountElement.style.display = "none";
+    recentAccountElement.style.display = "flex";
+  });
+  favouritesElement.addEventListener("click", function(){
+    favouritesElement.style.color = "#03B776";
+    recentsElement.style.color = "#000";
+    moreAccountElement.style.display = "inherit";
+    recentAccountElement.style.display = "none";
+  });
+  rece
+
+
 
 
 </script>
