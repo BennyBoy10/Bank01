@@ -10,11 +10,18 @@
 
   <style>
 
+
+
+
 body {
   font-family: Arial, sans-serif;
   background-color: #fff;
   margin: 0;
   padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
 }
 .container {
   margin: 0 auto;
@@ -83,8 +90,8 @@ body {
 #card-number-main {
   color: #FFF;
   position: absolute;
-  margin-top: 60px;
-  margin-left: 35px;
+  margin-top: 25px;
+  margin-left: 64px;
 }
 #Opay-Cards-Logo {
   margin-top: 10px;
@@ -177,23 +184,24 @@ body {
 
 .viewed {
   display: none;
-  margin: 0;;
-  height: 230px;
+  margin: 0;
+  margin-top: -15px;
+  height: 200px;
   border-radius: 10px;
   background-color: #E1F5EA;
 }
 .card-details {
   margin-left: 120px;
-  padding-top: 10px;
+  padding-top: 3px;
   padding-left: 20px;
   width: 190px;
-  height: 220px;
+  height: 197px;
   border-radius: 10px;
   color: #000;
   background-color: #E1F5EA;
 }
 #card-number, #exp-cvv, #account-number {
-  margin-top: -5px;
+  margin-top: -8px;
   font-weight: bold;
 }
 #first, #second, #fourth {
@@ -208,9 +216,9 @@ body {
 .card-viewed {
   position: absolute;
   transform: rotate(-90deg);
-  margin-top: -175px;
-  margin-left: -55px;
-  width: 230px;
+  margin-top: -159px;
+  margin-left: -39.7px;
+  width: 200.7px;
   height: 120px;
   border-radius: 10px;
   background: linear-gradient(to right, #211060 30%, #1DCF9F 30%);
@@ -220,13 +228,13 @@ body {
 #Opay-Cards-Logo-viewed {
   margin-top: 10px;
   margin-left: 5px;
-  width: 60px;
+  width: 50px;
   height: 25px;
 }
 #Opay-Logo2-viewed {
   margin-top: 20px;
   margin-left: 2px;
-  width: 230px;
+  width: 199px;
   height: 70px;
 }
 .virtual-verve-viewed {
@@ -251,6 +259,7 @@ body {
 #hide-details {
   margin: 0 auto;
   margin-top: 20px;
+  margin-bottom: 20px;
   width: 120px;
   height: 30px;
   border-radius: 15px;
@@ -265,6 +274,83 @@ body {
 .hide-details {
   display: none;
 }
+
+.pinBox {
+  display: none;
+  position: fixed;
+  margin-left: -12px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 325px;
+  height: 255px;
+  bottom: 0;
+  border-radius: 10px 10px 0 0;
+  background-color: #FFF;
+  z-index: 1001;
+}
+#pin-top {
+  text-align: center;
+  font-weight: bold;
+}
+
+#x {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+.input-field {
+  display: flex;
+  justify-content: center;
+}
+#payment-pin {
+  width: 200px;
+  height: 35px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: #F8F8FA;
+}
+#forgot-pin {
+  text-align: center;
+  font-size: 13px;
+  color: #8C8C8C;
+  cursor: pointer;
+}
+.button-confirm {
+  display: flex;
+  justify-content: center;
+}
+ button {
+  margin-top: 10px;
+   width: 220px;
+   height: 45px;
+   border-radius: 25px;
+   font-size: 19px;
+   font-weight: bold;
+   border: 1px solid transparent;
+   color: #fff;
+   background-color: #00B875;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #17B286;
+}
+#invalid-pin {
+  display: none;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 95px;
+  border-radius: 7px;
+  color: orange;
+  background-color: #E1F5EA;
+  cursor: pointer;
+}
+
+
+
+
 
 
 
@@ -287,10 +373,27 @@ body {
 
 
 
+
+
+
   </style>
 </head>
 <body>
   <div class="container"><br>
+
+    <div class="pinBox" id="pinBox">
+<p id="pin-top">Enter Payment PIN<span id="x">✖</span></p>
+  <div class="input-field">
+<input type="tel" id="payment-pin" maxlength="4" placeholder="1234"><br>
+  </div>
+<p id="forgot-pin">Forgot Payment PIN?</p>
+<p id="invalid-pin">&nbsp; Invalid PIN &nbsp;</p>
+<div class="button-confirm">
+<button type="button" id="confirm-pin">Confirm</button>
+</div>
+
+    </div>
+
 
   <div class="top">
 <p id="cards">Cards</p>
@@ -387,19 +490,42 @@ body {
   </div>
 
 
+  <script>
+
+
+
+  </script>
+
 
   <script>
+
+  window.addEventListener("DOMContentLoaded", function() {
+    var PIN = parseInt(localStorage.getItem("pin"));
+  
 
   var cardMain = document.getElementById("card-main");
   var cardViewed = document.getElementById("card-when-viewed");
   var showDetails = document.getElementById("show-when-details");
   var hideDetails = document.getElementById("hide-when-details");
+  var pinBox = document.getElementById("pinBox");
+  var confirmBotton = document.getElementById("confirm-pin");
+  var inputPin = document.getElementById("payment-pin");
+  var x = document.getElementById("x");
+  var invalidPin = document.getElementById("invalid-pin");
+  var forgotPin = document.getElementById("forgot-pin");
 
-  showDetails.addEventListener("click", function() {
+
+
+  function correctPIN() {
     cardMain.style.display = "none";
     cardViewed.style.display = "block";
     showDetails.style.display = "none";
     hideDetails.style.display = "flex";
+  }
+
+  showDetails.addEventListener("click", function() {
+    pinBox.style.display = "block";
+    inputPin.focus();
   });
 
   hideDetails.addEventListener("click", function() {
@@ -408,6 +534,27 @@ body {
     hideDetails.style.display = "none";
     showDetails.style.display = "flex";
   });
+
+  x.addEventListener("click", function() {
+    pinBox.style.display = "none";
+  });
+
+  inputPin.addEventListener("focus", function() {
+    invalidPin.style.display = "none";
+  });
+
+  confirmBotton.addEventListener("click", function() {
+    var userEnteredPin = parseInt(inputPin.value);
+
+    if (userEnteredPin === PIN) {
+      pinBox.style.display = "none";
+      correctPIN()
+    } else {
+      invalidPin.style.display = "block";
+    }
+  });
+
+});
 
 
   </script>
