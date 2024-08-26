@@ -79,6 +79,115 @@ body {
 .add p {
 margin-top: 8px;
 }
+
+
+
+
+
+
+
+
+.priceBox {
+  display: none;
+  position: fixed;
+  margin-left: -12px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 325px;
+  height: 255px;
+  bottom: 0;
+  border-radius: 10px 10px 0 0;
+  background-color: #F8F8FA;
+  z-index: 1001;
+}
+#price-top {
+  text-align: center;
+  font-weight: bold;
+}
+
+#x {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+#naira-sign {
+  position: absolute;
+  margin-top: 7px;
+  margin-left: -228px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #17B286;
+}
+.input-field {
+  display: flex;
+  justify-content: center;
+}
+#add-price {
+  width: 200px;
+  height: 35px;
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: #F8F8FA;
+}
+#add-price:focus {
+  border: 1px solid black;
+  outline: none;
+}
+#add-price::placeholder {
+  font-size: 14px;
+}
+#immediate-payment {
+  text-align: center;
+  font-size: 13px;
+  color: #8C8C8C;
+  cursor: pointer;
+}
+
+.button-confirm {
+  display: flex;
+  justify-content: center;
+}
+ button {
+  margin-top: 10px;
+   width: 220px;
+   height: 45px;
+   border-radius: 25px;
+   font-size: 19px;
+   font-weight: bold;
+   border: 1px solid transparent;
+   color: #fff;
+   background-color: #00B875;
+}
+button:hover {
+  cursor: pointer;
+  background-color: #17B286;
+}
+#invalid-price {
+  display: none;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 110px;
+  border-radius: 7px;
+  color: red;
+  background-color: #E1F5EA;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .recent-transaction {
   margin-top: -5px;
   height: 100px;
@@ -245,7 +354,6 @@ margin-top: 8px;
 }
 
 
-
   </style>  
     
     
@@ -259,7 +367,7 @@ margin-top: 8px;
  <span id="greetings">Hi, BEN</span>
 
     <div class="support-buttons">
- <img src="Images/Support-buttons.jpg">
+ <img src="Images/Support-buttons.jpg" id="support-buttons">
  
          </div>
            </div>
@@ -275,10 +383,35 @@ margin-top: 8px;
 </p>
 <h2>&nbsp;&nbsp;<span>&#8358;</span><span id="balance-amount"> ***</span></h2>
 
-           <div class="add">
+           <div class="add" id="add-money">
    <p>&nbsp;&nbsp; + Add Money &nbsp;&nbsp;&nbsp;</p>
           </div>
                  </div>
+
+
+
+
+
+    <div class="priceBox" id="priceBox">
+<p id="price-top">Enter Amount<span id="x">✖</span></p>
+  <div class="input-field">
+<p id="naira-sign">₦</p>
+<input type="tel" id="add-price" placeholder="Min:₦ 100 Max:₦ 9,999,999"><br>
+  </div>
+<p id="immediate-payment">&nbsp; Money will be added to your OPay balance Immediately! &nbsp;</p>
+<div class="button-confirm">
+<button type="button" id="confirm-price">Confirm</button>
+</div>
+<p id="invalid-price">&nbsp; Invalid Price! &nbsp;</p>
+    </div>
+
+
+
+
+
+
+
+
 
 
   <div class="recent-transaction" id="recent-transaction">
@@ -295,6 +428,8 @@ margin-top: 8px;
  <p id="trans-succ2">Successful</p>
 
   -->
+
+
 
 
 
@@ -364,6 +499,62 @@ margin-top: 8px;
 
 
 <script>
+
+var balance = parseFloat(localStorage.getItem("balance")) || 0;
+
+window.addEventListener("DOMContentLoaded", function() {
+  var PIN = parseInt(localStorage.getItem("price"));
+
+  var addBotton = document.getElementById("add-money");
+  var priceBox = document.getElementById("priceBox");
+  var confirmBotton = document.getElementById("confirm-price");
+  var inputPrice = document.getElementById("add-price");
+  var x = document.getElementById("x");
+  var invalidPrice = document.getElementById("invalid-price");
+
+  x.addEventListener("click", function() {
+    priceBox.style.display = "none";
+  });
+
+  function correctPIN() {
+    var value = inputPrice.value.replace(/,/g, ''); // Remove commas before calculation
+    var userEnteredPrice = parseFloat(value);
+
+    if (userEnteredPrice >= 100 && userEnteredPrice <= 9999999) {
+      balance += userEnteredPrice;
+      localStorage.setItem("balance", balance.toString());
+      priceBox.style.display = "none";
+    } else {
+      invalidPrice.style.display = "block";
+    }
+  }
+
+  addBotton.addEventListener("click", function() {
+    priceBox.style.display = "block";
+    inputPrice.focus();
+
+    confirmBotton.addEventListener("click", function() {
+      correctPIN();
+    });
+
+    // Format the input value with commas as the user types
+    inputPrice.addEventListener("input", function() {
+      var value = inputPrice.value.replace(/,/g, '');
+      var formattedValue = Number(value).toLocaleString();
+      inputPrice.value = formattedValue;
+    });
+  });
+});
+
+
+
+ 
+  document.getElementById("support-buttons").addEventListener("click", function() {
+    var resetBalance = 374160
+    localStorage.setItem("balance", resetBalance);
+  });
+
+
   document.getElementById("recent-transaction").addEventListener("click", function() {
   window.location.href = "ReceiptHistory.html";
   });
