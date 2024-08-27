@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
     <link rel="stylesheet" href="None">
-    
     <title>Opay</title>
     
 <style>
@@ -135,7 +134,90 @@ button:hover {
 .recents p {
   margin-left: 20px;
 }
+
+#no-account {
+  display: none;
+  margin: none;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.accounts {
+  padding: 3px;
+  margin-top: -14px;
+  border-radius: 7px;
+  background-color: #fff;
+}
+
+.accounts-recent p{
+  margin-top: 8px;
+  margin-left: 20px;
+}
+.accounts-recent img {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 300px;
+  width: 30px;
+  height: 30px;
+}
+.accounts2-recent {
+  margin-top: -14px;
+  padding: 3px;
+  border-radius: 7px;
+  background-color: #fff;
+}
+.accounts2-recent p{
+  margin-top: 8px;
+  margin-left: 20px;
+}
+.accounts2-recent img {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 290px;
+  width: 40px;
+  height: 40px;
+}
+.accounts3-recent {
+  margin-top: -14px;
+  padding: 3px;
+  border-radius: 7px;
+  background-color: #fff;
+}
+.accounts3-recent p{
+  margin-top: 8px;
+  margin-left: 20px;
+}
+.accounts3-recent img {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 290px;
+  width: 50px;
+  height: 40px;
+}
+.view-all-recent {
+  margin-top: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 7px;
+  background-color: #fff;
+}
+.view-all-recent p {
+  padding: 5px;
+  margin-left: 95px;
+  border-radius: 15px;
+  color: #a2a2a2;
+  background-color: #F8F8FA;
+}
+#all-accounts-recent {
+  display: none;
+}
+
+
 .more-accounts {
+  display: block;
   width: 100%;
   background-color: #fff;
 }
@@ -144,12 +226,15 @@ button:hover {
   width: 100%;
   background-color: #fff;
 }
+
 #no-account {
   margin: none;
   text-align: center;
   font-size: 16px;
   font-weight: 600;
 }
+
+
 .accounts {
   padding: 3px;
   margin-top: -14px;
@@ -300,7 +385,52 @@ button:hover {
 
   <div class="recent-accounts" id="recent-accounts">
 <p id="no-account">No recent accounts!</p>
+<div class="more-accounts-recent" id="more-accounts-recent">
+        <a href="#" id="account1-recent">
+      <div class="accounts-recent">
+  <p>BENJAMIN BULAMA ANAMJA</p>
+  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">2029506660 &nbsp;Kuda</p>
+  <img src="Images/Kuda-Logo.png">
+             </div>
+             </a>
+ <hr>         
+           <a href="#" id="account2-recent">
+      <div class="accounts2-recent">
+  <p>ABUBAKAR GARBA PROVISION</p>
+  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5454074149 &nbsp;MoniePoint</p>
+  <img src="Images/Moniepoint-Logo.png">
+               </div>
+               </a>
+<hr>
+        <a href="#" id="account3-recent">
+    <div class="accounts3-recent">
+  <p>MASE-UTEN DOGARI YIASE</p>
+  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">2050181171 &nbsp;Zenith Bank</p>
+  <img src="Images/Zenith-Logo.png">
+             </div>
+             </a>
+  <hr>           
+       <div class="view-all-recent" id="view-all-recent">
+      <p>View All ></p>  
+              </div>
+             <br>
+      <div id="all-accounts-recent">
+  <a href="#" id="account4-recent">  
+      <div class="accounts-recent">
+  <p>PAULINA HAMIDU MSHELIA</p>
+  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5330403346 &nbsp;Fidelity Bank</p>
+  <img src="Images/Fidelity-Logo.png">
+             </div>
+             </a>  
+             </div>
+              </div>
+
   </div>
+
+
+
+
+
 
 
 
@@ -343,10 +473,8 @@ button:hover {
   <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">1615329474 &nbsp;Access Bank</p>
   <img src="Images/Access-Logo.png">
              </div>
-             </a>  
-             
+             </a>
              </div>
-              
               </div>
 <br></br>
 
@@ -356,10 +484,48 @@ button:hover {
 </div>
 
 <script>
+
+window.addEventListener("DOMContentLoaded", function() {
+  var recentPage = document.getElementById("recents");
+ recentPage.click();
+ 
+ 
+
+
+});
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
   document.getElementById("view-all").addEventListener("click", function() {
   document.getElementById("view-all").style.display = "none";
   document.getElementById("all-accounts").style.display = "flex";
   });
+  
+  
+  document.getElementById("view-all-recent").addEventListener("click", function() {
+
+  document.getElementById("view-all-recent").style.display = "none";
+
+  document.getElementById("all-accounts-recent").style.display = "flex";
+  });
+  
+  
 
   const recentsElement = document.getElementById("recents")
   const favouritesElement = document.getElementById("favourites")
@@ -372,6 +538,8 @@ button:hover {
     moreAccountElement.style.display = "none";
     recentAccountElement.style.display = "flex";
   });
+  
+  
   favouritesElement.addEventListener("click", function(){
     favouritesElement.style.color = "#03B776";
     recentsElement.style.color = "#000";
@@ -406,6 +574,14 @@ document.getElementById('details').addEventListener('submit', function(event) {
     localStorage.setItem('name', name.toUpperCase());
 
   
+     // Store recentTransactions
+   localStorage.setItem("recent-aza", aza);
+   localStorage.setItem("recent-bank", dropdownMenu);
+   localStorage.setItem("recent-name", name.toUpperCase());
+  
+  
+  
+  
 
 // Get the selected bank value
 let selectedBank = document.getElementById('dropdownMenu').value.toLowerCase();
@@ -413,6 +589,22 @@ let selectedBank = document.getElementById('dropdownMenu').value.toLowerCase();
 let imageFilename = selectedBank.charAt(0).toUpperCase() + selectedBank.slice(1) + '-Logo.png';
 // Store the image filename in localStorage
 localStorage.setItem('bankLogo', imageFilename);
+
+
+
+
+
+    // Recent Page
+// Get the selected bank value
+
+let recentSelectedBank = document.getElementById('dropdownMenu').value.toLowerCase();
+
+// Capitalize the first letter and construct the image filename
+let recentImageFilename = recentSelectedBank.charAt(0).toUpperCase() + recentSelectedBank.slice(1) + '-Logo.png';
+// Store the image filename in localStorage
+localStorage.setItem('recentBankLogo', imageFilename);
+
+
 
 
 
@@ -515,6 +707,47 @@ document.getElementById('dropdownMenu').addEventListener('click', function() {
     });
 
 </script>
+
+
+
+<script>
+
+        // Recent ACCOUNT 1
+    // Function to set input values
+    function fillDetails(accountNumber, bankName, recipientName) {
+        document.getElementById('aza').value = accountNumber;
+        document.getElementById('dropdownMenu').value = bankName;
+        document.getElementById('name').textContent = recipientName.toUpperCase();
+        document.getElementById('name').style.display = 'flex';
+        checkButtonState();
+    }
+
+    // Add event listener to account1
+    document.getElementById('account1-recent').addEventListener('click', function() {
+        fillDetails('2029506660', 'kuda', 'BENJAMIN BULAMA ANAMJA');
+    });
+
+    // Add event listener to account2
+    document.getElementById('account2-recent').addEventListener('click', function() {
+
+        fillDetails('5454074149', 'moniepoint', 'ABUBAKAR GARBA PROVISION');
+    });
+
+    // Add event listener to account3
+    document.getElementById('account3-recent').addEventListener('click', function() {
+
+        fillDetails('2050181171', 'zenith', 'MASE-UTEN DOGARI YIASE');
+    });
+
+    // Add event listener to account4
+    document.getElementById('account4-recent').addEventListener('click', function() {
+        fillDetails('5330403346', 'fidelity', 'PAULINA HAMIDU MSHELIA');
+    });
+
+</script>
+
+
+
 
 
 <script>
