@@ -362,7 +362,7 @@ button:hover {
         <div class="container"><br>
      <div class="profile-pic">
 <a href="Profile.html">
-  <img src="Images/Benny.png">
+  <img src="Images/Benny.png" id="profile-picture">
 </a>
  <span id="greetings">Hi, BEN</span>
 
@@ -499,6 +499,11 @@ button:hover {
 
 
 <script>
+
+var profileImage = localStorage.getItem('profileImage');
+
+var profilePicture = document.getElementById("profile-picture");
+profilePicture.src = profileImage
 
 var balance = parseFloat(localStorage.getItem("balance")) || 0;
 
