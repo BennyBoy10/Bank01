@@ -1,181 +1,359 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <link rel="stylesheet" href="None">
+
   <title>Opay</title>
+
+
 
   <style>
 
 
 
-
 body {
+
   font-family: Arial, sans-serif;
+
   background-color: #fff;
+
   margin: 0;
+
   padding: 0;
+
 }
+
 a {
+
   text-decoration: none;
+
   color: inherit;
+
 }
+
 .container {
+
   margin: 0 auto;
+
   width: 330px;
+
   padding-left: 13px;
+
   padding-right: 13px;
+
   border: 1px solid transparent;
+
   border-radius: 8px;
+
   background-color: #F8F8FA;
+
 }
+
 .top {
+
   position: fixed;
+
   display: flex;
+
   flex-direction: row;
+
   justify-content: space-between;
+
   margin-top: -19px;
+
   margin-left: -13px;
+
   margin-bottom: -18px;
+
   padding-left: 15px;
+
   padding-right: 15px;
+
   width: 326px;
+
   height: 70px;
+
   background-color: #F8F8FA;
+
   z-index: 1000;
+
 }
+
 #cards {
+
   margin: 0;
+
   margin-top: 20px;
+
   font-size: 25px;
+
   font-weight: 900;
+
   cursor: pointer;
+
 }
+
 #q-a {
+
   margin-top: 35px;
+
   color: #03B776;
+
   cursor: pointer;
+
 }
+
 .physical-virtual {
+
   display: flex;
+
   flex-direction: row;
+
   justify-content: space-between;
+
   margin-top: -10px;
+
   margin-left: 40px;
+
   margin-right: 40px;
+
 }
+
 #physical-card {
+
   font-weight: bold;
+
   color: #8C8C8C;
+
   cursor: pointer;
+
 }
+
 #virtual-card {
+
   font-weight: 800;
+
   color: #000;
+
   cursor: pointer;
+
 }
+
 .card {
+
   position: relative;
+
   transform: rotate(0deg);
+
   margin-top: 5px;
+
   height: 200px;
+
   border-radius: 10px;
+
   background: linear-gradient(to right, #211060 30%, #1DCF9F 30%);
+
   background-size: 100% 100%;
+
   overflow: hidden; 
+
 }
+
 #card-number-main {
+
   color: #FFF;
+
   position: absolute;
+
   margin-top: 25px;
+
   margin-left: 64px;
+
 }
+
 #Opay-Cards-Logo {
+
   margin-top: 10px;
+
   margin-left: 20px;
+
   width: 75px;
+
   height: 35px;
+
 }
+
 #Opay-Logo2 {
+
   margin-top: 60px;
+
   margin-left: 3px;
+
   width: 320px;
+
   height: 100px;
+
 }
+
 .virtual-verve {
+
   display: flex;
+
   flex-direction: row;
+
   justify-content: space-between;
+
   position: absolute;
+
   bottom: 0px;
+
   left: 20px;
+
   right: 20px;
+
 }
+
 #virtual-verve {
+
   color: #8C8C8C;
+
   font-size: 17px;
+
   color: #72EECC;
+
 }
+
 #Verve-Transparent-Logo {
+
   margin-top: 10px;
+
   width: 65px;
+
   height: 25px;
+
 }
+
 #show-details {
+
   margin: 0 auto;
+
   margin-top: 20px;
+
   width: 120px;
+
   height: 30px;
+
   border-radius: 15px;
+
   font-size: 13px;
+
   text-align: center;
+
   align-content: center;
+
   font-weight: bold;
+
   color: #14AD75;
+
   background-color: #E1F5EA;
+
   cursor: pointer;
+
 }
+
 .manage-card {
+
   display: flex;
+
   flex-direction: row;
+
   justify-content: space-between;
+
   padding-top: 15px;
+
   padding-left: 35px;
+
   padding-right: 35px;
+
   padding-bottom: 15px;
+
   border-radius: 15px;
+
   background-color: #FFF;
+
 }
+
 #Card-Settings-img {
+
   width: 45px;
+
   height: 45px;
+
   cursor: pointer;
+
 }
+
 #Card-Dispute-img {
+
   width: 45px;
+
   height: 45px;
+
   cursor: pointer;
+
 }
+
 #Card-Transactions-img {
+
   width: 45px;
+
   height: 45px;
+
   cursor: pointer;
+
 }
+
 .Cards-Texts {
+
   display: flex;
+
   flex-direction: row;
+
   justify-content: space-between;
+
   margin-top: -15px;
+
   padding-left: 20px;
+
   padding-right: 20px;
+
   border-radius: 0 0 15px 15px;
+
   font-size: 13px;
+
   color: #8C8C8C;
+
   background-color: #FFF;
+
 }
+
+
+
+
+
+
+
 
 
 
@@ -183,170 +361,336 @@ a {
 
 
 .viewed {
+
   display: none;
+
   margin: 0;
+
   margin-top: -15px;
+
   height: 200px;
+
   border-radius: 10px;
+
   background-color: #E1F5EA;
+
 }
+
 .card-details {
+
   margin-left: 120px;
+
   padding-top: 3px;
+
   padding-left: 20px;
+
   width: 190px;
+
   height: 197px;
+
   border-radius: 10px;
+
   color: #000;
+
   background-color: #E1F5EA;
+
 }
+
 #card-number, #exp-cvv, #account-number {
+
   margin-top: -8px;
+
   font-weight: bold;
+
 }
+
 #first, #second, #fourth {
+
   font-size: 14px;
+
 }
+
 #third {
+
   margin-left: 50px;
+
 }
+
 #cvv {
+
   margin-left: 90px;
+
 }
+
 .card-viewed {
+
   position: absolute;
+
   transform: rotate(-90deg);
+
   margin-top: -159px;
+
   margin-left: -39.7px;
+
   width: 200.7px;
+
   height: 120px;
+
   border-radius: 10px;
+
   background: linear-gradient(to right, #211060 30%, #1DCF9F 30%);
+
   background-size: 100% 100%;
+
   overflow: hidden; 
+
 }
+
 #Opay-Cards-Logo-viewed {
+
   margin-top: 10px;
+
   margin-left: 5px;
+
   width: 50px;
+
   height: 25px;
+
 }
+
 #Opay-Logo2-viewed {
+
   margin-top: 20px;
+
   margin-left: 2px;
+
   width: 199px;
+
   height: 70px;
+
 }
+
 .virtual-verve-viewed {
+
   display: flex;
+
   flex-direction: row;
+
   justify-content: space-between;
+
   position: absolute;
+
   bottom: 0px;
+
   left: 20px;
+
   right: 20px;
+
 }
+
 #virtual-verve-viewed {
+
   color: #8C8C8C;
+
   font-size: 12px;
+
   color: #72EECC;
+
 }
+
 #Verve-Transparent-Logo-viewed {
+
   margin-top: 25px;
+
   width: 50px;
+
   height: 20px;
+
 }
+
 #hide-details {
+
   margin: 0 auto;
+
   margin-top: 20px;
+
   margin-bottom: 20px;
+
   width: 120px;
+
   height: 30px;
+
   border-radius: 15px;
+
   font-size: 13px;
+
   text-align: center;
+
   align-content: center;
+
   font-weight: bold;
+
   color: #14AD75;
+
   background-color: #E1F5EA;
+
   cursor: pointer;
+
 }
+
 .hide-details {
+
   display: none;
+
 }
+
+
 
 .pinBox {
+
   display: none;
+
   position: fixed;
+
   margin-left: -12px;
+
   padding-left: 15px;
+
   padding-right: 15px;
+
   width: 325px;
+
   height: 255px;
+
   bottom: 0;
+
   border-radius: 10px 10px 0 0;
+
   background-color: #FFF;
+
   z-index: 1001;
-}
-#pin-top {
-  text-align: center;
-  font-weight: bold;
+
 }
 
-#x {
-  position: absolute;
-  right: 10px;
-  cursor: pointer;
-}
-.input-field {
-  display: flex;
-  justify-content: center;
-}
-#payment-pin {
-  width: 200px;
-  height: 35px;
+#pin-top {
+
   text-align: center;
+
   font-weight: bold;
-  letter-spacing: 20px;
-  border: 1px solid gray;
-  border-radius: 10px;
-  background-color: #F8F8FA;
+
 }
-#forgot-pin {
-  text-align: center;
-  font-size: 13px;
-  color: #8C8C8C;
+
+
+
+#x {
+
+  position: absolute;
+
+  right: 10px;
+
   cursor: pointer;
+
 }
-.button-confirm {
+
+.input-field {
+
   display: flex;
+
   justify-content: center;
+
 }
+
+#payment-pin {
+
+  width: 200px;
+
+  height: 35px;
+
+  text-align: center;
+
+  font-weight: bold;
+
+  letter-spacing: 20px;
+
+  border: 1px solid gray;
+
+  border-radius: 10px;
+
+  background-color: #F8F8FA;
+
+}
+
+#forgot-pin {
+
+  text-align: center;
+
+  font-size: 13px;
+
+  color: #8C8C8C;
+
+  cursor: pointer;
+
+}
+
+.button-confirm {
+
+  display: flex;
+
+  justify-content: center;
+
+}
+
  button {
+
   margin-top: 10px;
+
    width: 220px;
+
    height: 45px;
+
    border-radius: 25px;
+
    font-size: 19px;
+
    font-weight: bold;
+
    border: 1px solid transparent;
+
    color: #fff;
+
    background-color: #00B875;
+
 }
+
 button:hover {
+
   cursor: pointer;
+
   background-color: #17B286;
+
 }
+
 #invalid-pin {
+
   display: none;
+
   margin: 0 auto;
+
   margin-top: 10px;
+
   width: 95px;
+
   border-radius: 7px;
-  color: red;
+
+  color: orange;
+
   background-color: #E1F5EA;
+
   cursor: pointer;
+
 }
+
+
 
 
 
@@ -355,21 +699,39 @@ button:hover {
 
 
 .menu {
+
   position: fixed;
+
   bottom: 0;
+
   left: 50%;
+
   transform: translateX(-50%);
+
   width: 360px;
+
   border-radius: 30px;
+
   background-color: #F8F8FA;
+
   cursor: pointer;
+
 }
 
+
+
 .menu img {
+
   width: 100%;;
+
   height: 60px;
+
   border-radius: 8px;
+
 }
+
+
+
 
 
 
@@ -377,81 +739,165 @@ button:hover {
 
 
   </style>
+
 </head>
+
 <body>
+
   <div class="container"><br>
 
+
+
     <div class="pinBox" id="pinBox">
+
 <p id="pin-top">Enter Payment PIN<span id="x">✖</span></p>
+
   <div class="input-field">
+
 <input type="tel" id="payment-pin" maxlength="4" placeholder="1234"><br>
+
   </div>
+
 <p id="forgot-pin">Forgot Payment PIN?</p>
+
 <p id="invalid-pin">&nbsp; Invalid PIN &nbsp;</p>
+
 <div class="button-confirm">
+
 <button type="button" id="confirm-pin">Confirm</button>
+
 </div>
 
     </div>
 
 
+
+
+
   <div class="top">
+
 <p id="cards">Cards</p>
+
 <p id="q-a">Q&A</p>
+
   </div>
+
 <br></br>
+
 <br>
 
+
+
   <div class="physical-virtual">
+
 <p id="physical-card">Physical Card</p>
+
 <p id="virtual-card">Virtual Card</p>
+
   </div>
+
+
+
+
 
 
 
   <div class="card" id="card-main">
+
 <img src="Images/Opay-Cards-Logo.jpg" id="Opay-Cards-Logo">
+
 <p id="card-number-main">507895****2210</p>
+
 <img src="Images/Opay-Logo2.png" id="Opay-Logo2">
+
   <div class="virtual-verve" id="virtual-verve">
+
 <p id="virtual2">Virtual Card</p>
+
 <img src="Images/Verve-Transparent-Logo.png" id="Verve-Transparent-Logo">
+
   </div>
+
     </div>
 
+
+
   <div class="show-details" id="show-when-details">
+
 <p id="show-details">Show Details ></p>
+
   </div>
+
 <br>
+
+
+
+
+
+
 
 
 
 
 
 <div class="viewed" id="card-when-viewed">
+
   <div class="card-details" id="card-details">
+
 <p id="first">Card Number</p>
+
 <p id="card-number">5078 9502 7281 2210</p>
+
 <p id="second">Expiry Date <span id="third">CVV</span></p>
+
 <p id="exp-cvv">06/29<span id="cvv">619</span></p>
+
 <p id="fourth">Account No.</p>
+
 <p id="account-number">701 395 5696</p>
+
   </div>
+
 <div class="card-viewed">
+
 <img src="Images/Opay-Cards-Logo.jpg" id="Opay-Cards-Logo-viewed">
+
+
 
 <img src="Images/Opay-Logo2.png" id="Opay-Logo2-viewed">
 
+
+
 <div class="virtual-verve-viewed" id="virtual-verve-viewed">
+
 <p id="virtual2-viewed">Virtual Card</p>
+
 <img src="Images/Verve-Transparent-Logo.png" id="Verve-Transparent-Logo-viewed">
+
 </div>
+
   </div>
+
     </div>
+
 <div class="hide-details" id="hide-when-details">
+
 <p id="hide-details">Hide Details ></p>
+
 </div>
+
 <br>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -463,110 +909,221 @@ button:hover {
 
 
   <div class="manage-card">
+
 <img src="Images/Cards-Card-Settings.jpg" id="Card-Settings-img">
+
 <img src="Images/Cards-Manage-Dispute.jpg" id="Card-Dispute-img">
+
 <img src="Images/Cards-Transactions.jpg" id="Card-Transactions-img">
+
   </div>
+
+
 
   <div class="Cards-Texts">
+
 <p id="Card-Settings">Card Settings</p>
+
 <p id="Manage-Dispute">Manage Dispute</p>
+
 <p id="Card-Transactions">Transactions</p>
+
   </div>
 
 
+
+
+
   <br></br>
+
   <br></br>
+
   <br></br>
+
   <br></br>
+
   <br></br>
+
   <br>
 
 
+
+
+
     <div class="menu" id="menu">
+
   <img src="Images/Menu-Cards.jpg" id="cards">
 
+
+
             </div>
+
   </div>
 
 
+
+
+
   <script>
+
+
+
+
 
 
 
   </script>
 
 
+
+
+
   <script>
 
+
+
   window.addEventListener("DOMContentLoaded", function() {
+
     var PIN = parseInt(localStorage.getItem("pin"));
+
   
 
+
+
   var cardMain = document.getElementById("card-main");
+
   var cardViewed = document.getElementById("card-when-viewed");
+
   var showDetails = document.getElementById("show-when-details");
+
   var hideDetails = document.getElementById("hide-when-details");
+
   var pinBox = document.getElementById("pinBox");
+
   var confirmBotton = document.getElementById("confirm-pin");
+
   var inputPin = document.getElementById("payment-pin");
+
   var x = document.getElementById("x");
+
   var invalidPin = document.getElementById("invalid-pin");
+
   var forgotPin = document.getElementById("forgot-pin");
 
 
 
+
+
+
+
   function correctPIN() {
+
     cardMain.style.display = "none";
+
     cardViewed.style.display = "block";
+
     showDetails.style.display = "none";
+
     hideDetails.style.display = "flex";
+
   }
 
+
+
   showDetails.addEventListener("click", function() {
+
     pinBox.style.display = "block";
+
     inputPin.focus();
+
   });
+
+
 
   hideDetails.addEventListener("click", function() {
+
     cardViewed.style.display = "none";
+
     cardMain.style.display = "block";
+
     hideDetails.style.display = "none";
+
     showDetails.style.display = "flex";
+
   });
+
+
 
   x.addEventListener("click", function() {
+
     pinBox.style.display = "none";
+
   });
+
+
 
   inputPin.addEventListener("focus", function() {
+
     invalidPin.style.display = "none";
+
   });
+
+
 
   confirmBotton.addEventListener("click", function() {
+
     var userEnteredPin = parseInt(inputPin.value);
 
+
+
     if (userEnteredPin === PIN) {
+
       pinBox.style.display = "none";
+
       correctPIN()
+
     } else {
+
       invalidPin.style.display = "block";
+
     }
+
   });
 
+
+
 });
+
+
+
 
 
   </script>
 
 
+
+
+
 <script>
+
   window.addEventListener("DOMContentLoaded", function() {
-    var aza = localStorage.getItem("aza");
+
+    var aza = localStorage.getItem("accountNo");
+
     var azaPar = document.getElementById("account-number");
+
     azaPar.textContent = aza
+
   });
+
 </script>
+
+
+
+
+
+
+
 
 
 
@@ -574,29 +1131,56 @@ button:hover {
 
 
  <script>
+
 document.getElementById('menu').addEventListener('click', function(event) {
+
       var x = event.clientX;
+
       var width = this.offsetWidth;
 
+
+
 if (x < width * 0.2) {
+
   // Left 20% clicked, refresh the page
+
   window.location = "https://bennyboy10.github.io/Bank/"
+
 } else if (x < width * 0.4) {
+
   // Next 20% (20%-40%) clicked,
+
   window.location = "Rewards.html";
+
 } else if (x < width * 0.6) {
+
     // Next 20% (40%-60%) clicked,
+
   window.location = "Finance.html";
+
 } else if (x < width * 0.8) {
+
   // Next 20% (60%-80%) clicked,
+
   window.location = "Cards.html";
+
 } else {
+
   // Last 20% (80%-100%) clicked,
+
   window.location = "Me.html";
+
 }
+
 });
+
 </script>
 
 
+
+
+
 </body>
+
 </html>
+
