@@ -1,552 +1,1104 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
   <link rel="stylesheet" href="None">
 
+
+
   <title>Opay</title>
+
+
 
 <style>
 
 
 
+
+
+
+
 body {
+
    font-family: Arial, sans-serif;
+
    background-color: #fff;
+
    margin: 0;
+
    padding: 0;
+
 }
+
 a {
+
   text-decoration: none;
+
   color: inherit;
+
   cursor: pointer;
+
 }
+
 .container {
+
   margin: 0 auto;
+
   width: 340px;
+
   padding: 7px;
+
   border: 1px solid transparent;
+
   border-radius: 8px;
+
   background-color: #F8F8FA;
+
 }
+
 .top {
+
   position: fixed;
+
   width: 355px;
+
   top: 0;
+
   margin-left: -7.5px;
+
   background-color: #FFF;
+
   z-index: 1000;
+
 }
+
 #top-p {
+
   margin-left: 12px;
+
 }
+
 .details, .bottom {
+
   padding-left: 15px;
+
   padding-right: 15px;
+
   border-radius: 15px;
+
   background-color: #FFF;
+
 }
+
 .profile-pic {
+
   display: flex;
+
   flex-direction: column;
+
   text-align: center;
+
   justify-content: center;
+
   text-align: center;
+
 }
+
 #profile-pic {
+
   margin: 0 auto;
+
   width: 60px;
+
   height: 65px;
+
   border-radius: 30px;
+
   cursor: pointer;
+
 }
+
 .full-name, .mobile-number, .nick-name, .gender, .date-of-birth, .email, .address, .account-number, .account-pin, .account-balance, .account-tier {
+
   display: flex;
+
   flex-direction: row;
+
   justify-content: space-between;
+
 }
+
 #the-full-name, #the-mobile-number, #the-nick-name, #the-gender, #the-date-of-birth, #the-email, #the-address, #the-account-number, #the-account-balance, #the-account-tier, #the-account-pin {
+
   font-size: 14px;
+
   color: #8C8C8C;
+
 }
+
 #full-name, #mobile-number {
+
   font-size: 15px;
+
   text-transform: uppercase;
+
 }
+
 #nick-name, #gender, #date-of-birth, #email, #address, #account-number, #account-tier, #verified, #account-pin {
+
   font-size: 15px;
+
 }
+
 #account-tier, #verified, #confirmation {
+
   align-content: center;
+
   border-radius: 7px;
+
   color: #3BAE83;
+
   background-color: #E1F5EA;
+
   cursor: pointer;
+
 }
+
+
 
 #pencil1, #pencil2, #pencil3, #pencil4, #pencil5, #pencil6, #pencil7, #pencil8, #pencil9, #pencil10 {
+
   position: absolute;
+
   margin-top: 16px;
+
   margin-left: 305px;
+
   width: 12px;
+
   height: 12px;
+
   cursor: pointer;
+
 }
+
+
 
 #full-name, #mobile-number, #nick-name, #gender, #date-of-birth, #email, #address, #account-number, #account-balance, #account-pin {
+
   margin-right: 10px;
-}
-#confirmation {
-  position: absolute;
-  display: none;
-  margin-top: -5px;
+
 }
 
+#confirmation {
+
+  position: absolute;
+
+  display: none;
+
+  margin-top: -5px;
+
+}
+
+
+
 #new-name, #new-pin, #new-number, #new-nickname, #new-email, #new-address, #new-aza, #new-balance {
+
   padding-left: 10px;
+
   border-radius: 7px;
+
   height: 33px;
+
   border: 1px solid #000;
+
 }
+
 #account-balance {
+
   font-weight: bold;
+
 }
+
+
+
+
 
 
 
 </style>
+
     
+
 </head>
+
 <body>
+
          <div class="container">
+
   <div class="top">
+
 <p id="top-p"><a href="index.html">&#x276E</a> &nbsp; My Profile</p>
+
   </div>
+
 <br><br>
+
 <br>
+
+
 
   <div class="details">
+
     <br>
+
     <div class="profile-pic">
+
 <img src="Images/Benny.png" id="profile-pic">
+
 <p id="nickname">BennyBoy</p>
+
   </div>
+
+
 
 <p id="confirmation">&nbsp; Confirm &nbsp;</p>
+
 <br>
+
+
 
   <div class="full-name">
+
 <p id="the-full-name">Full Name</p>
+
 <p id="full-name">BENJAMIN BULAMA ANAMJA</p>
+
 <input type="text" id="new-name" placeholder="New Name" style="display: none;">
+
 <img src="Images/Edit-Pencil.jpg" id="pencil1">
+
   </div>
+
+
 
   <div class="mobile-number">
+
 <p id="the-mobile-number">Mobile Number</p>
+
 <p id="mobile-number">+2347013955696</p>
+
 <input type="tel" id="new-number" placeholder="New Number" value="+234" style="display: none;">
+
 <img src="Images/Edit-Pencil.jpg" id="pencil2">
+
   </div>
+
+
 
   <div class="nick-name">
+
 <p id="the-nick-name">Nick Name</p>
+
 <p id="nick-name">BennyBoy</p>
+
 <input type="text" id="new-nickname" placeholder="New Nickname" style="display: none;">
+
 <img src="Images/Edit-Pencil.jpg" id="pencil3">
+
   </div>
+
+
 
   <div class="gender">
+
 <p id="the-gender">Gender</p>
+
 <p id="gender">Male</p>
+
 <img src="Images/Edit-Pencil.jpg" id="pencil4" style="display: none;">
+
   </div>
+
   
+
   <div class="date-of-birth">
+
 <p id="the-date-of-birth">Date of Birth</p>
+
 <p id="date-of-birth">31/12/2004</p>
+
 <img src="Images/Edit-Pencil.jpg" id="pencil5" style="display: none;">
+
   </div>
+
   
+
   <div class="email">
+
 <p id="the-email">Email</p>
+
 <p id="verified">&nbsp;Verified&nbsp;</p>
+
 <p id="email">bennyboy@gmail.com</p>
+
 <input type="text" id="new-email" placeholder="New Email" style="display: none;">
+
 <img src="Images/Edit-Pencil.jpg" id="pencil6">
+
   </div>
+
+
 
   <div class="address">
+
 <p id="the-address">Address</p>
+
 <p id="address">Planet Mars</p>
+
 <input type="text" id="new-address" placeholder="New Address" style="display: none;">
+
 <img src="Images/Edit-Pencil.jpg" id="pencil7">
+
   </div>
+
     </div>
+
   
+
 <br>
+
   <div class="bottom">
+
  <div class="account-number">
+
 <p id="the-account-number">Opay Account Number</p>
+
 <p id="account-number">7013955696</p>
+
 <input type="tel" id="new-aza" placeholder="New Account No." maxlength="10" style="display: none;">
+
 <img src="Images/Edit-Pencil.jpg" id="pencil8">
+
   </div>
+
+
 
 <div class="account-pin">
+
 <p id="the-account-pin">Account PIN</p>
+
 <p id="account-pin">1234</p>
+
 <input type="text" id="new-pin" placeholder="New PIN" maxlength="4" style="display: none;">
+
 <img src="Images/Edit-Pencil.jpg" id="pencil9">
+
   </div>
+
+
 
 <div class="account-balance">
+
 <p id="the-account-balance">Account Balance</p>
+
 <p id="account-balance">₦ 0.00</p>
+
 <input type="tel" id="new-balance" placeholder="New Balance" maxlength="7" style="display: none;">
+
 <img src="Images/Edit-Pencil.jpg" id="pencil10">
+
   </div>
 
+
+
 <div class="account-tier">
+
 <p id="the-account-tier">Account Tier</p>
+
 <p id="account-tier">&nbsp;Tier 3&nbsp;</p>
+
   </div>
+
     </div>
+
   
+
      </div>
+
     
+
+
 
 <script>
 
+
+
 function setLSItems() {
+
   //localStorage.setItem("nickName", "BennyBoy");
+
   //localStorage.setItem("pin", "1234");
+
   //localStorage.setItem("fullName", "Benjamin Bulama Anamja");
+
   //localStorage.setItem("mobileNumber", "+2347013955696");
+
   ;
 
+
+
 }
+
 setLSItems();
 
 
+
+
+
 function changeDetailsOne() {
+
   var pencilOne = document.getElementById("pencil1");
+
   var newName = document.getElementById("new-name");
+
   var confirm = document.getElementById("confirmation");
+
   var FullName = document.getElementById("full-name");
+
   pencilOne.addEventListener("click", function() {
+
     FullName.style.display = "none";
+
     newName.style.display = "flex";
+
     pencilOne.style.display = "none";
 
+
+
     newName.addEventListener("change", function() {
+
       NewName = newName.value;
+
       localStorage.setItem("fullName", NewName);
+
       confirm.textContent = `New name: ${NewName}`
+
       confirm.style.display = "block";
+
     });
+
   newName.addEventListener("blur", function() {
+
     newName.style.display = "none";
+
     FullName.textContent = NewName;
+
     FullName.style.display = "block";
+
     pencilOne.style.display = "block";
+
   });
+
   });
+
 }
+
 changeDetailsOne()
 
 
+
+
+
 function changeDetailsTwo() {
+
   var pencilTwo = document.getElementById("pencil2");
+
   var newNumber = document.getElementById("new-number");
+
   var confirm = document.getElementById("confirmation");
+
   var mobileNumber = document.getElementById("mobile-number");
+
   pencilTwo.addEventListener("click", function() {
+
     mobileNumber.style.display = "none";
+
     newNumber.style.display = "flex";
+
     pencilTwo.style.display = "none";
 
+
+
     newNumber.addEventListener("change", function() {
+
       NewNumber = newNumber.value;
+
       localStorage.setItem("mobileNumber", NewNumber);
+
       confirm.textContent = `New Number: ${NewNumber}`
+
       confirm.style.display = "block";
+
     });
+
   newNumber.addEventListener("blur", function() {
+
     newNumber.style.display = "none";
+
     mobileNumber.textContent = NewNumber;
+
     mobileNumber.style.display = "block";
+
     pencilTwo.style.display = "block";
+
   });
+
   });
+
 }
+
 changeDetailsTwo()
 
 
+
+
+
 function changeDetailsThree() {
+
   var pencilThree = document.getElementById("pencil3");
+
   var newNickname = document.getElementById("new-nickname");
+
   var confirm = document.getElementById("confirmation");
+
   var FullNickname = document.getElementById("nick-name");
+
   pencilThree.addEventListener("click", function() {
+
     FullNickname.style.display = "none";
+
     newNickname.style.display = "flex";
+
     pencilThree.style.display = "none";
 
+
+
     newNickname.addEventListener("change", function() {
+
       NewNickname = newNickname.value;
+
       localStorage.setItem("nickName", NewNickname);
+
       confirm.textContent = `New Nickname: ${NewNickname}`
+
       confirm.style.display = "block";
+
     });
+
   newNickname.addEventListener("blur", function() {
+
     newNickname.style.display = "none";
+
     FullNickname.textContent = NewNickname;
+
     var topNickname = document.getElementById("nickname");
+
     topNickname.textContent = NewNickname;
+
     FullNickname.style.display = "block";
+
     pencilThree.style.display = "block";
+
   });
+
   });
+
 }
+
 changeDetailsThree()
 
 
+
+
+
 function changeDetailsSix() {
+
   var pencilSix = document.getElementById("pencil6");
+
   var newEmail = document.getElementById("new-email");
+
   var confirm = document.getElementById("confirmation");
+
   var EmailAddress = document.getElementById("email");
+
   pencilSix.addEventListener("click", function() {
+
     EmailAddress.style.display = "none";
+
     newEmail.style.display = "flex";
+
     pencilSix.style.display = "none";
 
+
+
     newEmail.addEventListener("change", function() {
+
       NewEmail = newEmail.value;
+
       localStorage.setItem("emailAddress", NewEmail);
+
       confirm.textContent = `New Email: ${NewEmail}`
+
       confirm.style.display = "block";
+
     });
+
   newEmail.addEventListener("blur", function() {
+
     newEmail.style.display = "none";
+
     EmailAddress.textContent = NewEmail;
+
     EmailAddress.style.display = "block";
+
     pencilSix.style.display = "block";
+
   });
+
   });
+
 }
+
 changeDetailsSix()
 
 
+
+
+
 function changeDetailsSeven() {
+
   var pencilSeven = document.getElementById("pencil7");
+
   var newAddress = document.getElementById("new-address");
+
   var confirm = document.getElementById("confirmation");
+
   var homeAddress = document.getElementById("address");
 
+
+
   pencilSeven.addEventListener("click", function() {
+
     homeAddress.style.display = "none";
+
     newAddress.style.display = "flex";
+
     pencilSeven.style.display = "none";
 
+
+
   newAddress.addEventListener("change", function() {
+
     var updatedAddress = newAddress.value;
+
     localStorage.setItem("homeAddress", updatedAddress);
+
     confirm.textContent = `New Address: ${updatedAddress}`;
+
     confirm.style.display = "block";
+
 });
 
+
+
   newAddress.addEventListener("blur", function() {
+
     var updatedAddress = newAddress.value;
+
     newAddress.style.display = "none";
+
     homeAddress.textContent = updatedAddress;
+
     homeAddress.style.display = "block";
+
     pencilSeven.style.display = "block";
+
     confirm.style.display = "none";
+
     });
+
   });
+
 }
+
+
 
 changeDetailsSeven();
 
 
+
+
+
 function changeDetailsEight() {
+
   var pencilEight = document.getElementById("pencil8");
+
   var newAza = document.getElementById("new-aza");
+
   var accountNumber = document.getElementById("account-number");
 
+
+
   pencilEight.addEventListener("click", function() {
+
     accountNumber.style.display = "none";
+
     newAza.style.display = "block";
+
     pencilEight.style.display = "none";
 
+
+
     newAza.addEventListener("change", function() {
+
       var updatedAza = newAza.value;
-      localStorage.setItem("aza", updatedAza);
+
+      localStorage.setItem("accountNo", updatedAza);
+
       accountNumber.textContent = updatedAza;
+
     });
 
+
+
     newAza.addEventListener("blur", function() {
+
       var updatedAza = newAza.value;
+
       newAza.style.display = "none";
+
       accountNumber.textContent = updatedAza;
+
       accountNumber.style.display = "block";
+
       pencilEight.style.display = "block";
+
     });
+
   });
+
 }
+
+
 
 changeDetailsEight();
 
 
+
+
+
 function changeDetailsNine() {
+
   var pencilNine = document.getElementById("pencil9");
+
   var newPin = document.getElementById("new-pin");
+
   var confirm = document.getElementById("confirmation");
+
   var AccountPin = document.getElementById("account-pin");
+
   pencilNine.addEventListener("click", function() {
+
     AccountPin.style.display = "none";
+
     newPin.style.display = "flex";
+
     pencilNine.style.display = "none";
 
+
+
     newPin.addEventListener("change", function() {
+
       NewPin = newPin.value;
+
       localStorage.setItem("pin", NewPin);
+
       confirm.textContent = `New PIN: ${NewPin}`
+
       confirm.style.display = "block";
+
     });
+
   newPin.addEventListener("blur", function() {
+
     newPin.style.display = "none";
+
     AccountPin.textContent = NewPin;
+
     AccountPin.style.display = "block";
+
     pencilNine.style.display = "block";
+
   });
+
   });
+
 }
+
 changeDetailsNine()
 
 
 
 
 
+
+
+
+
+
+
 function changeDetailsTen() {
+
   var pencilTen = document.getElementById("pencil10");
+
   var newBalance = document.getElementById("new-balance");
+
   var confirm = document.getElementById("confirmation");
+
   var AccountBalance = document.getElementById("account-balance");
+
   pencilTen.addEventListener("click", function() {
+
     AccountBalance.style.display = "none";
+
     newBalance.style.display = "flex";
+
     pencilTen.style.display = "none";
 
+
+
     newBalance.addEventListener("change", function() {
+
       NewBalanceValue = newBalance.value;
+
       localStorage.setItem("balance", NewBalanceValue);
+
       confirm.textContent = `New Balance: ₦ ${NewBalanceValue}`
+
       confirm.style.display = "block";
+
     });
+
   newBalance.addEventListener("blur", function() {
+
     newBalance.style.display = "none";
+
     AccountBalance.textContent = NewBalanceValue;
+
     AccountBalance.style.display = "block";
+
     pencilTen.style.display = "block";
+
   });
+
   });
+
 }
+
 changeDetailsTen()
 
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
 
 
-
-
-
-</script>
 
 
 
   <script>
 
+
+
  window.addEventListener("DOMContentLoaded", function() {
+
    var nickName = localStorage.getItem("nickName");
+
    var fullName = localStorage.getItem("fullName");
+
    var mobileNumber = localStorage.getItem("mobileNumber");
+
    var emailAddress = localStorage.getItem("emailAddress");
+
    var address = localStorage.getItem("homeAddress");
-   var aza = localStorage.getItem("aza");
+
+   var aza = localStorage.getItem("accountNo");
+
    var pin = parseInt(localStorage.getItem("pin"));
+
    var balance = parseInt(localStorage.getItem("balance"));
+
    var formatted = balance.toLocaleString();
+
    balance = formatted
+
   
 
+
+
   var nickNameVar = document.getElementById("nickname");
+
   var nickName2Var = document.getElementById("nick-name");
+
   var fullNameVar = document.getElementById("full-name");
+
   var mobileNumberVar = document.getElementById("mobile-number");
+
   var emailAddressVar = document.getElementById("email");
+
   var addressVar = document.getElementById("address");
+
   var azaVar = document.getElementById("account-number")
+
   var pinVar = document.getElementById("account-pin");
+
   var balanceVar = document.getElementById("account-balance");
 
 
+
+
+
 if (nickName) {
+
     nickNameVar.textContent = `${nickName}`
+
     nickName2Var.textContent = `${nickName}`
+
 } else {
+
     nickNameVar.textContent = "No Nickname. Set it now!";
+
     nickName2Var.textContent = "No Nickname. Set it now!";
-}
-if (fullName) {
-    fullNameVar.textContent = `${fullName}`
-} else {
-    fullNameVar.textContent = "No Name. Set it now!"
-}
-if (mobileNumber) {
-    mobileNumberVar.textContent = `${mobileNumber}`
-} else {
-    mobileNumberVar.textContent = "No mobile number. Set it now!"
-}
-if (emailAddress) {
-    emailAddressVar.textContent = `${emailAddress}`;
-} else {
-    emailAddressVar.textContent = "No Email, set Email now!"
-    document.getElementById("verified").style.color = "orange";
-    document.getElementById("verified").style.backgroundColor = "red";
-    document.getElementById("verified").innerHTML = "&nbsp; Unverified &nbsp;";
-}
-if (address) {
-    addressVar.textContent = `${address}`;
-} else {
-    addressVar.textContent = "No address, set address now!"
-}
-if (aza) {
-    azaVar.textContent = `${aza}`;
-} else {
-    azaVar.textContent = "No account number. Set it now!"
-}
-if (pin) {
-    pinVar.textContent = `${pin}`;
-} else {
-    pinVar.textContent = "No PIN. Set PIN Now!"
-}
-if (balance) {
-    balanceVar.textContent = `₦ ${balance}`;
-} else {
-    balanceVar.textContent = "No Balance. Set it Now!"
+
 }
 
+if (fullName) {
+
+    fullNameVar.textContent = `${fullName}`
+
+} else {
+
+    fullNameVar.textContent = "No Name. Set it now!"
+
+}
+
+if (mobileNumber) {
+
+    mobileNumberVar.textContent = `${mobileNumber}`
+
+} else {
+
+    mobileNumberVar.textContent = "No mobile number. Set it now!"
+
+}
+
+if (emailAddress) {
+
+    emailAddressVar.textContent = `${emailAddress}`;
+
+} else {
+
+    emailAddressVar.textContent = "No Email, set Email now!"
+
+    document.getElementById("verified").style.color = "orange";
+
+    document.getElementById("verified").style.backgroundColor = "red";
+
+    document.getElementById("verified").innerHTML = "&nbsp; Unverified &nbsp;";
+
+}
+
+if (address) {
+
+    addressVar.textContent = `${address}`;
+
+} else {
+
+    addressVar.textContent = "No address, set address now!"
+
+}
+
+if (aza) {
+
+    azaVar.textContent = `${aza}`;
+
+} else {
+
+    azaVar.textContent = "No account number. Set it now!"
+
+}
+
+if (pin) {
+
+    pinVar.textContent = `${pin}`;
+
+} else {
+
+    pinVar.textContent = "No PIN. Set PIN Now!"
+
+}
+
+if (balance) {
+
+    balanceVar.textContent = `₦ ${balance}`;
+
+} else {
+
+    balanceVar.textContent = "No Balance. Set it Now!"
+
+}
+
+
+
 });
+
+
 
   </script>
 
 
+
+
+
 </body>
+
 </html>
+
