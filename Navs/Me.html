@@ -115,6 +115,7 @@ a {
 }
 
 
+
 .menu {
   position: fixed;
   bottom: 0;
@@ -164,10 +165,11 @@ a {
 <br><br>
 <br>
 
+
+
 <img src="Images/Me.jpg" id="me1">
 
   </div>
-
 
 
 
@@ -181,7 +183,7 @@ a {
 <br><br>
   </div>
 
- 
+
  
  <script>
 
@@ -190,6 +192,14 @@ var balance = localStorage.getItem('balance');
 var balance = parseFloat(localStorage.getItem("balance"));
   var formatted = balance.toLocaleString();
   balance = formatted
+
+ var Cashback = parseInt(localStorage.getItem("cashback-bal"));
+ var cashbackBal = document.getElementById("cashback-bal");
+ cashbackBal = Cashback
+ var cashbackBal = cashbackBal.toLocaleString();
+ //cashbackBal.textContent = Cashback
+ //var cashbackBal = cashbackBal.textContent
+
 
 // Set the balance to '****' initially and set the eye icon to 'eye-close.png'
 document.getElementById('balance').textContent = '****';
@@ -205,7 +215,7 @@ function toggleBalance() {
     if (balanceElement.textContent === '****') {
         // Show the actual balance
         balanceElement.textContent = `₦ ${balance}.00`;
-        document.getElementById("cashback-bal").innerHTML = "₦8,537.31 &nbsp;"
+        document.getElementById("cashback-bal").innerHTML = `₦${cashbackBal} &nbsp;`
         eyeIcon.src = 'Images/eye-open.png';
     } else {
         // Hide the balance
@@ -235,6 +245,8 @@ var profileImage = localStorage.getItem('profileImage');
 
 var profilePicture = document.getElementById("profile-picture");
 profilePicture.src = profileImage
+
+
  </script>
  
  <script>
