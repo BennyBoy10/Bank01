@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="None">
+<link rel="stylesheet" href="None">
+
   <title>Opay</title>
 
   <style>
+
 
 body {
   font-family: Arial, sans-serif;
@@ -346,6 +348,188 @@ button:hover {
 }
 
 
+#dash1 {
+  position: absolute;
+  display: none;
+  margin-top: 27px;
+  margin-left: 45px;
+}
+
+#dash2 {
+  position: absolute;
+  display: flex;
+  margin-top: 27px;
+  margin-left: 200px;
+}
+
+.physical-section {
+  display: none;
+}
+.physical-div {
+  
+  border: 1px solid transparent;
+  background-color: #F8F8FA;
+}
+#card-image {
+  width: 328px;
+}
+.free-application {
+  border: 1px solid transparent;
+}
+#free-application-img {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+  
+}
+#free-application {
+  margin-left: 60px;
+}
+#line1 {
+  margin-top: -10px;
+  margin-left: 60px;
+  font-size: 13px;
+}
+#free-application, #earn, #security {
+  font-weight: bold;
+}
+.green {
+  color: #28A377;
+}
+
+.earn {
+  border: 1px solid transparent;
+}
+#earn-img {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+}
+#earn {
+  margin-left: 60px;
+}
+#line2 {
+  margin-top: -10px;
+  margin-left: 60px;
+  font-size: 13px;
+}
+.security {
+  border: 1px solid transparent;
+}
+#security-img {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 10px;
+  width: 40px;
+  height: 40px;
+}
+#security {
+  margin-left: 60px;
+}
+#line3 {
+  margin-top: -10px;
+  margin-left: 60px;
+  font-size: 13px;
+}
+.bottom-section {
+  position: fixed;
+  bottom: 58px;
+  margin-left: -15px;
+  padding-left: 35px;
+  width: 325px;
+  background-color: #FFF;
+  background-color: ;
+  z-index: 101;
+}
+#click {
+  margin-top: -17px;
+  margin-left: 25px;
+  font-size: 13px;
+}
+.the-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: -40px;
+  
+  
+  
+}
+#home-delivery {
+  margin-top: 10px;
+   width: 260px;
+   height: 45px;
+   border-radius: 28px;
+   font-weight: 500;
+   border: 1px solid transparent;
+   font-size: 15px;
+   color: #fff;
+   background-color: #00B875;
+}
+#home-delivery:hover {
+  cursor: pointer;
+  background-color: #17B286;
+}
+#nearby-merchants {
+  margin-top: 10px;
+   width: 260px;
+   height: 45px;
+   border-radius: 28px;
+   font-weight: 500;
+   font-size: 15px;
+   border: 1px solid #00B875;
+   color: #00B875;
+   background-color: #FFF;
+}
+#nearby-merchants:hover {
+  cursor: pointer;
+  color: #17B286;
+  background-color: #F8F8FA;
+}
+
+
+
+.error-for-buttons {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+.white-error {
+  width: 250px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: shadow for better visibility */
+}
+
+.white-error button {
+  display: block;
+  margin: 20px auto 0;
+  width: 80px;
+  height: 33px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #00B875;
+}
+#error-p {
+  font-weight: bold;
+}
+
 
 
 .menu {
@@ -367,11 +551,18 @@ button:hover {
 
 
 
-
   </style>
 </head>
 <body>
   <div class="container"><br>
+
+<div class="error-for-buttons" id="error-for-buttons">
+    <div class="white-error">
+<p id="error-p">Oops! Our customer service is currently experiencing a high volume of requests. Please try again later.</p>
+<button id="okay">OK</button>
+    </div>
+  </div>
+
 
     <div class="pinBox" id="pinBox">
 <p id="pin-top">Enter Payment PIN<span id="x">✖</span></p>
@@ -395,11 +586,12 @@ button:hover {
 
   <div class="physical-virtual">
 <p id="physical-card">Physical Card</p>
+<p id="dash1">➖</p>
 <p id="virtual-card">Virtual Card</p>
+<p id="dash2">➖</p>
   </div>
 
-
-
+   <div class="virtual-section" id="virtual-section">
   <div class="card" id="card-main">
 <img src="Images/Opay-Cards-Logo.jpg" id="Opay-Cards-Logo">
 <p id="card-number-main">507895****2210</p>
@@ -414,9 +606,6 @@ button:hover {
 <p id="show-details">Show Details ></p>
   </div>
 <br>
-
-
-
 
 
 <div class="viewed" id="card-when-viewed">
@@ -451,8 +640,6 @@ button:hover {
 
 
 
-
-
   <div class="manage-card">
 <img src="Images/Cards-Card-Settings.jpg" id="Card-Settings-img">
 <img src="Images/Cards-Manage-Dispute.jpg" id="Card-Dispute-img">
@@ -464,6 +651,46 @@ button:hover {
 <p id="Manage-Dispute">Manage Dispute</p>
 <p id="Card-Transactions">Transactions</p>
   </div>
+      </div>
+
+
+
+
+
+<div class="physical-section" id="physical-section">
+ <div class="physical-div">
+<img src="Images/Physical-Card-Image.jpg" id="card-image">
+<br><br>
+  <div class="free-application">
+<img src="Images/Cards-Free-Application.jpg" id="free-application-img">
+<p id="free-application">Free Application and Usage</p>
+<p id="line1"><span class="green">Free </span>application, <span class="green">Zero</span> cost for ATM withdrawal and maintainance</p>
+  </div>
+  <div class="earn">
+<img src="Images/Cards-Earn.jpg" id="earn-img">
+<p id="earn">Earn</p>
+<p id="line2">Flexibility Spending with <span class="green">15% </span>annual &nbsp;&nbsp;&nbsp; interest</p>
+  </div>
+  <div class="security">
+<img src="Images/Cards-Security.jpg" id="security-img">
+<p id="security">Security</p>
+<p id="line3"><span class="green">CBN</span> licenced, <span class="green">NDIC</span> insured</p>
+  </div>
+<br><br>
+ </div>
+
+  <div class="bottom-section">
+<input type="checkbox" id="checkbox" checked="">
+<p id="click">Click the button below to accept <span class="green">Terms & Conditions</span></p>
+    <div class="the-buttons">
+<button id="home-delivery">Click for home delivery</button>
+<button id="nearby-merchants">Pick up from nearby merchants</button>
+<br>
+      </div>
+  </div>
+
+
+</div>
 
 
   <br></br>
@@ -630,6 +857,65 @@ if (x < width * 0.2) {
 });
 </script>
 
+<script>
+
+
+var physicalCard = document.getElementById("physical-card");
+var virtualCard = document.getElementById("virtual-card");
+var dash1 = document.getElementById("dash1");
+var dash2 = document.getElementById("dash2");
+var virtualSection = document.getElementById("virtual-section");
+var physicalSection = document.getElementById("physical-section");
+var homeDelivery = document.getElementById("home-delivery");
+var nearbyMerchants = document.getElementById("nearby-merchants");
+var error = document.getElementById("error-for-buttons");
+var Okay = document.getElementById("okay");
+
+
+function Physical() {
+ physicalCard.addEventListener("click", function() {
+  physicalCard.style.color = "#000";
+  physicalCard.style.fontWeight = "800";
+  dash1.style.display = "flex";
+  dash2.style.display = "none";
+  virtualCard.style.color = "#8C8C8C";
+  virtualSection.style.display = "none";
+  physicalSection.style.display = "block";
+});
+}
+Physical();
+
+
+function Virtual() {
+ virtualCard.addEventListener("click", function() {
+  virtualCard.style.color = "#000";
+  virtualCard.style.fontWeight = "800";
+  dash2.style.display = "flex";
+  dash1.style.display = "none";
+  physicalCard.style.color = "#8C8C8C";
+  virtualSection.style.display = "block";
+  physicalSection.style.display = "none";
+});
+}
+Virtual();
+
+Okay.addEventListener("click", function() {
+  document.getElementById("error-for-buttons").style.display = "none";
+});
+homeDelivery.addEventListener("click", function() {
+  error.style.display = "flex";
+});
+nearbyMerchants.addEventListener("click", function() {
+  error.style.display = "flex";
+});
+
+
+</script>
+
+
+
+<script src="None"></script>
 
 </body>
-</html>
+  </html>
+  
