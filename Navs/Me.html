@@ -1,32 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-<title>Opay</title>
-    
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="None">
+
+  <title>Opay</title>
+   
+  <style>
+
+
 body {
   font-family: Arial, sans-serif;
   background-color: #fff;
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
 .container {
   margin: 0 auto;
-  width: 340px;
-  padding: 7px;
+  width: 330px;
+  padding-left: 13px;
+  padding-right: 13px;
   border: 1px solid transparent;
   border-radius: 8px;
   background-color: #F8F8FA;
 }
-.container img {
-  margin-left: -5px;
-  width: 350px;
+.top {
+  position: fixed;
+  width: 343px;
+  margin-left: -13px;
+  padding-left: 13px;
+  margin-top: -1px;
+  border-radius: 8px 8px 14px 14px;
+  background-color: #C3FCE9;
+  z-index: 1000;
 }
+#profile-picture {
+  margin-top: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 25px;
+}
+#greetings {
+  position: absolute;
+  margin-top: -45px;
+  margin-left: 50px;
+  font-size: 18px;
+}
+#tier3 {
+  position: absolute;
+  margin-top: -20px;
+  margin-left: 50px;
+  font-size: 12px;
+  border-radius: 7px;
+  color: #000;
+  background-color: gold;
+}
+#settings-icon {
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 270px;
+  width: 25px;
+  height: 25px;
+}
+#total-balance {
+  font-size: 15px;
+}
+#eye-icon {
+  position: absolute;
+  margin-top: -31px;
+  margin-left: 95px;
+  width: 18px;
+  height: 15px;
+  cursor: pointer;
+}
+#balance {
+  margin-top: -5px;
+  margin-left: 5px;
+  font-size: 19px;
+  font-weight: 900;
+}
+#cashback-bal {
+  color: #009B62;
+}
+#cashback {
+  position: absolute;
+  border-radius: 8px;
+  margin-top: -15px;
+  margin-left: -5px;
+  padding: 3px;
+  font-size: 12px;
+  color: #000;
+  background-color: #FFF;
+}
+
+.extras {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  height: 400px;
+  color: #000;
+  background-color: #FFF;
+}
+#me1 {
+  width: 320px;
+}
+
+
 
 .menu {
   position: fixed;
@@ -37,7 +124,6 @@ body {
   background-color: #fff;
   cursor: pointer;
 }
-
 .menu img {
   width: 100%;;
   height: 60px;
@@ -46,13 +132,44 @@ body {
 
 
 
-</style>
+
+
+  </style>
+
 </head>
 <body>
-<div class="container"><br>
-    <div class="me">
-        <img src="Images/Me.png">
-    </div>
+      <div class="container">
+  <div class="top">
+<a href="../Profile.html">
+<img src="Images/Benny.png" id="profile-picture">
+</a>
+<p id="greetings">Hi, Ben</p>
+<a href="../Profile.html">
+<img src="Images/Settings-icon1.jpg" id="settings-icon">
+</a>
+<p id="tier3">&nbsp; Tier 3 &nbsp;</p>
+
+
+<p id="total-balance">Total Balance</p>
+<img src="Images/eye-close.png" id="eye-icon">
+<p id="balance">₦ 50,000.00</p>
+<p id="cashback">&nbsp; & cashback <span id="cashback-bal">**** &nbsp;</span></p>
+<br><br>
+  </div>
+
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+<br>
+
+<img src="Images/Me.jpg" id="me1">
+
+  </div>
+
+
+
 
 
     <div class="menu" id="menu">
@@ -60,8 +177,65 @@ body {
 
             </div>
 
+<br><br>
+<br><br>
   </div>
 
+ 
+ 
+ <script>
+
+// Get the balance from LocalStorage
+var balance = localStorage.getItem('balance');
+var balance = parseFloat(localStorage.getItem("balance"));
+  var formatted = balance.toLocaleString();
+  balance = formatted
+
+// Set the balance to '****' initially and set the eye icon to 'eye-close.png'
+document.getElementById('balance').textContent = '****';
+document.getElementById('eye-icon').src = 'Images/eye-close.png';
+
+// Get the eye icon element
+const eyeIcon = document.getElementById('eye-icon');
+
+// Function to toggle the visibility of the balance
+function toggleBalance() {
+    let balanceElement = document.getElementById('balance');
+
+    if (balanceElement.textContent === '****') {
+        // Show the actual balance
+        balanceElement.textContent = `₦ ${balance}.00`;
+        document.getElementById("cashback-bal").innerHTML = "₦8,537.31 &nbsp;"
+        eyeIcon.src = 'Images/eye-open.png';
+    } else {
+        // Hide the balance
+        balanceElement.textContent = '****';
+        document.getElementById("cashback-bal").innerHTML = "**** &nbsp;"
+        eyeIcon.src = 'Images/eye-close.png';
+    }
+}
+
+// Add event listener to the eye icon
+eyeIcon.addEventListener('click', toggleBalance);
+
+ 
+
+
+ </script>
+ 
+ 
+ <script>
+ var nickName = localStorage.getItem("nickName");
+ var Greetings = document.getElementById("greetings");
+ Greetings.textContent = `Hi, ${nickName}`;
+ </script>
+ 
+ <script>
+var profileImage = localStorage.getItem('profileImage');
+
+var profilePicture = document.getElementById("profile-picture");
+profilePicture.src = profileImage
+ </script>
  
  <script>
 document.getElementById('menu').addEventListener('click', function(event) {
@@ -85,12 +259,7 @@ if (x < width * 0.2) {
   window.location = "Me.html";
 }
 });
-
 </script>
-
- 
-
-
 
 </body>
 </html>
