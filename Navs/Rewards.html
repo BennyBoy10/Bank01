@@ -98,7 +98,7 @@ a {
   flex-direction: row;
   background-color: #E1F5EA;
 }
-#symbol1, #price1, #voucher1, #kobo {
+#symbol1, #cashback-bal, #voucher1, #kobo {
   font-size: 14px;
   font-weight: 900;
   color: #10B876;
@@ -107,7 +107,7 @@ a {
   margin-top: 11px;
   font-size: 15px;
 }
-#price1, #voucher1 {
+#cashback-bal, #voucher1 {
   margin-top: 2px;
   font-size: 23px;
 }
@@ -424,7 +424,7 @@ a {
 
     <div class="prices">
 <p id="symbol1">₦&nbsp;</p>
-<p id="price1">865</p>
+<p id="cashback-bal">865</p>
 <p id="kobo">.19</p>
 <p id="symbol2">></p>
 <p id="voucher1">1</p>
@@ -521,7 +521,7 @@ a {
 
 <script>
   // Get the elements
-  const priceElement = document.getElementById('price1');
+  const priceElement = document.getElementById('cashback-bal');
   const symbolElement2 = document.getElementById('get-now');
   const symbolElement3 = document.getElementById('rewards-top');
   const plusElement = document.getElementById('plus');
@@ -529,7 +529,7 @@ a {
 
   // Check if there is a saved price in localStorage on page load
   window.addEventListener('DOMContentLoaded', function() {
-    let savedPrice = localStorage.getItem('price1');
+    let savedPrice = localStorage.getItem('cashback-bal');
     if (savedPrice !== null) {
       priceElement.textContent = parseInt(savedPrice).toLocaleString();
     }
@@ -537,7 +537,7 @@ a {
 
   // Add an event listener for the 'tap' (click) event on symbol2
   symbolElement2.addEventListener('click', function() {
-    // Remove commas, convert the price1 value to a number, and add 50
+    // Remove commas, convert the cashback-bal value to a number, and add 50
     let currentPrice = parseInt(priceElement.textContent.replace(/,/g, ''));
     let newPrice = currentPrice + 50;
 
@@ -545,7 +545,7 @@ a {
     priceElement.textContent = newPrice.toLocaleString();
 
     // Save the updated price to localStorage
-    localStorage.setItem('price1', newPrice);
+    localStorage.setItem('cashback-bal', newPrice);
 
     // Display the plusElement as flex
     plusElement.style.display = "flex";
@@ -558,12 +558,12 @@ a {
 
   // Add an event listener for the 'tap' (click) event on symbol3 to reset the price
   symbolElement3.addEventListener('click', function() {
-    // Reset the price1 value to 865
+    // Reset the cashback-bal value to 865
     let resetPrice = 865;
 
-    // Update the price1 element and save the reset value to localStorage
+    // Update the cashback-bal element and save the reset value to localStorage
     priceElement.textContent = resetPrice.toLocaleString();
-    localStorage.setItem('price1', resetPrice);
+    localStorage.setItem('cashback-bal', resetPrice);
 
     // Display the resetElement as flex
     resetElement.style.display = "flex";
