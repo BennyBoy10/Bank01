@@ -206,8 +206,8 @@
               
        <div class="se-details">
   <p id="se-details">Sender Details</p>
-   <p id="se-name">BENJAMIN BULAMA ANAMJA</p>
-   <p id="se-aza">701****696</p>      
+   <p id="se-name"></p>
+   <p id="se-aza">703****527</p>      
                </div>
               
      <div class="trans-ref">
@@ -243,6 +243,12 @@
 
 
 <script>
+  
+ var Name = document.getElementById("se-name");
+ var fullName = localStorage.getItem("fullName");
+ Name.textContent = fullName;
+  
+  
   
   document.getElementById("share").addEventListener("click", function() {
       window.location.href = "index.html";
