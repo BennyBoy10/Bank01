@@ -405,7 +405,6 @@ body {
 <br><br>
 <br>
 
-        <hr id="first-hr">
     <div id="receiptsContainer"></div>
     
 
@@ -422,40 +421,25 @@ body {
 
 
 
-<script>
-
-  window.addEventListener("DOMContentLoaded", function() {
-    var In = localStorage.setItem("in", "742960");
-    var Out = localStorage.setItem("out", "928357");
-
-    var In = parseInt(localStorage.getItem("in"));
-    var In = In.toLocaleString();
-    var Out = parseInt(localStorage.getItem("out"));
-    var Out = Out.toLocaleString();
-
-    var inAndOutPar = document.getElementById("inout");
-    inAndOutPar.innerHTML = `In: ₦${In}.00 &nbsp; Out: ₦${Out}.30`;
-
-
-
-  });
-
-
-</script>
-
-
 
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+
+document.addEventListener("DOMContentLoaded", function() {
     const receipts = JSON.parse(localStorage.getItem("receipts")) || [];
     const receiptsContainer = document.getElementById("receiptsContainer");
+    const inoutElement = document.getElementById("inout");
+    let totalAmount = 0;
 
     if (receipts.length === 0) {
         receiptsContainer.innerHTML = '<p>No transactions found.</p>';
         return;
     }
+
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth(); // 0-based (0 = January)
 
     receipts.reverse();
 
@@ -465,28 +449,84 @@ body {
 
         // Encode URI components for safety
         const recipient = encodeURIComponent(receipt.recipient);
-        const amount = encodeURIComponent(receipt.amount);
-        const date = encodeURIComponent(receipt.date);
+        let amountText = receipt.amount;
+        const date = receipt.date; // Keep the original date for parsing
         const bank = encodeURIComponent(receipt.bank);
         const account = encodeURIComponent(receipt.account);
         const reference = encodeURIComponent(receipt.refNo);
         const sessionID = encodeURIComponent(receipt.sessionID);
 
+        // Parse the date string into a Date object
+        const transactionDate = new Date(date);
+
+        // Append the receipt to the container regardless of the date
         receiptElement.innerHTML = `
             <div class="recent-transaction" id="recent-transaction">
                 <hr id="seperator">
                 <img src="Images/Recent-Transaction-Send.jpg" id="the1">
                 <p id="p1" class="flex-container">
-                    <a href="Individual-Receipt.html?recipient=${recipient}&amount=${amount}&date=${date}&bank=${bank}&account=${account}&refNo=${reference}&sessionID=${sessionID}" class="truncate">Transfer to ${receipt.recipient}</a>
-                    <span id="sentAmount">-₦ ${receipt.amount}</span>
+                    <a href="Individual-Receipt.html?recipient=${recipient}&amount=${amountText}&date=${encodeURIComponent(date)}&bank=${bank}&account=${account}&refNo=${reference}&sessionID=${sessionID}" class="truncate">Transfer to ${receipt.recipient}</a>
+                    <span id="sentAmount">-₦ ${amountText}</span>
                 </p>
-                <p id="time">${receipt.date}</p>
+                <p id="time">${date}</p>
                 <p id="trans-succ">Successful</p>
             </div>
         `;
+
+        // Check if the transaction date is in the current month and year for summing
+        if (transactionDate.getFullYear() === currentYear && transactionDate.getMonth() === currentMonth) {
+            // Clean up the amountText by removing the "₦", commas, and spaces
+            let cleanedAmount = amountText.replace(/[₦, ]/g, '').replace(/^-/, '');
+            cleanedAmount = parseFloat(cleanedAmount);
+
+            // Add to totalAmount only if it's a valid number
+            if (!isNaN(cleanedAmount)) {
+                totalAmount += cleanedAmount;
+            }
+        }
+
         receiptsContainer.appendChild(receiptElement);
     });
+
+    function formatNumber(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    const fortyThreePercent = (totalAmount * 0.43).toFixed(2);
+    const formattedIn = formatNumber(fortyThreePercent);
+    const formattedOut = formatNumber(totalAmount.toFixed(2));
+
+    // Update the inout element with the total amounts
+    inoutElement.innerHTML = `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`;
+
+
+
+  var In = parseInt(localStorage.getItem("in"));
+  var In = In.toLocaleString();
+  var Out = parseInt(localStorage.getItem("out"));
+  var Out = Out.toLocaleString();
+
+ var InoutElement = document.getElementById("inout");
+ var Download = document.getElementById("download");
+ var The1 = document.getElementById("the1");
+
+Download.addEventListener("click", function() {
+ if (inoutElement.innerHTML === `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`) {
+  InoutElement.innerHTML = `In: ₦${In} &nbsp;&nbsp; Out: ₦${Out}`;
+ }
 });
+The1.addEventListener("click", function() {
+  InoutElement.innerHTML = `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`;
+});
+
+
+});
+
+
+
+
+
+
 
 
   document.addEventListener("DOMContentLoaded", function() {
