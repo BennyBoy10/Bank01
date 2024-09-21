@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+  <link rel="icon" type="image/png" href="Images/Opay-Logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="None">
 
   <title>Opay</title>
 
 <style>
-
-
 
 body {
    font-family: Arial, sans-serif;
@@ -174,6 +172,84 @@ a {
 }
 
 
+.in-out {
+  display: none;
+  border-radius: 15px;
+  background-color: #FFF;
+}
+.in {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15px;
+  background-color: #FFF;
+}
+#the-in {
+  font-size: 14px;
+  color: #8C8C8C;
+}
+#total-in {
+  margin-right: 10px;
+  font-weight: bold;
+}
+#pencil11 {
+  position: absolute;
+  margin-top: 18px;
+  margin-left: 305px;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+#new-in {
+  padding-left: 10px;
+  border-radius: 7px;
+  height: 33px;
+  border: 1px solid #000;
+}
+
+.out {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -10px;
+  padding-top: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15px;
+  background-color: #FFF;
+}
+#the-out {
+  font-size: 14px;
+  color: #8C8C8C;
+}
+#total-out {
+  margin-right: 10px;
+  font-weight: bold;
+}
+#pencil12 {
+  position: absolute;
+  margin-top: 18px;
+  margin-left: 305px;
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+#new-out {
+  padding-left: 10px;
+  border-radius: 7px;
+  height: 33px;
+  border: 1px solid #000;
+}
+
+
+
+
+
+
 
 
 
@@ -292,7 +368,30 @@ a {
 <p id="account-tier">&nbsp;Tier 3&nbsp;</p>
   </div>
     </div>
-  
+
+
+    <div class="in-out" id="in-out">
+<hr>
+  <div class="in">
+<p id="the-in">In</p>
+<p id="total-in">₦ 0.00</p>
+<input type="tel" id="new-in" placeholder="New In" maxlength="7" style="display: none;">
+<img src="Images/Edit-Pencil.jpg" id="pencil11">
+  </div>
+
+
+  <div class="out">
+<p id="the-out">Out</p>
+<p id="total-out">₦ 0.00</p>
+<input type="tel" id="new-out" placeholder="New Out" maxlength="7" style="display: none;">
+<img src="Images/Edit-Pencil.jpg" id="pencil12">
+  </div>
+
+
+    </div>
+
+
+
      </div>
 
 
@@ -568,16 +667,86 @@ function changeDetailsTen() {
 }
 changeDetailsTen()
 
+
+
+
+
+function changeDetailsEleven() {
+  var pencileleven = document.getElementById("pencil11");
+  var newIn = document.getElementById("new-in");
+  var confirm = document.getElementById("confirmation");
+  var totalIn = document.getElementById("total-in");
+  pencileleven.addEventListener("click", function() {
+    totalIn.style.display = "none";
+    newIn.style.display = "flex";
+    pencileleven.style.display = "none";
+
+    newIn.addEventListener("change", function() {
+      newInValue = newIn.value;
+      localStorage.setItem("in", newInValue);
+      confirm.textContent = `New In: ₦ ${newInValue}`
+      confirm.style.display = "block";
+    });
+  newIn.addEventListener("blur", function() {
+    newIn.style.display = "none";
+    totalIn.textContent = newInValue;
+    totalIn.style.display = "block";
+    pencileleven.style.display = "block";
+  });
+  });
+}
+changeDetailsEleven()
+
+
+
+
+
+
+
+
+function changeDetailsTwelve() {
+  var penciltwelve = document.getElementById("pencil12");
+  var newOut = document.getElementById("new-out");
+  var confirm = document.getElementById("confirmation");
+  var totalOut = document.getElementById("total-out");
+  penciltwelve.addEventListener("click", function() {
+    totalOut.style.display = "none";
+    newOut.style.display = "flex";
+    penciltwelve.style.display = "none";
+
+    newOut.addEventListener("change", function() {
+      newOutValue = newOut.value;
+      localStorage.setItem("out", newOutValue);
+      confirm.textContent = `New Out: ₦ ${newOutValue}`
+      confirm.style.display = "block";
+    });
+  newOut.addEventListener("blur", function() {
+    newOut.style.display = "none";
+    totalOut.textContent = newOutValue;
+    totalOut.style.display = "block";
+    penciltwelve.style.display = "block";
+  });
+  });
+}
+changeDetailsTwelve()
+
+
+
+
+
+
+var Tier = document.getElementById("account-tier");
+var inOut = document.getElementById("in-out");
+var Verified = document.getElementById("verified");
+Tier.addEventListener("click", function() {
+  inOut.style.display = "block";
+});
+Verified.addEventListener("click", function() {
+  inOut.style.display = "none";
+});
+
+
 </script>
-
-
-
-
-
-
-
-</script>
-
 
 
   <script>
@@ -593,7 +762,14 @@ changeDetailsTen()
    var balance = parseInt(localStorage.getItem("balance"));
    var formatted = balance.toLocaleString();
    balance = formatted
-  
+   var In = parseInt(localStorage.getItem("in"));
+   var formattedIn = In.toLocaleString();
+   In = formattedIn
+   var Out = parseInt(localStorage.getItem("out"));
+   var formattedOut = Out.toLocaleString();
+   Out = formattedOut
+
+
 
   var nickNameVar = document.getElementById("nickname");
   var nickName2Var = document.getElementById("nick-name");
@@ -604,6 +780,8 @@ changeDetailsTen()
   var azaVar = document.getElementById("account-number")
   var pinVar = document.getElementById("account-pin");
   var balanceVar = document.getElementById("account-balance");
+  var inVar = document.getElementById("total-in");
+  var outVar = document.getElementById("total-out");
 
 
 if (nickName) {
@@ -651,6 +829,18 @@ if (balance) {
 } else {
     balanceVar.textContent = "No Balance. Set it Now!"
 }
+if (In) {
+    inVar.textContent = `₦ ${In}`;
+} else {
+    inVar.textContent = "0.00!"
+}
+if (Out) {
+    outVar.textContent = `₦ ${Out}`;
+} else {
+    outVar.textContent = "0.00!"
+}
+
+
 
 });
 
