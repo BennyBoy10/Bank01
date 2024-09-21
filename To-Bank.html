@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+    <link rel="icon" type="image/png" href="Images/Opay-Logo.png">
     <link rel="stylesheet" href="None">
     <title>Opay</title>
     
@@ -213,7 +213,15 @@ button:hover {
 }
 #all-accounts-recent {
   display: none;
+  flex-direction: column;
 }
+
+
+
+
+
+
+
 
 
 .more-accounts {
@@ -233,6 +241,34 @@ button:hover {
   font-size: 16px;
   font-weight: 600;
 }
+
+
+#more-bank-image5 {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 280px;
+  width: 30px;
+  height: 30px;
+}
+.accounts-recent2 {
+  margin-left: 20px;
+}
+
+#more-bank-image6 {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 280px;
+  width: 30px;
+  height: 30px;
+}
+.accounts-recent3 {
+  margin-left: 20px;
+}
+
+
+
+
+
 
 
 .accounts {
@@ -286,6 +322,8 @@ button:hover {
   width: 50px;
   height: 40px;
 }
+
+
 .view-all {
   margin-top: -15px;
   display: flex;
@@ -301,9 +339,36 @@ button:hover {
   color: #a2a2a2;
   background-color: #F8F8FA;
 }
+
+
+
+
+.close {
+  display: none;
+  margin-left: 50%;
+  width: 85px;
+  cursor: pointer;
+  border-radius: 7px;
+  background-color: #fff;
+}
+#close {
+  padding: 5px;
+  border-radius: 15px;
+  font-weight: bold;
+  color: #a2a2a2;
+  background-color: #F8F8FA;
+}
+
+
 #all-accounts {
   display: none;
 }
+
+.recent-accounts img {
+  width: 30px;
+  height: 30px;
+}
+
 
 
 
@@ -312,7 +377,7 @@ button:hover {
     
 </head>
 <body>
-        <div class="container"><br>
+        <div class="container" id="container"><br>
 
           <div class="back">
    <p>&nbsp;&nbsp;&nbsp;<b><a href="index.html"><</a></b>&nbsp;&nbsp;&nbsp; Transfer to Bank Account&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ReceiptHistory.html"><span style="color: #00B875;">History</span></a></p>
@@ -388,25 +453,25 @@ button:hover {
 <div class="more-accounts-recent" id="more-accounts-recent">
         <a href="#" id="account1-recent">
       <div class="accounts-recent">
-  <p>BENJAMIN BULAMA ANAMJA</p>
-  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">2029506660 &nbsp;Kuda</p>
-  <img src="Images/Kuda-Logo.png">
+  <p id="more-name1">BENJAMIN BULAMA ANAMJA</p>
+  <p id="more-aza-and-bank1" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">2029506660 &nbsp;Kuda</p>
+  <img src="Images/Kuda-Logo.png" id="more-bank-image1">
              </div>
              </a>
- <hr>         
-           <a href="#" id="account2-recent">
+ <hr>
+  <a href="#" id="account2-recent">
       <div class="accounts2-recent">
-  <p>ABUBAKAR GARBA PROVISION</p>
-  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5454074149 &nbsp;MoniePoint</p>
-  <img src="Images/Moniepoint-Logo.png">
+  <p id="more-name2">ABUBAKAR GARBA PROVISION</p>
+  <p id="more-aza-and-bank2" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5454074149 &nbsp;MoniePoint</p>
+  <img src="Images/Moniepoint-Logo.png" id="more-bank-image2">
                </div>
                </a>
 <hr>
         <a href="#" id="account3-recent">
     <div class="accounts3-recent">
-  <p>MASE-UTEN DOGARI YIASE</p>
-  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">2050181171 &nbsp;Zenith Bank</p>
-  <img src="Images/Zenith-Logo.png">
+  <p id="more-name3">MASE-UTEN DOGARI YIASE</p>
+  <p id="more-aza-and-bank3" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">2050181171 &nbsp;Zenith Bank</p>
+  <img src="Images/Zenith-Logo.png" id="more-bank-image3">
              </div>
              </a>
   <hr>           
@@ -414,26 +479,43 @@ button:hover {
       <p>View All ></p>  
               </div>
              <br>
-      <div id="all-accounts-recent">
+
+
+  <div id="all-accounts-recent">
   <a href="#" id="account4-recent">  
       <div class="accounts-recent">
-  <p>PAULINA HAMIDU MSHELIA</p>
-  <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5330403346 &nbsp;Fidelity Bank</p>
-  <img src="Images/Fidelity-Logo.png">
+  <p id="more-name4">PAULINA HAMIDU MSHELIA</p>
+  <p id="more-aza-and-bank4" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5330403346 &nbsp;Fidelity Bank</p>
+  <img src="Images/Fidelity-Logo.png" id="more-bank-image4">
              </div>
-             </a>  
+             </a> 
+
+
+  <a href="#" id="account5-recent">  
+      <div class="accounts-recent2">
+  <p id="more-name5">PAULINA HAMIDU MSHELIA</p>
+  <p id="more-aza-and-bank5" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5330403346 &nbsp;Fidelity Bank</p>
+  <img src="Images/Kuda-Logo.png" id="more-bank-image5">
              </div>
+             </a> 
+
+
+  <a href="#" id="account6-recent">  
+      <div class="accounts-recent3">
+  <p id="more-name6">PAULINA HAMIDU MSHELIA</p>
+  <p id="more-aza-and-bank6" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5330403346 &nbsp;<span id="bank6">Fidelity Bank</span></p>
+  <img src="Images/Kuda-Logo.png" id="more-bank-image6">
+             </div>
+             </a> 
+
+
+             </div>
+    <div class="close" id="close-recent">
+<p id="close">&nbsp; Close &#x276F;</p>
+    </div>
               </div>
 
   </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -477,25 +559,112 @@ button:hover {
              </div>
               </div>
 <br></br>
-
-
-
-  <br></br>
+<br></br>
 </div>
+
 
 <script>
 
+
+// Retrieve the saved data from localStorage
+let recentNames = JSON.parse(localStorage.getItem('recentName')) || [];
+let recentBanks = JSON.parse(localStorage.getItem('recentBank')) || [];
+let recentAzas = JSON.parse(localStorage.getItem('recentAza')) || [];
+
+
+if (recentNames.length > 0) {
+  document.getElementById('more-name1').textContent = recentNames[recentNames.length - 1];
+}
+if (recentNames.length > 1) {
+  document.getElementById('more-name2').textContent = recentNames[recentNames.length - 2];
+}
+if (recentNames.length > 2) {
+  document.getElementById('more-name3').textContent = recentNames[recentNames.length - 3];
+}
+if (recentNames.length > 3) {
+  document.getElementById('more-name4').textContent = recentNames[recentNames.length - 4];
+}
+if (recentNames.length > 4) {
+  document.getElementById('more-name5').textContent = recentNames[recentNames.length - 5];
+}
+if (recentNames.length > 5) {
+  document.getElementById('more-name6').textContent = recentNames[recentNames.length - 6];
+}
+
+
+if (recentBanks.length > 0 && recentAzas.length > 0) {
+  document.getElementById('more-aza-and-bank1').textContent = recentAzas[recentAzas.length - 1] + ' ' + recentBanks[recentBanks.length - 1];
+}
+if (recentBanks.length > 1 && recentAzas.length > 1) {
+  document.getElementById('more-aza-and-bank2').textContent = recentAzas[recentAzas.length - 2] + ' ' + recentBanks[recentBanks.length - 2];
+}
+if (recentBanks.length > 2 && recentAzas.length > 2) {
+  document.getElementById('more-aza-and-bank3').textContent = recentAzas[recentAzas.length - 3] + ' ' + recentBanks[recentBanks.length - 3];
+}
+if (recentBanks.length > 3 && recentAzas.length > 3) {
+  document.getElementById('more-aza-and-bank4').textContent = recentAzas[recentAzas.length - 4] + ' ' + recentBanks[recentBanks.length - 4];
+}
+if (recentBanks.length > 4 && recentAzas.length > 4) {
+  document.getElementById('more-aza-and-bank5').textContent = recentAzas[recentAzas.length - 5] + ' ' + recentBanks[recentBanks.length - 5];
+}
+if (recentBanks.length > 5 && recentAzas.length > 5) {
+  document.getElementById('more-aza-and-bank6').textContent = recentAzas[recentAzas.length - 6] + ' ' + recentBanks[recentBanks.length - 6];
+}
+
+
+if (recentBanks.length > 0) {
+  let latestBank = recentBanks[recentBanks.length - 1];
+  let capitalizedBank = latestBank.charAt(0).toUpperCase() + latestBank.slice(1);
+ document.getElementById('more-bank-image1').src = 'Images/' + capitalizedBank + '-Logo.png';
+}
+if (recentBanks.length > 1) {
+  let latestBank = recentBanks[recentBanks.length - 2];
+  let capitalizedBank = latestBank.charAt(0).toUpperCase() + latestBank.slice(1);
+ document.getElementById('more-bank-image2').src = 'Images/' + capitalizedBank + '-Logo.png';
+}
+if (recentBanks.length > 2) {
+  let latestBank = recentBanks[recentBanks.length - 3];
+  let capitalizedBank = latestBank.charAt(0).toUpperCase() + latestBank.slice(1);
+ document.getElementById('more-bank-image3').src = 'Images/' + capitalizedBank + '-Logo.png';
+}
+if (recentBanks.length > 3) {
+  let latestBank = recentBanks[recentBanks.length - 4];
+  let capitalizedBank = latestBank.charAt(0).toUpperCase() + latestBank.slice(1);
+ document.getElementById('more-bank-image4').src = 'Images/' + capitalizedBank + '-Logo.png';
+}
+if (recentBanks.length > 4) {
+  let latestBank = recentBanks[recentBanks.length - 5];
+  let capitalizedBank = latestBank.charAt(0).toUpperCase() + latestBank.slice(1);
+ document.getElementById('more-bank-image5').src = 'Images/' + capitalizedBank + '-Logo.png';
+}
+if (recentBanks.length > 4) {
+  let latestBank = recentBanks[recentBanks.length - 6];
+  let capitalizedBank = latestBank.charAt(0).toUpperCase() + latestBank.slice(1);
+ document.getElementById('more-bank-image6').src = 'Images/' + capitalizedBank + '-Logo.png';
+}
+
+
+
+var closeRecent = document.getElementById("close");
+var moreRecentAccounts = document.getElementById("all-accounts-recent");
+var viewAll = document.getElementById("view-all-recent");
+closeRecent.addEventListener("click", function() {
+  moreRecentAccounts.style.display = "none";
+  closeRecent.style.display = "none";
+  viewAll.style.display = "flex";
+})
+
+
+
+
+</script>
+
+<script>
 window.addEventListener("DOMContentLoaded", function() {
   var recentPage = document.getElementById("recents");
  recentPage.click();
- 
- 
-
 
 });
-
-
-
 
 </script>
 
@@ -512,20 +681,20 @@ window.addEventListener("DOMContentLoaded", function() {
 
 
 <script>
-  document.getElementById("view-all").addEventListener("click", function() {
+document.getElementById("view-all").addEventListener("click", function() {
   document.getElementById("view-all").style.display = "none";
   document.getElementById("all-accounts").style.display = "flex";
-  });
-  
-  
-  document.getElementById("view-all-recent").addEventListener("click", function() {
 
+});
+
+
+document.getElementById("view-all-recent").addEventListener("click", function() {
   document.getElementById("view-all-recent").style.display = "none";
-
   document.getElementById("all-accounts-recent").style.display = "flex";
-  });
-  
-  
+  document.getElementById("close-recent").style.display = "block";
+});
+
+
 
   const recentsElement = document.getElementById("recents")
   const favouritesElement = document.getElementById("favourites")
@@ -580,8 +749,6 @@ document.getElementById('details').addEventListener('submit', function(event) {
    localStorage.setItem("recent-name", name.toUpperCase());
   
   
-  
-  
 
 // Get the selected bank value
 let selectedBank = document.getElementById('dropdownMenu').value.toLowerCase();
@@ -589,8 +756,6 @@ let selectedBank = document.getElementById('dropdownMenu').value.toLowerCase();
 let imageFilename = selectedBank.charAt(0).toUpperCase() + selectedBank.slice(1) + '-Logo.png';
 // Store the image filename in localStorage
 localStorage.setItem('bankLogo', imageFilename);
-
-
 
 
 
@@ -642,7 +807,7 @@ document.getElementById('dropdownMenu').addEventListener('change', function() {
     const dropdownMenuCode = dropdownMenu.options[dropdownMenu.selectedIndex].getAttribute('data-code');
 
     // Your secret key for Paystack's API (ensure this is kept private and secure)
-    const secretKey = 'sk_live_85e46d5a6da16aec07876f13b58f856467e6c121'; 
+    const secretKey = 'sk_test_f57000faee90dce3013f60b1fe1d1ece5f15372c'; 
 
     // Construct the API URL to resolve the bank account details
     const apiUrl = `https://api.paystack.co/bank/resolve?account_number=${accountNumber}&bank_code=${dropdownMenuCode}`;
@@ -734,35 +899,6 @@ document.getElementById('dropdownMenu').addEventListener('click', function() {
     });
 
     // Add event listener to account3
-    document.getElementById('account3-recent').addEventListener('click', function() {
-
-        fillDetails('2050181171', 'zenith', 'MASE-UTEN DOGARI YIASE');
-    });
-
-    // Add event listener to account4
-    document.getElementById('account4-recent').addEventListener('click', function() {
-        fillDetails('5330403346', 'fidelity', 'PAULINA HAMIDU MSHELIA');
-    });
-
-</script>
-
-
-
-
-
-<script>
-
-    // Add event listener to account2
-    document.getElementById('account2').addEventListener('click', function() {
-        fillDetails('5330403346', 'fidelity', 'PAULINA HAMIDU MSHELIA');
-    });
-
-</script>
-
-
-<script>
-
-    // Add event listener to account3
     document.getElementById('account3').addEventListener('click', function() {
         fillDetails('2050181171', 'zenith', 'MASE-UTEN DOGARI YIASE');
     });
@@ -778,6 +914,23 @@ document.getElementById('dropdownMenu').addEventListener('click', function() {
     });
 
     // Add similar event listeners for other accounts if needed
+
+
+  // Add event listener to #
+document.getElementById('account6-recent').addEventListener('click', function() {
+    var moreName6 = document.getElementById("more-name6").value;
+    moreName6 = parseInt(moreName6);
+    var moreAza6 = document.getElementById("more-aza-and-bank6").value;
+    var moreBank6 = document.getElementById("bank6").value;
+fillDetails('1615329474', 'access', 'BENJAMIN BULAMA ANAMJA');
+ 
+});
+
+
+
+
+
+
 </script>
 
 
