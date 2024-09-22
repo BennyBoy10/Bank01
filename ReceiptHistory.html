@@ -512,11 +512,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 Download.addEventListener("click", function() {
  if (inoutElement.innerHTML === `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`) {
-  InoutElement.innerHTML = `In: ₦${In} &nbsp;&nbsp; Out: ₦${Out}`;
+  InoutElement.innerHTML = `In: ₦${In}.00 &nbsp;&nbsp; Out: ₦${Out}.30`;
  }
 });
 The1.addEventListener("click", function() {
-  InoutElement.innerHTML = `In: ₦${formattedIn}.00 &nbsp;&nbsp; Out: ₦${formattedOut}.42`;
+  InoutElement.innerHTML = `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`;
 });
 
 
