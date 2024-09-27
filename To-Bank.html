@@ -797,6 +797,7 @@ function checkButtonState() {
 
 // Add event listener for name display update
 document.getElementById('dropdownMenu').addEventListener('change', function() {
+    document.getElementById('name').textContent = "Verifying account details";
     // Get the account number entered by the user
     const accountNumber = document.getElementById('aza').value;
 
