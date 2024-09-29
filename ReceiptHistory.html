@@ -518,7 +518,8 @@ Download.addEventListener("click", function() {
 The1.addEventListener("click", function() {
   InoutElement.innerHTML = `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`;
 });
-Download.click();
+InoutElement.innerHTML = `In: ₦${In}.00 &nbsp;&nbsp; Out: ₦${Out}.30`;
+}
 
 
 });
