@@ -497,7 +497,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const formattedOut = formatNumber(totalAmount.toFixed(2));
 
     // Update the inout element with the total amounts
-    inoutElement.innerHTML = `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`;
+    // inoutElement.innerHTML = `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`;
 
 
 
@@ -518,6 +518,7 @@ Download.addEventListener("click", function() {
 The1.addEventListener("click", function() {
   InoutElement.innerHTML = `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`;
 });
+Download.click();
 
 
 });
