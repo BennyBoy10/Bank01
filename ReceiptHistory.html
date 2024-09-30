@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+  <link rel="icon" type="image/png" href="Images/Opay-Logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="None">
 
@@ -11,254 +11,240 @@
 
     <style>
 
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    margin: 0;
-    padding: 0;
-  }
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  .container {
-    margin: 0 auto;
-    width: 340px;
-    padding: 7px;
-    border: 1px solid transparent;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: #F8F8FA;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.container {
+  margin: 0 auto;
+  width: 340px;
+  padding: 7px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #F8F8FA;
+}
 
 .top {
-  position: fixed;
-  top: 0;
-  width: 356px;
-  margin-left: -8px;
+position: fixed;
+display: flex;
+flex-direction: column;
+top: 0;
+width: 355px;
+margin-left: -8px;
+border-bottom: 1px solid grey;
+color: #000;
+background-color: #FFF;
+z-index: 1000;
+}
+.transaction-download {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 0px;
   background-color: #FFF;
-  z-index: 1000;
 }
-  .header {
-    display: flex;
-    text-align: center;
-    height: 90px;
-    margin: 10px 0;
-  }
-
-  .white-bg {
-    width: 340px;
-  }
-
-  .back {
-    margin-right: 210px;
-  }
-  #download {
-    position: relative;
-    cursor: pointer;
-    top: -35px;
-    left: 70px;
-    color: #00B875;
-  }
-
-  .categories {
-    display: flex;
-    cursor: pointer;
-    margin-left: -120px;
-    font-size: 15px;
-    color: #949494;
-  }
-  #all-status {
-    cursor: pointer;
-    margin-left: 80px;
-  }
-  .rotate, #rotate3 {
-   display: inline-block;
-   transform: rotate(90deg);
-  }
-
-#rotate3 {
-  margin-left: 5px;
-  transform: rotate(90deg);
-}
-
-.monthly-transaction {
-  width: 100%;
-  height: 70px;
-  z-index: 1000;
-}
-.monthly-transaction p {
-  cursor: pointer;
-}
-#month {
-  position: absolute;
-  margin-left: -325px;
-  margin-top: 90px;
+#transaction {
+  display: flex;
+  align-items: center;
   font-weight: bold;
-  cursor: pointer;
+  margin-left: 10px;
+  font-size: 16px;
 }
-#inout {
-  position: absolute;
-  margin-top: 120px;
-  margin-left: -325px;
-  font-size: 13px;
-  cursor: pointer;
+#transaction a {
+  font-weight: 500;
+  font-size: 20px;
+  margin-right: 10px;
 }
-.blend {
-  position: fixed;
-  margin-left: -8px;
-  width: 356px;
-  height: 160px;
-  border-bottom: 1px solid #8C8C8C;
-  background-color: #FFF;
-  z-index: 1;
+#download {
+  margin-left: 150px;
+  font-size: 16px;
+  color: #3BAE83;
 }
-.devider {
-  position: fixed;
-  margin-top: 85px;
-  width: 356px;
+.categories {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 295px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: -10px;
+  color: #8C8C8C;
+}
+#categories {
+  margin-left: 5px;
+}
+.space-top {
+  width: 355px;
   height: 10px;
   background-color: #F8F8FA;
-  z-index: 1;
+}
+.rotate {
+  display: inline-block;
+  transform: rotate(90deg);
+  font-weight: bold;
+}
+.monthly-transaction {
+  width: 355px;
+}
+#month {
+  margin-left: 15px;
+  font-weight: bold;
+}
+#inout {
+  margin-left: 15px;
+  font-size: 13px;
+  color: #8C8C8C;
 }
 
-  .receipt {
-    margin-bottom: 10px;
-    height: 60px;
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    background-color: #fff;
-  }
-  .truncate {
-    font-weight: bold;
-  }
-  #first-hr {
-    margin-top: -5px;
-    color: grey;
-    background-color: grey;
-    border: none;
-    height: 0.1px;
-  }
-  #seperator {
-    color: #f2f2f2;
-    background-color: #f2f2f2;
-    border: none;
-    height: 0.1px;
+
+
+
+
+
+
+.receipt {
+  margin-bottom: 10px;
+  height: 60px;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  background-color: #fff;
 }
-  .top {
-    display: flex;
-    align-items: center;
-  }
-  .top p {
-    margin-left: 34%;
-    font-size: 14px;
-  }
-  .top img {
-    margin-left: 20px;
-    width: 68px;
-    height: 20px;
-  }
-  .price {
-    text-align: center;
-  }
-  .price h3 {
-    color: #00B875;
-  }
-  .price #success {
-    margin-top: -8px;
-  }
-  .price #time {
-    margin-top: -8px;
-    font-size: 10px;
-    color: grey;
-  }
-  .trans-type {
-    font-size: 12px;
-  }
-  #trans-type, #money-sent {
-    display: inline-block;
-  }
-  #trans-type {
-    margin-left: 20px;
-    color: grey;
-  }
-  #money-sent {
-    margin-left: 43%;
-    font-weight: bold;
-  }#re-details, #re-name {
-    display: inline-block;
-  }
-  .re-details {
-    margin-top: -5px;
-    font-size: 12px;
-  }
-  #re-details {
-    margin-left: 20px;
-    color: grey;
-  }
-  #re-name {
-    float: right;
-    margin-right: 15px;
-    text-align: right;
-    font-weight: bold;
-  }
-  #re-aza {
-    margin-top: 1px;
-    margin-right: 15px;
-    direction: rtl;
-  }
-  
-  
-  #se-details, #se-name {
-    display: inline-block;
-  }
-  .se-details {
-    margin-top: -5px;
-    font-size: 12px;
-  }
-  #se-details {
-    margin-left: 20px;
-    color: grey;
-  }
-  #se-name {
-    margin-left: 17%;
-    font-weight: bold;
-  }
-  #se-aza {
-    margin-top: -5px;
-    margin-right: 17px;
-    text-align: right;
-  }
-  
-  
-  #trans-ref, #trans-ref1 {
-    margin-top: -3px;
-    display: inline-block;
-    color: grey;
-  }
-  .trans-ref {
-    font-size: 12px;
-  }
-  #trans-ref1 {
-    margin-left: 20px;
-  }
-  #trans-ref {
-    margin-left: 18%;
-  }
-  .trans-ref {
-    font-size: 12px;
-  }
-  .support {
-    font-size: 10px;
-    text-align: center;
-    color: grey;
-  }
-  
-  .extra {
-    margin-top: -20px;
-    padding: 20px;
-    font-size: 10px;
-  }
+.truncate {
+  font-weight: bold;
+}
+#first-hr {
+  margin-top: -5px;
+  color: grey;
+  background-color: grey;
+  border: none;
+  height: 0.1px;
+}
+#seperator {
+  color: #f2f2f2;
+  background-color: #f2f2f2;
+  border: none;
+  height: 0.1px;
+}
+.top {
+  display: flex;
+  align-items: center;
+}
+.top p {
+  margin-left: 34%;
+  font-size: 14px;
+}
+.top img {
+  margin-left: 20px;
+  width: 68px;
+  height: 20px;
+}
+.price {
+  text-align: center;
+}
+.price h3 {
+  color: #00B875;
+}
+.price #success {
+  margin-top: -8px;
+}
+.price #time {
+  margin-top: -8px;
+  font-size: 10px;
+  color: grey;
+}
+.trans-type {
+  font-size: 12px;
+}
+#trans-type, #money-sent {
+  display: inline-block;
+}
+#trans-type {
+  margin-left: 20px;
+  color: grey;
+}
+#money-sent {
+  margin-left: 43%;
+  font-weight: bold;
+}#re-details, #re-name {
+  display: inline-block;
+}
+.re-details {
+  margin-top: -5px;
+  font-size: 12px;
+}
+#re-details {
+  margin-left: 20px;
+  color: grey;
+}
+#re-name {
+  float: right;
+  margin-right: 15px;
+  text-align: right;
+  font-weight: bold;
+}
+#re-aza {
+  margin-top: 1px;
+  margin-right: 15px;
+  direction: rtl;
+}
+
+
+#se-details, #se-name {
+  display: inline-block;
+}
+.se-details {
+  margin-top: -5px;
+  font-size: 12px;
+}
+#se-details {
+  margin-left: 20px;
+  color: grey;
+}
+#se-name {
+  margin-left: 17%;
+  font-weight: bold;
+}
+#se-aza {
+  margin-top: -5px;
+  margin-right: 17px;
+  text-align: right;
+}
+
+
+#trans-ref, #trans-ref1 {
+  margin-top: -3px;
+  display: inline-block;
+  color: grey;
+}
+.trans-ref {
+  font-size: 12px;
+}
+#trans-ref1 {
+  margin-left: 20px;
+}
+#trans-ref {
+  margin-left: 18%;
+}
+.trans-ref {
+  font-size: 12px;
+}
+.support {
+  font-size: 10px;
+  text-align: center;
+  color: grey;
+}
+
+.extra {
+  margin-top: -20px;
+  padding: 20px;
+  font-size: 10px;
+}
 
 
 
@@ -266,102 +252,100 @@ body {
 
 
 
-  .recent-transaction {
-    margin-top: -5px;
-    height: 100px;
-    background-color: #fff;
-  }
-  .recent-transaction #the1 {
-    position: relative;
-    display: flex;
-    top: 5px;
-    left: 10px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-  }
-  .recent-transaction #p1 {
-    position: relative;
-    top: -42px;
-    left: 50px;
-    font-size: 12px;
-  }
-  #sentAmount {
-    margin-right: 60px;
-    font-size: 13px;
-    font-weight: bold;
-  }
-  #time {
-    position: relative;
-    left: 53px;
-    top: -40px;
-    margin-top: -8px;
-    font-size: 10px;
-    color: grey;
-  }
-  #trans-succ {
-    position: relative;
-    width: 51px;
-    left: 273px;
-    top: -63px;
-    padding: 0 3px;
-    border-radius: 5px;
-    font-size: 10px;
-    color: #00B875;
-    background-color: #DDF7EA;
-  }
+.recent-transaction {
+  margin-top: -5px;
+  height: 100px;
+  background-color: #fff;
+}
+.recent-transaction #the1 {
+  position: relative;
+  display: flex;
+  top: 5px;
+  left: 10px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.recent-transaction #p1 {
+  position: relative;
+  top: -42px;
+  left: 50px;
+  font-size: 12px;
+}
+#sentAmount {
+  margin-right: 60px;
+  font-size: 13px;
+  font-weight: bold;
+}
+#time {
+  position: relative;
+  left: 53px;
+  top: -40px;
+  margin-top: -8px;
+  font-size: 10px;
+  color: grey;
+}
+#trans-succ {
+  position: relative;
+  width: 51px;
+  left: 273px;
+  top: -63px;
+  padding: 0 3px;
+  border-radius: 5px;
+  font-size: 10px;
+  color: #00B875;
+  background-color: #DDF7EA;
+}
 
 
-  .flex-container {
-    display: flex; /* Use flexbox layout */
-    justify-content: space-between; /* Distribute space between name and price */
-    align-items: center; /* Align items vertically */
-    width: 100%; /* Ensure the container takes the full width */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-  }
+.flex-container {
+  display: flex; /* Use flexbox layout */
+  justify-content: space-between; /* Distribute space between name and price */
+  align-items: center; /* Align items vertically */
+  width: 100%; /* Ensure the container takes the full width */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
 
-  .truncate {
-    white-space: nowrap; /* Prevents wrapping to the next line */
-    overflow: hidden;    /* Hides overflow text */
-    text-overflow: ellipsis; /* Adds the "..." at the end */
-    flex: 1; /* Allows the name to take up available space */
-    margin-right: 5px; /* Adjust space between name and price */
-  }
+.truncate {
+  white-space: nowrap; /* Prevents wrapping to the next line */
+  overflow: hidden;    /* Hides overflow text */
+  text-overflow: ellipsis; /* Adds the "..." at the end */
+  flex: 1; /* Allows the name to take up available space */
+  margin-right: 5px; /* Adjust space between name and price */
+}
 
 
-  .clear {
-    display: flex;
-    justify-content: center;
-  }
-  #clearHistoryButton {
-    margin-top: 50px;
-    width: 150px;
-    height: 40px;
-    border-radius: 20px;
-    font-weight: bold;
-    border: 1px solid transparent;
-    background-color: #00B875;
-    color: #fff;
-  }
-  
-  .menu {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 340px;
-    height: 55px;
-    margin: 0 auto;
-    background-color: #000000;
-  }
-  
-  .menu img {
-    width: 100%;
-    height: 55px;
-    border-radius: 0px;
-  }
-  
-  
+.clear {
+  display: flex;
+  justify-content: center;
+}
+#clearHistoryButton {
+  margin-top: 50px;
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  background-color: #00B875;
+  color: #fff;
+}
+
+.menu {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  height: 55px;
+  margin: 0 auto;
+  background-color: #000000;
+}
+
+.menu img {
+  width: 100%;
+  height: 55px;
+  border-radius: 0px;
+}
 
 
     </style>
@@ -369,43 +353,28 @@ body {
 <body>
     <div class="container">
 
-      <div class="top">
-      <br><br>
-      <br>
-        <div class="header">
-          <div class="white-bg">
-<a href="index.html" class="back">&#x276E; &nbsp; Transactions</a>
+  <div class="top">
+ <div class="transaction-download">
+<p id="transaction"><a href="index.html">❮</a> Transactions</p>
 <p id="download">Download</p>
-
-    <div class="categories" style="margin-top: -30px;">
-<p id="categories">All Categories &nbsp; <span class="rotate" style="font-weight: bold;">&#x276F;</span></p>
-<p id="all-status">All Status &nbsp; <span class="rotate" style="font-weight: bold;">&#x276F;</span></p>
-        </div>
-        </div>
-        </div>
-<div class="devider"></div>
-
-<hr>
-
-      <div class="monthly-transaction">
-<p id="month">Current-Month</p>
-<p id="inout" style="color: gray;">In: ₦281,700.00 &nbsp; Out: ₦528,351.30</p>
-<hr>
-        </div>
-           </div>
-
-
-<div class="blend"></div>
-
-
+ </div>
+ <div class="categories">
+<p id="categories">All Categories &nbsp; <span class="rotate">&#x276F;</span></p>
+<p id="all-status">All Status &nbsp; <span class="rotate">&#x276F;</span></p>
+ </div>
+ <div class="space-top"></div>
+ <div class="monthly-transaction">
+<p id="month">Jan</p>
+<p id="inout">In: ₦781,463.00 &nbsp; Out: ₦928,351.30</p>
+ </div>
+  </div>
 
 <br><br>
 <br><br>
 <br><br>
 <br><br>
-<br>
+<br><br>
 
-        <hr id="first-hr">
     <div id="receiptsContainer"></div>
     
 
@@ -422,40 +391,25 @@ body {
 
 
 
-<script>
-
-  window.addEventListener("DOMContentLoaded", function() {
-    var In = localStorage.setItem("in", "742960");
-    var Out = localStorage.setItem("out", "928357");
-
-    var In = parseInt(localStorage.getItem("in"));
-    var In = In.toLocaleString();
-    var Out = parseInt(localStorage.getItem("out"));
-    var Out = Out.toLocaleString();
-
-    var inAndOutPar = document.getElementById("inout");
-    inAndOutPar.innerHTML = `In: ₦${In}.00 &nbsp; Out: ₦${Out}.30`;
-
-
-
-  });
-
-
-</script>
-
-
 
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+
+document.addEventListener("DOMContentLoaded", function() {
     const receipts = JSON.parse(localStorage.getItem("receipts")) || [];
     const receiptsContainer = document.getElementById("receiptsContainer");
+    const inoutElement = document.getElementById("inout");
+    let totalAmount = 0;
 
     if (receipts.length === 0) {
         receiptsContainer.innerHTML = '<p>No transactions found.</p>';
         return;
     }
+
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth(); // 0-based (0 = January)
 
     receipts.reverse();
 
@@ -465,28 +419,84 @@ body {
 
         // Encode URI components for safety
         const recipient = encodeURIComponent(receipt.recipient);
-        const amount = encodeURIComponent(receipt.amount);
-        const date = encodeURIComponent(receipt.date);
+        let amountText = receipt.amount;
+        const date = receipt.date; // Keep the original date for parsing
         const bank = encodeURIComponent(receipt.bank);
         const account = encodeURIComponent(receipt.account);
         const reference = encodeURIComponent(receipt.refNo);
         const sessionID = encodeURIComponent(receipt.sessionID);
 
+        // Parse the date string into a Date object
+        const transactionDate = new Date(date);
+
+        // Append the receipt to the container regardless of the date
         receiptElement.innerHTML = `
             <div class="recent-transaction" id="recent-transaction">
                 <hr id="seperator">
                 <img src="Images/Recent-Transaction-Send.jpg" id="the1">
                 <p id="p1" class="flex-container">
-                    <a href="Individual-Receipt.html?recipient=${recipient}&amount=${amount}&date=${date}&bank=${bank}&account=${account}&refNo=${reference}&sessionID=${sessionID}" class="truncate">Transfer to ${receipt.recipient}</a>
-                    <span id="sentAmount">-₦ ${receipt.amount}</span>
+                    <a href="Individual-Receipt.html?recipient=${recipient}&amount=${amountText}&date=${encodeURIComponent(date)}&bank=${bank}&account=${account}&refNo=${reference}&sessionID=${sessionID}" class="truncate">Transfer to ${receipt.recipient}</a>
+                    <span id="sentAmount">-₦ ${amountText}</span>
                 </p>
-                <p id="time">${receipt.date}</p>
+                <p id="time">${date}</p>
                 <p id="trans-succ">Successful</p>
             </div>
         `;
+
+        // Check if the transaction date is in the current month and year for summing
+        if (transactionDate.getFullYear() === currentYear && transactionDate.getMonth() === currentMonth) {
+            // Clean up the amountText by removing the "₦", commas, and spaces
+            let cleanedAmount = amountText.replace(/[₦, ]/g, '').replace(/^-/, '');
+            cleanedAmount = parseFloat(cleanedAmount);
+
+            // Add to totalAmount only if it's a valid number
+            if (!isNaN(cleanedAmount)) {
+                totalAmount += cleanedAmount;
+            }
+        }
+
         receiptsContainer.appendChild(receiptElement);
     });
+
+    function formatNumber(number) {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    const fortyThreePercent = (totalAmount * 0.43).toFixed(2);
+    const formattedIn = formatNumber(fortyThreePercent);
+    const formattedOut = formatNumber(totalAmount.toFixed(2));
+
+    // Update the inout element with the total amounts
+    inoutElement.innerHTML = `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`;
+
+
+
+  var In = parseInt(localStorage.getItem("in"));
+  var In = In.toLocaleString();
+  var Out = parseInt(localStorage.getItem("out"));
+  var Out = Out.toLocaleString();
+
+ var InoutElement = document.getElementById("inout");
+ var Download = document.getElementById("download");
+ var The1 = document.getElementById("the1");
+
+Download.addEventListener("click", function() {
+ if (inoutElement.innerHTML === `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`) {
+  InoutElement.innerHTML = `In: ₦${In} &nbsp;&nbsp; Out: ₦${Out}`;
+ }
 });
+The1.addEventListener("click", function() {
+  InoutElement.innerHTML = `In: ₦${formattedIn} &nbsp;&nbsp; Out: ₦${formattedOut}`;
+});
+
+
+});
+
+
+
+
+
+
 
 
   document.addEventListener("DOMContentLoaded", function() {
@@ -494,7 +504,7 @@ body {
       const now = new Date();
       const monthIndex = now.getMonth();
       const currentMonth = months[monthIndex];
-      document.getElementById("month").innerHTML = `${currentMonth} <span id="rotate3"> &#x276F; </span>`;
+      document.getElementById("month").innerHTML = `${currentMonth} <span class="rotate"> &#x276F; </span>`;
   });
   </script>
 
