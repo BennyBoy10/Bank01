@@ -9,7 +9,6 @@
     
   <style>
 
-
 body {
   font-family: Arial, sans-serif;
   background-color: #fff;
@@ -43,17 +42,6 @@ a {
 #history {
   color: #00B875;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .free-transfer img {
   width: 350px;
@@ -236,14 +224,6 @@ button:hover {
   flex-direction: column;
 }
 
-
-
-
-
-
-
-
-
 .more-accounts {
   display: block;
   width: 100%;
@@ -284,11 +264,6 @@ button:hover {
 .accounts-recent3 {
   margin-left: 20px;
 }
-
-
-
-
-
 
 
 .accounts {
@@ -360,7 +335,21 @@ button:hover {
   background-color: #F8F8FA;
 }
 
-
+.close-all {
+  margin-top: -15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 7px;
+  background-color: #fff;
+}
+.close-all p {
+  padding: 5px;
+  border-radius: 15px;
+  color: #a2a2a2;
+  background-color: #F8F8FA;
+}
 
 
 .close {
@@ -389,9 +378,6 @@ button:hover {
   height: 30px;
 }
 
-
-
-
   </style>
     
 </head>
@@ -408,15 +394,13 @@ button:hover {
   </div>
   
   <div class="aza">
-   <p><b>Recipient Account</b></p>
+<p><b>Recipient Account</b></p>
   
     <form id="details">  
- <input type="tel" id="aza" name="aza" maxlength="10" placeholder="Enter 10 digits Account Number"><br>
+<input type="tel" id="aza" name="aza" maxlength="10" placeholder="Enter 10 digits Account Number"><br>
 
  <select id="dropdownMenu" name="dropdownMenu">
-    
  <option value="Select Bank">Select Bank</option>
-
 <option value="access" data-code="044">Access Bank</option>
 <option value="carbon" data-code="565">Carbon</option>
 <option value="diamond" data-code="063">Diamond Bank</option>
@@ -447,97 +431,97 @@ button:hover {
 
 <!--<input type="text" id="name" name="name" class="nameI" style="display: none;">-->
 <p id="name" name="name" class="nameP"></p>
+<br>
 
-
-
-      <br>
-    <div class="button-container">
+  <div class="button-container">
 <button type="submit" id="submit">Next</button>     
-                </div>
+  </div>
 </form>
-        </div>
+  </div>
           
 
    <div class="traffic-monitor">
-<img src="Images/Traffic-Monitor.jpg" id="traffic-monitor">       <br></br>      </div>
+<img src="Images/Traffic-Monitor.jpg" id="traffic-monitor">
+<br></br>
+  </div>
 
-      <div class="recents">
+    <div class="recents">
 <p id="recents">Recents</p>&nbsp;
 <p id="favourites" style="color: #03B776;">Favourites</p>
 <p style="margin-left: 110px;">🔍</p>  
-            </div>
+  </div>
 
-   <hr>
+<hr>
 
   <div class="recent-accounts" id="recent-accounts">
 <p id="no-account">No recent accounts!</p>
-<div class="more-accounts-recent" id="more-accounts-recent">
-        <a href="#" id="account1-recent">
-      <div class="accounts-recent">
-  <p id="more-name1">BENJAMIN BULAMA ANAMJA</p>
-  <p id="more-aza-and-bank1" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">2029506660 &nbsp;Kuda</p>
-  <img src="Images/Kuda-Logo.png" id="more-bank-image1">
-             </div>
-             </a>
- <hr>
-  <a href="#" id="account2-recent">
-      <div class="accounts2-recent">
-  <p id="more-name2">ABUBAKAR GARBA PROVISION</p>
-  <p id="more-aza-and-bank2" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5454074149 &nbsp;MoniePoint</p>
-  <img src="Images/Moniepoint-Logo.png" id="more-bank-image2">
-               </div>
-               </a>
+ <div class="more-accounts-recent" id="more-accounts-recent">
+<a href="#" id="account1-recent">
+  <div class="accounts-recent">
+<p id="more-name1">BENJAMIN BULAMA ANAMJA</p>
+<p id="more-aza-and-bank1" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;"><span id="more-aza1">2029506660</span> &nbsp; <span id="more-bank1">kuda</span></p>
+<img src="Images/Kuda-Logo.png" id="more-bank-image1">
+  </div>
+  </a>
+
 <hr>
-        <a href="#" id="account3-recent">
-    <div class="accounts3-recent">
-  <p id="more-name3">MASE-UTEN DOGARI YIASE</p>
-  <p id="more-aza-and-bank3" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">2050181171 &nbsp;Zenith Bank</p>
-  <img src="Images/Zenith-Logo.png" id="more-bank-image3">
-             </div>
-             </a>
-  <hr>           
-       <div class="view-all-recent" id="view-all-recent">
-      <p>View All ></p>  
-              </div>
-             <br>
+
+<a href="#" id="account2-recent">
+  <div class="accounts2-recent">
+<p id="more-name2">ABUBAKAR GARBA PROVISION</p>
+<p id="more-aza-and-bank2" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;"><span id="more-aza2">5454074149</span> &nbsp; <span id="more-bank2">moniepoint</span></p>
+<img src="Images/Moniepoint-Logo.png" id="more-bank-image2">
+  </div>
+  </a>
+<hr>
+
+<a href="#" id="account3-recent">
+  <div class="accounts3-recent">
+<p id="more-name3">MASE-UTEN YIASE DOGARI</p>
+<p id="more-aza-and-bank3" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;"><span id="more-aza3">2050181171</span> &nbsp; <span id="more-bank3">zenith</span></p>
+<img src="Images/Zenith-Logo.png" id="more-bank-image3">
+  </div>
+  </a>
+<hr>           
+  <div class="view-all-recent" id="view-all-recent">
+<p>View All ></p>  
+  </div>
+<br>
 
 
   <div id="all-accounts-recent">
-  <a href="#" id="account4-recent">  
-      <div class="accounts-recent">
-  <p id="more-name4">PAULINA HAMIDU MSHELIA</p>
-  <p id="more-aza-and-bank4" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5330403346 &nbsp;Fidelity Bank</p>
-  <img src="Images/Fidelity-Logo.png" id="more-bank-image4">
-             </div>
-             </a> 
+<a href="#" id="account4-recent">  
+  <div class="accounts-recent">
+<p id="more-name4">PAULINA HAMIDU MSHELIA</p>
+<p id="more-aza-and-bank4" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;"><span id="more-aza4">5330403346</span> &nbsp; <span id="more-bank4">fidelity</span></p>
+<img src="Images/Fidelity-Logo.png" id="more-bank-image4">
+  </div>
+  </a> 
 
 
-  <a href="#" id="account5-recent">  
-      <div class="accounts-recent2">
-  <p id="more-name5">PAULINA HAMIDU MSHELIA</p>
-  <p id="more-aza-and-bank5" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5330403346 &nbsp;Fidelity Bank</p>
-  <img src="Images/Kuda-Logo.png" id="more-bank-image5">
-             </div>
-             </a> 
+<a href="#" id="account5-recent">  
+  <div class="accounts-recent2">
+<p id="more-name5">PAULINA HAMIDU MSHELIA</p>
+<p id="more-aza-and-bank5" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;"><span id="more-aza5">5330403346</span> &nbsp; <span id="more-bank5">fidelity</span></p>
+<img src="Images/Kuda-Logo.png" id="more-bank-image5">
+  </div>
+  </a> 
 
 
-  <a href="#" id="account6-recent">  
-      <div class="accounts-recent3">
-  <p id="more-name6">PAULINA HAMIDU MSHELIA</p>
-  <p id="more-aza-and-bank6" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;">5330403346 &nbsp;<span id="bank6">Fidelity Bank</span></p>
-  <img src="Images/Kuda-Logo.png" id="more-bank-image6">
-             </div>
-             </a> 
-
-
-             </div>
-    <div class="close" id="close-recent">
-<p id="close">&nbsp; Close &#x276F;</p>
-    </div>
-              </div>
+<a href="#" id="account6-recent">  
+  <div class="accounts-recent3">
+<p id="more-name6">PAULINA HAMIDU MSHELIA</p>
+<p id="more-aza-and-bank6" style="color: #a2a2a2; margin-top: -10px; font-size: 13px;"><span id="more-aza6">5330403346</span> &nbsp; <span id="more-bank6">fidelity</span></p>
+<img src="Images/Kuda-Logo.png" id="more-bank-image6">
+  </div>
+  </a> 
 
   </div>
-
+<div class="close" id="close-recent">
+<p id="close">&nbsp; Close &#x276F;</p>
+  </div>
+  </div>
+  </div>
 
 
   <div class="more-accounts" id="more-accounts">
@@ -561,7 +545,7 @@ button:hover {
 
 <a href="#" id="account3">
   <div class="accounts3">
-<p id="fav-name3">MASE-UTEN DOGARI YIASE</p>
+<p id="fav-name3">MASE-UTEN YIASE DOGARI</p>
 <p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;"><span id="fav-aza3">2050181171</span> &nbsp; <span id="fav-bank3">zenith</span></p>
 <img src="Images/Zenith-Logo.png" id="fav-image3">
   </div>
@@ -569,10 +553,10 @@ button:hover {
 <hr>   
 
      
-       <div class="view-all" id="view-all">
-      <p>View All ></p>  
-              </div>
-             <br>
+  <div class="view-all" id="view-all">
+<p>View All ></p>  
+  </div>
+<br>
 
   <div id="all-accounts">
 <a href="#" id="account4">
@@ -582,20 +566,33 @@ button:hover {
 <img src="Images/Moniepoint-Logo.png" id="fav-image4">
   </div>
   </a>
- <div>
+<hr>
+
+<a href="#" id="account5">
+ <div class="accounts">
+<p id="fav-name5">Abdullah Ibrahim</p>
+<p style="color: #a2a2a2; margin-top: -10px; font-size: 13px;"><span id="fav-aza5">5377224410</span> &nbsp; <span id="fav-bank5">moniepoint</span></p>
+<img src="Images/Moniepoint-Logo.png" id="fav-image5">
   </div>
+  </a>
+
+
+  <div class="close-all" id="close-all">
+<p>Close ></p>  
+  </div>
+<br>
 
 <br></br>
 <br></br>
 </div>
 
 
-<script></script>
+
 
 <script>
 window.addEventListener("DOMContentLoaded", function() {
   var recentPage = document.getElementById("recents");
- //recentPage.click();
+ recentPage.click();
 });
 </script>
 
@@ -603,10 +600,15 @@ window.addEventListener("DOMContentLoaded", function() {
 <script>
 document.getElementById("view-all").addEventListener("click", function() {
   document.getElementById("view-all").style.display = "none";
-  document.getElementById("all-accounts").style.display = "flex";
-
+  document.getElementById("all-accounts").style.display = "block";
 });
 
+document.getElementById("close-all").addEventListener("click", function() {
+  document.getElementById("close-all").style.display = "none";
+  document.getElementById("all-accounts").style.display = "none";
+  document.getElementById("view-all").style.display = "flex";
+
+});
 
 document.getElementById("view-all-recent").addEventListener("click", function() {
   document.getElementById("view-all-recent").style.display = "none";
@@ -614,7 +616,14 @@ document.getElementById("view-all-recent").addEventListener("click", function() 
   document.getElementById("close-recent").style.display = "block";
 });
 
-
+var closeRecent = document.getElementById("close");
+var moreRecentAccounts = document.getElementById("all-accounts-recent");
+var viewAll = document.getElementById("view-all-recent");
+closeRecent.addEventListener("click", function() {
+  moreRecentAccounts.style.display = "none";
+  closeRecent.style.display = "none";
+  viewAll.style.display = "flex";
+});
 
   const recentsElement = document.getElementById("recents")
   const favouritesElement = document.getElementById("favourites")
@@ -628,17 +637,12 @@ document.getElementById("view-all-recent").addEventListener("click", function() 
     recentAccountElement.style.display = "flex";
   });
   
-  
   favouritesElement.addEventListener("click", function(){
     favouritesElement.style.color = "#03B776";
     recentsElement.style.color = "#000";
     moreAccountElement.style.display = "inherit";
     recentAccountElement.style.display = "none";
   });
-  rece
-
-
-
 
 </script>
 
@@ -752,7 +756,6 @@ document.getElementById('dropdownMenu').addEventListener('click', function() {
 });
 </script>
 
-
 <script>
   //ACCOUNT 1
 // Function to set input values
@@ -796,17 +799,64 @@ document.getElementById('account4').addEventListener('click', function() {
 fillDetails(favAza, favBank, favName);
 });
 
+// Add event listener to account5
+document.getElementById('account5').addEventListener('click', function() {
+  var favAza = document.getElementById("fav-aza5").textContent;
+  var favBank = document.getElementById("fav-bank5").textContent;
+  var favName = document.getElementById("fav-name5").textContent;
+fillDetails(favAza, favBank, favName);
+});
 
+// Add event listener to recentAccount1
+document.getElementById('account1-recent').addEventListener('click', function() {
+  var recentAza = document.getElementById("more-aza1").textContent;
+  var recentBank = document.getElementById("more-bank1").textContent;
+  var recentName = document.getElementById("more-name1").textContent;
+fillDetails(recentAza, recentBank, recentName);
+});
 
+// Add event listener to recentAccount2
+document.getElementById('account2-recent').addEventListener('click', function() {
+  var recentAza = document.getElementById("more-aza2").textContent;
+  var recentBank = document.getElementById("more-bank2").textContent;
+  var recentName = document.getElementById("more-name2").textContent;
+fillDetails(recentAza, recentBank, recentName);
+});
 
+// Add event listener to recentAccount3
+document.getElementById('account3-recent').addEventListener('click', function() {
+  var recentAza = document.getElementById("more-aza3").textContent;
+  var recentBank = document.getElementById("more-bank3").textContent;
+  var recentName = document.getElementById("more-name3").textContent;
+fillDetails(recentAza, recentBank, recentName);
+});
 
+// Add event listener to recentAccount4
+document.getElementById('account4-recent').addEventListener('click', function() {
+  var recentAza = document.getElementById("more-aza4").textContent;
+  var recentBank = document.getElementById("more-bank4").textContent;
+  var recentName = document.getElementById("more-name4").textContent;
+fillDetails(recentAza, recentBank, recentName);
+});
 
+// Add event listener to recentAccount5
+document.getElementById('account5-recent').addEventListener('click', function() {
+  var recentAza = document.getElementById("more-aza5").textContent;
+  var recentBank = document.getElementById("more-bank5").textContent;
+  var recentName = document.getElementById("more-name5").textContent;
+fillDetails(recentAza, recentBank, recentName);
+});
 
+// Add event listener to recentAccount6
+document.getElementById('account6-recent').addEventListener('click', function() {
+  var recentAza = document.getElementById("more-aza6").textContent;
+  var recentBank = document.getElementById("more-bank6").textContent;
+  var recentName = document.getElementById("more-name6").textContent;
+fillDetails(recentAza, recentBank, recentName);
+});
+  </script>
 
-
-
-
-
+  <script>
 
 // Retrieve the saved data from localStorage
 let recentNames = JSON.parse(localStorage.getItem('recentName')) || [];
@@ -835,22 +885,28 @@ if (recentNames.length > 5) {
 
 
 if (recentBanks.length > 0 && recentAzas.length > 0) {
-  document.getElementById('more-aza-and-bank1').textContent = recentAzas[recentAzas.length - 1] + ' ' + recentBanks[recentBanks.length - 1];
+  document.getElementById('more-aza1').textContent = recentAzas[recentAzas.length - 1];
+  document.getElementById('more-bank1').textContent = recentBanks[recentBanks.length - 1];
 }
 if (recentBanks.length > 1 && recentAzas.length > 1) {
-  document.getElementById('more-aza-and-bank2').textContent = recentAzas[recentAzas.length - 2] + ' ' + recentBanks[recentBanks.length - 2];
+  document.getElementById('more-aza2').textContent = recentAzas[recentAzas.length - 2];
+  document.getElementById('more-bank2').textContent = recentBanks[recentBanks.length - 2];
 }
 if (recentBanks.length > 2 && recentAzas.length > 2) {
-  document.getElementById('more-aza-and-bank3').textContent = recentAzas[recentAzas.length - 3] + ' ' + recentBanks[recentBanks.length - 3];
+  document.getElementById('more-aza3').textContent = recentAzas[recentAzas.length - 3];
+  document.getElementById('more-bank3').textContent = recentBanks[recentBanks.length - 3];
 }
 if (recentBanks.length > 3 && recentAzas.length > 3) {
-  document.getElementById('more-aza-and-bank4').textContent = recentAzas[recentAzas.length - 4] + ' ' + recentBanks[recentBanks.length - 4];
+  document.getElementById('more-aza4').textContent = recentAzas[recentAzas.length - 4];
+  document.getElementById('more-bank4').textContent = recentBanks[recentBanks.length - 4];
 }
 if (recentBanks.length > 4 && recentAzas.length > 4) {
-  document.getElementById('more-aza-and-bank5').textContent = recentAzas[recentAzas.length - 5] + ' ' + recentBanks[recentBanks.length - 5];
+  document.getElementById('more-aza5').textContent = recentAzas[recentAzas.length - 5];
+  document.getElementById('more-bank5').textContent = recentBanks[recentBanks.length - 5];
 }
 if (recentBanks.length > 5 && recentAzas.length > 5) {
-  document.getElementById('more-aza-and-bank6').textContent = recentAzas[recentAzas.length - 6] + ' ' + recentBanks[recentBanks.length - 6];
+  document.getElementById('more-aza6').textContent = recentAzas[recentAzas.length - 6];
+  document.getElementById('more-bank6').textContent = recentBanks[recentBanks.length - 4];
 }
 
 
@@ -884,45 +940,7 @@ if (recentBanks.length > 4) {
   let capitalizedBank = latestBank.charAt(0).toUpperCase() + latestBank.slice(1);
  document.getElementById('more-bank-image6').src = 'Images/' + capitalizedBank + '-Logo.png';
 }
-
-
-
-var closeRecent = document.getElementById("close");
-var moreRecentAccounts = document.getElementById("all-accounts-recent");
-var viewAll = document.getElementById("view-all-recent");
-closeRecent.addEventListener("click", function() {
-  moreRecentAccounts.style.display = "none";
-  closeRecent.style.display = "none";
-  viewAll.style.display = "flex";
-})
-
-
-
-
-
-
-
-
-window.addEventListener("DOMContentLoaded", function() {
-  var moreRecentAccounts = document.getElementById("view-all-recent");
- moreRecentAccounts.click();
-});
-
-
-
-
-
-
-
-
-
-
-
-
-</script>
-
-
-
+  </script>
 
 </body>
 </html>
