@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+  <link rel="icon" type="image/png" href="Images/Opay-Logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="None">
 
@@ -11,349 +11,346 @@
 
   <style>
 
-
 body {
-   font-family: Arial, sans-serif;
-   background-color: #fff;
-   margin: 0;
-   padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  background-color: #000;
+  margin: 0;
+  padding: 0;
 }
 .container {
-  margin: 0 auto;
-  width: 340px;
-  padding: 7px;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  background-color: #F8F8FA;
+ margin: 0 auto;
+ width: 340px;
+ padding: 7px;
+ border: 1px solid transparent;
+ border-radius: 8px;
+ background-color: #F8F8FA;
 }
-.profile-pic {
+.top {
+  position: fixed;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: -8px;
+  margin-top: -27px;
+  padding-top: 10px;
+  padding-right: 10px;
+  width: 344px;
+  background-color: #F8F8FA;
+  z-index: 1000;
 }
-.profile-pic img {
-  margin-left: 1px;
-  margin-top: 0px;
-  width: 30px;
-  height: 30px;
-  border: 0;
-  border-radius: 50px;
-  cursor: pointer;
+.person-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#profile-picture {
+ margin-left: 5px;
+ width: 30px;
+ height: 30px;
+ border-radius: 50%;
+ cursor: pointer;
 }
 #greetings {
   margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 30px;
-  margin-bottom: 20px;
-  font-size: 15px;
+  margin-left: 7px;
+ font-size: 15px;
 }
 .support-buttons img {
- position: absolute;
- margin-left: 40px;
- margin-top: -10px;
- width: 140px;
- height: 40px;
- cursor: pointer;
+width: 140px;
+height: 40px;
+cursor: pointer;
 }
+
 .balance {
-  width: 320px;
-  height: 85px;
-  padding: 1px 10px;
-  border-radius: 10px;
-  font-size: 13px;
-  color: #fff;
-  background-color: #00B875;
+ width: 320px;
+ height: 85px;
+ padding: 1px 10px;
+ border-radius: 10px;
+ font-size: 13px;
+ color: #fff;
+ background-color: #00B875;
+}
+.available-balance {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#eye-icon, #transactionHistory {
+  cursor: pointer;
+}
+.balance-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -13px;
+  padding-left: 10px;
 }
 .add {
-  position: relative;
+  padding: 5px;
   width: 100px;
   height: 30px;
-  top: -45px;
-  left: 212px;
-  border-radius: 15px;
-  font-weight: bold;
-  align-content: center;
-  text-align: center;
-  cursor: pointer;
-  color: #00B875;
-  background-color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  color: #009B62;
+  background-color: #FFF;
 }
-.add p {
-margin-top: 8px;
+.add:hover {
+  border: 1px solid #FFF;
+  color: #FFF;
+  background-color: grey;
 }
-
-
-
-
-
-
-
 
 .priceBox {
-  display: none;
-  position: fixed;
-  margin-left: -12px;
-  padding-left: 15px;
-  padding-right: 15px;
-  width: 325px;
-  height: 255px;
-  bottom: 0;
-  border-radius: 10px 10px 0 0;
-  background-color: #F8F8FA;
-  z-index: 1001;
+ display: none;
+ position: fixed;
+ margin-left: -12px;
+ padding-left: 15px;
+ padding-right: 15px;
+ width: 325px;
+ height: 255px;
+ bottom: 0;
+ border-radius: 10px 10px 0 0;
+ background-color: #F8F8FA;
+ z-index: 1001;
 }
 #price-top {
-  text-align: center;
-  font-weight: bold;
+ text-align: center;
+ font-weight: bold;
 }
 
 #x {
-  position: absolute;
-  right: 10px;
-  cursor: pointer;
+ position: absolute;
+ right: 10px;
+ cursor: pointer;
 }
 #naira-sign {
-  position: absolute;
-  margin-top: 7px;
-  margin-left: -228px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #17B286;
+ position: absolute;
+ margin-top: 7px;
+ margin-left: -228px;
+ font-size: 20px;
+ font-weight: bold;
+ color: #17B286;
 }
 .input-field {
-  display: flex;
-  justify-content: center;
+ display: flex;
+ justify-content: center;
 }
 #add-price {
-  width: 200px;
-  height: 35px;
-  font-size: 22px;
-  text-align: center;
-  font-weight: bold;
-  letter-spacing: px;
-  border: 1px solid gray;
-  border-radius: 10px;
-  background-color: #F8F8FA;
+ width: 200px;
+ height: 35px;
+ font-size: 22px;
+ text-align: center;
+ font-weight: bold;
+ letter-spacing: px;
+ border: 1px solid gray;
+ border-radius: 10px;
+ background-color: #F8F8FA;
 }
 #add-price:focus {
-  border: 1px solid black;
-  outline: none;
+ border: 1px solid black;
+ outline: none;
 }
 #add-price::placeholder {
-  font-size: 14px;
+ font-size: 14px;
 }
 #immediate-payment {
-  text-align: center;
-  font-size: 13px;
-  color: #8C8C8C;
-  cursor: pointer;
+ text-align: center;
+ font-size: 13px;
+ color: #8C8C8C;
+ cursor: pointer;
 }
 
 .button-confirm {
-  display: flex;
-  justify-content: center;
+ display: flex;
+ justify-content: center;
 }
- button {
-  margin-top: 10px;
-   width: 220px;
-   height: 45px;
-   border-radius: 25px;
-   font-size: 19px;
-   font-weight: bold;
-   border: 1px solid transparent;
-   color: #fff;
-   background-color: #00B875;
+button {
+ margin-top: 10px;
+  width: 220px;
+  height: 45px;
+  border-radius: 25px;
+  font-size: 19px;
+  font-weight: bold;
+  border: 1px solid transparent;
+  color: #fff;
+  background-color: #00B875;
 }
 button:hover {
-  cursor: pointer;
-  background-color: #17B286;
+ cursor: pointer;
+ background-color: #17B286;
 }
 #invalid-price {
-  display: none;
-  margin: 0 auto;
-  margin-top: 10px;
-  width: 110px;
-  border-radius: 7px;
-  color: red;
-  background-color: #E1F5EA;
-  cursor: pointer;
+ display: none;
+ margin: 0 auto;
+ margin-top: 10px;
+ width: 110px;
+ border-radius: 7px;
+ color: red;
+ background-color: #E1F5EA;
+ cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .recent-transaction {
   display: none;
-  margin-top: -5px;
-  height: 100px;
-  background-color: #fff;
+  padding: 1px;
+  background-color: #FFF;
 }
-.recent-transaction #the1 {
-  position: absolute;
+.recent-transaction1 {
   display: flex;
-  margin-top: 8px;
-  margin-left: 5px;
+  background-color: #FFF;
+}
+#the1 {
   width: 40px;
   height: 40px;
   cursor: pointer;
 }
-.recent-transaction #the2 {
-  position: absolute;
+.person1-details {
   display: flex;
-  margin-top: 53px;
-  margin-left: 5px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 340px;
+  padding-right: 5px;
 }
 
-
-#recipient1 {
-  display: inline-block; /* Allow width to be set */
-  max-width: calc(100% - 10px); /* Adjust the max-width to account for sentAmount1 width */
-  white-space: nowrap; /* Prevent wrapping */
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Show ellipsis when text overflows */
-}
-
-#sentAmount1 {
-  white-space: nowrap; /* Prevent wrapping */
-}
-#recipient2 {
-  display: inline-block; /* Allow width to be set */
-  max-width: calc(100% - 10px); /* Adjust the max-width to account for sentAmount1 width */
-  white-space: nowrap; /* Prevent wrapping */
-  overflow: hidden; /* Hide overflow */
-  text-overflow: ellipsis; /* Show ellipsis when text overflows */
-}
-
-#sentAmount2 {
-  white-space: nowrap; /* Prevent wrapping */
-}
-
-
-.recent-transaction #p1 {
-  position: absolute;
-  margin-top: 11px;
-  margin-left: 45px;
+#p1 {
+  margin-top: 5px;
+  max-width: 200px;
   font-size: 12px;
-}
-.recent-transaction #p2 {
-  position: absolute;
-  margin-top: 58px;
-  margin-left: 45px;
-  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;   /* Prevents the text from wrapping */
+  text-overflow: ellipsis; /* Adds the three dots when the text is too long */
 }
 #sentAmount1 {
-  position: absolute;
-  margin-top: 9px;
-  margin-left: 260px;
-  font-size: 13px;
+  margin-top: 5px;
+  font-size: 12px;
   font-weight: bold;
 }
-#sentAmount2 {
-  position: absolute;
-  margin-top: 0px;
-  margin-left: -8px;
-  font-size: 13px;
-  font-weight: bold;
+.time-successful1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -25px;
+  margin-left: 40px;
+  width: 290px;
 }
 #time1 {
-  position: absolute;
-  margin-top: 30px;
-  margin-left: 45px;
   font-size: 10px;
-  color: grey;
+  color: #8C8C8C;
+}
+#trans-succ1 {
+  font-size: 10px;
+  padding: 0 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  color: #00B875;
+  background-color: #DDF7EA;
+}
+
+ .recent-transaction2 {
+  display: flex;
+  background-color: #FFF;
+}
+#the2 {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.person2-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 340px;
+  padding-right: 5px;
+}
+
+#p2 {
+  margin-top: 5px;
+  max-width: 200px;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;   /* Prevents the text from wrapping */
+  text-overflow: ellipsis; /* Adds the three dots when the text is too long */
+}
+#sentAmount2 {
+  margin-top: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.time-successful2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -25px;
+  margin-left: 40px;
+  width: 290px;
 }
 #time2 {
-  position: absolute;
-  margin-left: 45px;
-  margin-top: 77px;
   font-size: 10px;
-  color: grey;
-}
-#trans-succ {
-  position: absolute;
-  width: 51px;
-  margin-left: 268px;
-  margin-top: 28px;
-  padding: 0 3px;
-  border-radius: 5px;
-  font-size: 10px;
-  color: #00B875;
-  background-color: #DDF7EA;
+  color: #8C8C8C;
 }
 #trans-succ2 {
-  position: absolute;
-  width: 51px;
-  margin-left: 268px;
-  margin-top: 78px;
-  padding: 0 3px;
+  font-size: 10px;
+  padding: 0 5px;
   border-radius: 5px;
   font-size: 10px;
   color: #00B875;
   background-color: #DDF7EA;
 }
+
 .transfer {
-  display: flex;
-  margin-top: 7px;
-  width: 340px;
-  height: 80px;
-  border-radius: 15px;
-  cursor: pointer;
-  background-color: #fff;
+ display: flex;
+ margin-top: 7px;
+ width: 340px;
+ height: 80px;
+ border-radius: 15px;
+ cursor: pointer;
+ background-color: #fff;
 }
 .waste {
-  margin-top: 7px;
-  width: 340px;
-  height: 165px;
-  border-radius: 15px;
-  background-color: #fff;
+ margin-top: 7px;
+ width: 340px;
+ height: 165px;
+ border-radius: 15px;
+ background-color: #fff;
 }
 .waste img {
-  margin: 0px;
-  width: 340px;
-  height: 165px;
-  border-radius: 7px;
-  cursor: pointer;
+ margin: 0px;
+ width: 340px;
+ height: 165px;
+ border-radius: 7px;
+ cursor: pointer;
 }
 .grab {
-  margin-top: 17px;
-  width: 340px;
-  height: 70px;
-  border-radius: 15px;
-  background-color: #fff;
+ margin-top: 17px;
+ width: 340px;
+ height: 70px;
+ border-radius: 15px;
+ background-color: #fff;
 }
 .grab img {
-  width: 340px;
-  border-radius: 7px;
-  cursor: pointer;
+ width: 340px;
+ border-radius: 7px;
+ cursor: pointer;
 }
 
 
 .menu {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 360px;
-  background-color: #fff;
-  cursor: pointer;
+ position: fixed;
+ bottom: 0;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 360px;
+ background-color: #fff;
+ cursor: pointer;
 }
 
 .menu img {
-  width: 100%;;
-  height: 60px;
-  border-radius: 8px;
-  cursor: pointer;
+ width: 100%;;
+ height: 60px;
+ border-radius: 8px;
+ cursor: pointer;
 }
-
 
   </style>  
     
@@ -361,37 +358,29 @@ button:hover {
 </head>
 <body>
         <div class="container"><br>
-     <div class="profile-pic">
+  <div class="top">
+ <div class="person-top">
 <a href="Profile.html">
-  <img src="Images/Benny.png" id="profile-picture">
+<img src="Images/Benny.png" id="profile-picture">
 </a>
- <span id="greetings">Hi, BEN</span>
+<span id="greetings">Hi, BEN</span>
+ </div>
+ <div class="support-buttons">
+<img src="Images/Support-buttons.jpg" id="support-buttons">
+ </div>
+  </div>
+<br><br>
 
-    <div class="support-buttons">
- <img src="Images/Support-buttons.jpg" id="support-buttons">
- 
-         </div>
-           </div>
-
-        <div class="balance">
-
- <p>🛡 Available Balance 
-  <span id="eye-icon" style="cursor: pointer;">
-    <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 14.8335C21.3082 13.3317 22 12 22 12C22 12 18.3636 5 12 5C11.6588 5 11.3254 5.02013 11 5.05822C10.6578 5.09828 10.3244 5.15822 10 5.23552M12 9C12.3506 9 12.6872 9.06015 13 9.17071C13.8524 9.47199 14.528 10.1476 14.8293 11C14.9398 11.3128 15 11.6494 15 12M3 3L21 21M12 15C11.6494 15 11.3128 14.9398 11 14.8293C10.1476 14.528 9.47198 13.8524 9.1707 13C9.11386 12.8392 9.07034 12.6721 9.04147 12.5M4.14701 9C3.83877 9.34451 3.56234 9.68241 3.31864 10C2.45286 11.1282 2 12 2 12C2 12 5.63636 19 12 19C12.3412 19 12.6746 18.9799 13 18.9418" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></span> 
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <span id="transactionHistory" style="cursor: pointer;">Transaction History ></span>
-  
-</p>
-<h2>&nbsp;&nbsp;<span>&#8358;</span><span id="balance-amount"> ***</span></h2>
-
-           <div class="add" id="add-money">
-   <p>&nbsp;&nbsp; + Add Money &nbsp;&nbsp;&nbsp;</p>
-          </div>
-                 </div>
-
-
-
-
+  <div class="balance">
+ <div class="available-balance">
+<p id="available-balance">&#x1F6E1; Available Balance <span id="eye-icon"> <svg width="15px" height="15px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M20 14.8335C21.3082 13.3317 22 12 22 12C22 12 18.3636 5 12 5C11.6588 5 11.3254 5.02013 11 5.05822C10.6578 5.09828 10.3244 5.15822 10 5.23552M12 9C12.3506 9 12.6872 9.06015 13 9.17071C13.8524 9.47199 14.528 10.1476 14.8293 11C14.9398 11.3128 15 11.6494 15 12M3 3L21 21M12 15C11.6494 15 11.3128 14.9398 11 14.8293C10.1476 14.528 9.47198 13.8524 9.1707 13C9.11386 12.8392 9.07034 12.6721 9.04147 12.5M4.14701 9C3.83877 9.34451 3.56234 9.68241 3.31864 10C2.45286 11.1282 2 12 2 12C2 12 5.63636 19 12 19C12.3412 19 12.6746 18.9799 13 18.9418" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></span></p>
+<p id="transactionHistory">Transaction History ></p>
+ </div>
+ <div class="balance-section">
+<h2>&#8358;<span id="balance-amount"> ***</span></h2>
+<button class="add" id="add-money">+ Add Money</button>
+ </div>
+  </div>
 
     <div class="priceBox" id="priceBox">
 <p id="price-top">Enter Amount<span id="x">✖</span></p>
@@ -410,66 +399,59 @@ button:hover {
 
 
 
-
-
-
-
-
   <div class="recent-transaction" id="recent-transaction">
-
- <img src="Images/Recent-Transaction-Send.jpg" id="the1">
- <div class="first">
- <p id="p1"><span id="recipient1"></span>&nbsp;&nbsp;</p>
- <p id="sentAmount1"></p>
-</div>
-
- <p id="time1"></p>
- <p id="trans-succ">Successful</p>
-
- <img src="Images/Recent-Transaction-Send.jpg" id="the2">
- <p id="p2"><span id="recipient2"></span>&nbsp;&nbsp;<span id="sentAmount2"></span></p>
- <p id="time2"></p>
- <p id="trans-succ2">Successful</p>
-       </div>
+ <div class="recent-transaction1">
+<img src="Images/Recent-Transaction-Send.jpg" id="the1">
+ <div class="person1-details">
+<p id="p1"><span id="recipient1"></span></p>
+<p id="sentAmount1">101</p>
+ </div>
+   </div>
+ <div class="time-successful1">
+<p id="time1"></p>
+<p id="trans-succ1">Successful</p>
+ </div>
 
 
-       <div class="transfer">
- <img src="Images/To-Opay.png" style="margin-left: 20px;">
- 
- <a href="To-Bank.html"><img src="Images/To-Bank.png" style="margin-left: 20px;"></a>
- 
- <img src="Images/Withdraw.png" style="margin-left: 20px;">
-             </div>
 
-       <div class="waste">
- <img src="Images/Waste.jpg">
-            </div>
-  <br>      
-        <div class="grab">
+
+ <div class="recent-transaction2">
+<img src="Images/Recent-Transaction-Send.jpg" id="the2">
+ <div class="person2-details">
+<p id="p2"><span id="recipient2"></span></p>
+<p id="sentAmount2">101</p>
+ </div>
+   </div>
+ <div class="time-successful2">
+<p id="time2"></p>
+<p id="trans-succ2">Successful</p>
+ </div>
+    </div>
+
+  <div class="transfer">
+<img src="Images/To-Opay.png" style="margin-left: 20px;">
+<a href="To-Bank.html"><img src="Images/To-Bank.png" style="margin-left: 20px;"></a>
+<img src="Images/Withdraw.png" style="margin-left: 20px;">
+  </div>
+  <div class="waste">
+<img src="Images/Waste.jpg">
+  </div>
+<br>      
+  <div class="grab">
 <img src="Images/Grab.jpg">         
-             </div>
- <br></br>
- <br></br>
- <br></br>
- <br></br>
- <br></br>
- <br><br>
+  </div>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br><br>
 
-
-     <div class="menu" id="menu">
+  <div class="menu" id="menu">
 <img src="Images/Menu-Home.jpg" id="home">
-
-
-            </div>
-
-
-
-
+  </div>
 
 </div>
-
-
-
 
 
 <script>
@@ -586,6 +568,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById("recipient1").textContent = `Transfer to ${firstTwoReceipts[0].recipient}`;
                 document.getElementById("time1").textContent = firstTwoReceipts[0].date;
                 document.getElementById("sentAmount1").textContent = `-₦${firstTwoReceipts[0].amount}`;
+                
             }
 
             if (firstTwoReceipts.length > 1) {
