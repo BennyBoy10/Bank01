@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
- 
+    <link rel="icon" type="image/png" href="Images/Opay-Logo.png">
+    <link rel="stylesheet" href="None">
 
     <title>Opay</title>
     
     <style>
-
 
 body {
     font-family: Arial, sans-serif;
@@ -148,33 +147,31 @@ body {
    font-size: 17px;
    
  }
+
+
  .details {
-   display: flex;
-   
- }
- .pic-bg {
-   width: 50px;
-   padding: 1px;
-   border-radius: 10px;
-   border: 1px solid #e7e7e7;
-   background-color: transparent;
- }
- .details img {
-   margin: auto;
-   width: 50px;
-   height: 50px;
- }
- .print {
-   position: absolute;
-   margin-top: -73px;
-   margin-left: 65px;
- }
- .print p {
-   margin-top: -10px;
-   font-size: 14px;
-   font-weight: 500;
-   color: #595959;
- }
+  display: flex;
+}
+.pic-bg img {
+  width: 50px;
+  height: 50px;
+}
+.print {
+  display: flex;
+  flex-direction: column;
+  margin-top: -20px;
+  margin-left: 10px
+}
+
+
+#displayName {
+  margin-top: -50px;
+}
+#bank-and-aza {
+  margin-top: -10px;
+}
+
+
  .white {
    margin-left: -20px;
    width: 114%;
@@ -277,20 +274,8 @@ body {
 <body>
        <div class="container">
 
-
-
-
-
-
-
-
-    <div class="transparent-bg" id="transparent-bg">
-    </div>
-
-
-
-
-
+  <div class="transparent-bg" id="transparent-bg">
+  </div>
 
   <div class="confirm" id="confirm">
 <p id="x">✖</p>
@@ -327,6 +312,7 @@ body {
 <img id="owealth-img" src="Images/owealth-icon.jpg">
 <p id="owealth">OWealth <span id="owealth-balance">(₦50,000.00)</span></p>
 
+
 <svg width="25px" height="25px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.5 12.5L10.167 17L19.5 8" stroke="#00B875" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
 
   </div>
@@ -342,49 +328,33 @@ body {
 
 
 
+  <div class="transfer">
+<p><a href="To-Bank.html"><b><</b></a> &nbsp;&nbsp;&nbsp;&nbsp;Transfer to Bank Account</p>
+  </div> 
 
+  <div class="details">
+  <div class="pic-bg" id="pic-bg">
+<img src="Images/Fidelity-Logo.png">
+  </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-         <div class="transfer">
-  <p><a href="To-Bank.html"><b><</b></a> &nbsp;&nbsp;&nbsp;&nbsp;Transfer to Bank Account</p>
-           </div> 
-        <div class="details">
-         <div class="pic-bg" id="pic-bg">
- <img src="Images/Fidelity-Logo.png">
-            </div>
-        </div>
-        
-         <div class="print">
+  <div class="print">
 <h4><span id="displayName"></span></h4>  
-<p><span id="displayAza"></span>
+<p id="bank-and-aza"><span id="displayAza"></span>
 <span id="displayDropdownMenu"></span> </p>
-              </div> 
-              
-              
-    <br></br><br></br>
-         <div class="price">
+  </div>
+  </div> 
+                  
+<br></br>
+<br>
+
+    <div class="price">
            <div class="whitebg">
   <label for="price">Amount</label><br>
-<input type="tel" id="price" name="price" placeholder="₦ 100.00-5,000,000.00" maxlength="15" required=""> <hr id="hr1">
+<input type="tel" id="price" name="price" placeholder="₦ 100.00-5,000,000.00" maxlength="11" required=""> <hr id="hr1">
 
           </div> <br>
     <div class="white">&nbsp;</div>
-    
+
 
      <div class="whitebg2"> <br>
  <label for="remark">Remark</label><br>
@@ -425,7 +395,6 @@ window.addEventListener("DOMContentLoaded", function() {
 });
 
 </script>
-
 
 
 

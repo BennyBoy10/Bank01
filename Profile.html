@@ -429,15 +429,35 @@ a {
 
 <script>
 
-function setLSItems() {
-  //localStorage.setItem("nickName", "BennyBoy");
-  //localStorage.setItem("pin", "1234");
-  //localStorage.setItem("fullName", "Benjamin Bulama Anamja");
-  //localStorage.setItem("mobileNumber", "+2347013955696");
-  ;
-
+//localStorage
+let maxLocalStorage = 5 * 1024 * 1024; // 5MB in bytes
+function calculateRemainingStorage() {
+let total = 0;
+for (let key in localStorage) {
+if (localStorage.hasOwnProperty(key)) {
+total += key.length + localStorage[key].length;
 }
-setLSItems();
+}
+let used = total;
+let remaining = maxLocalStorage - used;
+var Gender = document.getElementById("gender");
+Gender.textContent = `RLS: ${(remaining / 1024 / 1024).toFixed(2)} MB`;
+}
+//calculateRemainingStorage();
+
+
+function viewLocalStorage() {
+  var Gender = document.getElementById("gender");
+  var GenderValue = Gender.textContent;
+  Gender.addEventListener("click", function() {
+    if (Gender.textContent == "Male") {
+      calculateRemainingStorage();
+    } else {
+      Gender.textContent = "Male";
+    }
+});
+}
+viewLocalStorage();
 
 
 function changeDetailsOne() {
@@ -839,8 +859,6 @@ if (Out) {
 } else {
     outVar.textContent = "0.00!"
 }
-
-
 
 });
 
