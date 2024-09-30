@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="https://i.ibb.co/bsNJkPm/Opay-Logo.png">
+    <link rel="icon" type="image/png" href="Images/Opay-Logo.png">
     <link rel="stylesheet" href="None">
     
     <title>Opay</title>
@@ -164,19 +164,66 @@ a {
         return urlParams.get(param);
     }
 
-    // Retrieve the value of the 'price' query parameter from the URL
-    const priceValue = getQueryParam('price');
-    // Retrieve the value of the 'name' query parameter from the URL
-    const nameValue = getQueryParam('name');
-    // Retrieve the value of the 'dropdownMenu' query parameter from the URL
-    const dropdownMenuValue = getQueryParam('dropdownMenu');
-    // Retrieve the value of the 'aza' query parameter from the URL
-    const azaValue = getQueryParam('aza');
-    // Get the value of the 'transNumber' query from the URL
-    const transNumberValue = getQueryParam('refNo');
-    const sessionIDValue = getQueryParam('sessionID')
+  const priceValue = getQueryParam('price');
+  const nameValue = getQueryParam('name');
+  const dropdownMenuValue = getQueryParam('dropdownMenu');
+  const azaValue = getQueryParam('aza');
+  const transNumberValue = getQueryParam('refNo');
+  const sessionIDValue = getQueryParam('sessionID')
 
-    // Check if the 'price' query parameter has a value
+
+// Retrieve existing values from localStorage (or initialize new arrays)
+let recentNames = JSON.parse(localStorage.getItem('recentName')) || [];
+let recentBanks = JSON.parse(localStorage.getItem('recentBank')) || [];
+let recentAzas = JSON.parse(localStorage.getItem('recentAza')) || [];
+
+// Function to check if the new value matches the last two saved values
+function isDuplicate(newName, newBank, newAza) {
+    // Check if there are at least two entries to compare with
+    let length = recentNames.length;
+
+    if (length >= 1) {
+        // Compare with the last saved entry
+        let lastName = recentNames[length - 1];
+        let lastBank = recentBanks[length - 1];
+        let lastAza = recentAzas[length - 1];
+
+        if (newName === lastName && newBank === lastBank && newAza === lastAza) {
+            return true; // Last saved entry matches
+        }
+    }
+
+    if (length >= 2) {
+        // Compare with the second to last saved entry
+        let secondLastName = recentNames[length - 2];
+        let secondLastBank = recentBanks[length - 2];
+        let secondLastAza = recentAzas[length - 2];
+
+        if (newName === secondLastName && newBank === secondLastBank && newAza === secondLastAza) {
+            return true; // Second to last saved entry matches
+        }
+    }
+
+    return false; // No match found
+}
+
+// Push new values to the arrays only if they don't match the last two saved items
+if (!isDuplicate(nameValue, dropdownMenuValue, azaValue)) {
+    recentNames.push(nameValue);
+    recentBanks.push(dropdownMenuValue);
+    recentAzas.push(azaValue);
+
+    // Save the updated arrays back to localStorage
+    localStorage.setItem('recentName', JSON.stringify(recentNames));
+    localStorage.setItem('recentBank', JSON.stringify(recentBanks));
+    localStorage.setItem('recentAza', JSON.stringify(recentAzas));
+} else {
+    console.log('This entry already exists in the last two saved items. Not saving.');
+}
+
+
+
+
     if (priceValue) {
         // Display the price value in the h2 element with id 'price'
         document.getElementById('price').textContent = `₦ ${priceValue}`;
@@ -263,4 +310,3 @@ sessionIDElement.style.display = 'none'
 
 </body>
 </html>
-
