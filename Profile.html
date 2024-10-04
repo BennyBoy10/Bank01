@@ -152,6 +152,10 @@ a {
   cursor: pointer;
 }
 
+.special-pencil {
+  display: none;
+}
+
 #full-name, #mobile-number, #nick-name, #gender, #date-of-birth, #email, #address, #account-number, #account-balance, #account-pin {
   margin-right: 10px;
 }
@@ -346,21 +350,21 @@ a {
 <p id="the-account-number">Opay Account Number</p>
 <p id="account-number">7013955696</p>
 <input type="tel" id="new-aza" placeholder="New Account No." maxlength="10" style="display: none;">
-<img src="Images/Edit-Pencil.jpg" id="pencil8">
+<img src="Images/Edit-Pencil.jpg" id="pencil8" class="special-pencil">
   </div>
 
 <div class="account-pin">
 <p id="the-account-pin">Account PIN</p>
 <p id="account-pin">1234</p>
 <input type="text" id="new-pin" placeholder="New PIN" maxlength="4" style="display: none;">
-<img src="Images/Edit-Pencil.jpg" id="pencil9">
+<img src="Images/Edit-Pencil.jpg" id="pencil9" class="special-pencil">
   </div>
 
 <div class="account-balance">
 <p id="the-account-balance">Account Balance</p>
 <p id="account-balance">₦ 0.00</p>
 <input type="tel" id="new-balance" placeholder="New Balance" maxlength="7" style="display: none;">
-<img src="Images/Edit-Pencil.jpg" id="pencil10">
+<img src="Images/Edit-Pencil.jpg" id="pencil10" class="special-pencil">
   </div>
 
 <div class="account-tier">
@@ -716,7 +720,6 @@ function changeDetailsEleven() {
   });
 }
 changeDetailsEleven()
-
 
 
 
