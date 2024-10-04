@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="Images/Opay-Logo.png">
     <link rel="stylesheet" href="None">
     <title>Opay</title>
-    
+
   <style>
 
 body {
@@ -105,6 +105,71 @@ a {
   justify-content: center;
   align-items: center;
 }
+
+
+
+.manual-aza {
+  display: none;
+  padding: 0.5px 10px;
+  width: 330px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.manual-aza input:focus {
+  border: 1px solid transparent;
+  outline: none;
+}
+.manual-aza input[type="tel"] {
+  width: 305px;
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 17px;
+  border: 1px solid transparent;
+}
+.manual-aza input::placeholder {
+  color: #C6C6C6;
+}
+.manual-aza select {
+  margin-top: 5px;
+  width: 330px;
+  height: 50px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 17px;
+  border: 1px solid transparent;
+  background-color: #fff;
+}
+#manual-name {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+#manual-name {
+  display: none;
+  text-align: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: -1px;
+  padding: 5px 10px 0 20px;
+  width: 300px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 17px;
+  text-transform: uppercase;
+  border: 1px solid #17e217;
+  color: #03B776;
+  background-color: #F0FBF7;
+}
+.manual-button-container {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
  button {
    margin: 8px 0 3px 0;
    width: 280px;
@@ -391,10 +456,10 @@ button:hover {
   <div class="free-transfer">
 <img src="Images/Free-Transfer.jpg" id="free-transfer">
   </div>
-  
+
   <div class="aza">
 <p><b>Recipient Account</b></p>
-  
+
     <form id="details">  
 <input type="tel" id="aza" name="aza" maxlength="10" placeholder="Enter 10 digits Account Number"><br>
 
@@ -427,9 +492,7 @@ button:hover {
  <option value="9psb" data-code="120001">9 Payment Service Bank(9 PSB)</option>
       </select><br>
 
-
-<!--<input type="text" id="name" name="name" class="nameI" style="display: none;">-->
-<p id="name" name="name" class="nameP"></p>
+<p id="name" name="name" class="name-paragraph"></p>
 <br>
 
   <div class="button-container">
@@ -437,7 +500,53 @@ button:hover {
   </div>
 </form>
   </div>
-          
+
+
+  <div class="manual-aza">
+<p><b>Recipient Account</b></p>
+
+    <form id="manual-details">  
+<input type="tel" id="manual-aza" name="manual-aza" maxlength="10" placeholder="Enter 10 digits Account Number"><br>
+
+ <select id="manual-dropdownMenu" name="manual-dropdownMenu">
+ <option value="Select Bank">Select Bank</option>
+<option value="access" data-code="044">Access Bank</option>
+<option value="carbon" data-code="565">Carbon</option>
+<option value="diamond" data-code="063">Diamond Bank</option>
+<option value="eco" data-code="050">Eco Bank</option>
+<option value="fcmb" data-code="214">FCMB Bank</option>
+<option value="fidelity" data-code="070">Fidelity Bank</option>
+<option value="first" data-code="011">First Bank</option>
+<option value="gtb" data-code="058">Guaranty Trust Bank</option>
+<option value="jaiz" data-code="301">Jaiz Bank</option>
+<option value="keystone" data-code="082">Keystone Bank</option>
+<option value="kuda" data-code="50211">Kuda MFB</option>
+<option value="moniepoint" data-code="50515">MoniePoint</option>       
+<option value="Opay" data-code="999992">Opay</option>
+<option value="palmpay" data-code="999991">PalmPay</option>
+<option value="polaris" data-code="076">Polaris Bank</option>
+<option value="paga" data-code="100002">Paga</option>
+<option value="stanbic" data-code="221">Stanbic IBTC Bank</option>
+<option value="standardchartered" data-code="068">Standard chartered Bank</option>
+<option value="sterling" data-code="232">Sterling Bank</option>
+<option value="taj" data-code="302">TAJ Bank</option>
+<option value="uba" data-code="033">United Bank for Africa</option>
+<option value="union" data-code="032">Union Bank</option>
+<option value="wema" data-code="035">Wema Bank</option>
+ <option value="zenith" data-code="057">Zenith Bank</option>
+ <option value="9psb" data-code="120001">9 Payment Service Bank(9 PSB)</option>
+      </select><br>
+
+<input type="text" id="manual-name" name="manual-name" class="manual-name-input">
+<br>
+
+  <div class="manual-button-container">
+<button type="manual-submit" id="manual-submit">Next</button>     
+  </div>
+</form>
+  </div>
+
+
 
    <div class="traffic-monitor">
 <img src="Images/Traffic-Monitor.jpg" id="traffic-monitor">
@@ -666,23 +775,16 @@ document.getElementById('details').addEventListener('submit', function(event) {
    localStorage.setItem("recent-aza", aza);
    localStorage.setItem("recent-bank", dropdownMenu);
    localStorage.setItem("recent-name", name.toUpperCase());
-  
-  
-   
+
 let selectedBank = document.getElementById('dropdownMenu').value.toLowerCase();
 let imageFilename = selectedBank.charAt(0).toUpperCase() + selectedBank.slice(1) + '-Logo.png';
 localStorage.setItem('bankLogo', imageFilename);
-
-
-
-
 
 let recentSelectedBank = document.getElementById('dropdownMenu').value.toLowerCase();
 let recentImageFilename = recentSelectedBank.charAt(0).toUpperCase() + recentSelectedBank.slice(1) + '-Logo.png';
 localStorage.setItem('recentBankLogo', imageFilename);
     window.location.href = 'Display.html';
 });
-
 
 function checkButtonState() {
     const nameElement = document.getElementById('name');
@@ -753,7 +855,59 @@ checkButtonState();
 document.getElementById('dropdownMenu').addEventListener('click', function() {
     document.getElementById('name').style.display = 'flex';
 });
-</script>
+
+var nameInput = document.querySelector(".name-input");
+window.addEventListener("DOMContentLoaded", function() {
+  nameInput.style.display = "none";
+});
+
+document.getElementById('manual-dropdownMenu').addEventListener('click', function() {
+  document.getElementById('manual-name').style.display = 'flex';
+});
+
+var Aza = document.querySelector(".aza");
+var manualAza = document.querySelector(".manual-aza");
+var trafficMonitor = document.getElementById("traffic-monitor");
+var autoVerify = true;
+trafficMonitor.addEventListener("click", function() {
+  if(autoVerify == true) {
+    Aza.style.display = "none";
+    manualAza.style.display = "block";
+    autoVerify = false;
+  } else {
+    manualAza.style.display = "none";
+    Aza.style.display = "block";
+    autoVerify = true;
+  }
+});
+
+
+document.getElementById('manual-details').addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const aza = document.getElementById('manual-aza').value;
+  const dropdownMenu = document.getElementById('manual-dropdownMenu').value;
+  const name = document.getElementById('manual-name').value;
+
+  localStorage.setItem('aza', aza);
+  localStorage.setItem('dropdownMenu', dropdownMenu);
+  localStorage.setItem('name', name.toUpperCase());
+
+ localStorage.setItem("recent-aza", aza);
+ localStorage.setItem("recent-bank", dropdownMenu);
+ localStorage.setItem("recent-name", name.toUpperCase());
+
+let selectedBank = document.getElementById('manual-dropdownMenu').value.toLowerCase();
+let imageFilename = selectedBank.charAt(0).toUpperCase() + selectedBank.slice(1) + '-Logo.png';
+localStorage.setItem('bankLogo', imageFilename);
+
+let recentSelectedBank = document.getElementById('manual-dropdownMenu').value.toLowerCase();
+let recentImageFilename = recentSelectedBank.charAt(0).toUpperCase() + recentSelectedBank.slice(1) + '-Logo.png';
+localStorage.setItem('recentBankLogo', imageFilename);
+  window.location.href = 'Display.html';
+});
+  </script>
+
 
 <script>
   //ACCOUNT 1
