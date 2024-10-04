@@ -753,19 +753,24 @@ changeDetailsTwelve()
 
 
 
-
-
-
 var Tier = document.getElementById("account-tier");
 var inOut = document.getElementById("in-out");
 var Verified = document.getElementById("verified");
+var specialPencil = document.querySelectorAll(".special-pencil");
+
 Tier.addEventListener("click", function() {
   inOut.style.display = "block";
-});
-Verified.addEventListener("click", function() {
-  inOut.style.display = "none";
+  specialPencil.forEach(function(pencil) {
+    pencil.style.display = "flex";
+  });
 });
 
+Verified.addEventListener("click", function() {
+  inOut.style.display = "none";
+  specialPencil.forEach(function(pencil) {
+    pencil.style.display = "none";
+  });
+});
 
 </script>
 
