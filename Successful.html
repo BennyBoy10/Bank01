@@ -30,6 +30,7 @@ a {
    background-color: #F8F8FA;
 }
 .done p {
+  cursor: pointer;
    margin-left: 87%;
    font-weight: 500;
    color: #11AF75;
@@ -50,6 +51,7 @@ a {
   width: 300px;
 }
 #note {
+  text-align: center;
   font-size: 12px;
   color: #11AF75;
 }
@@ -103,6 +105,13 @@ a {
 }
 
 
+#name-element, #dropdownMenu-element, #aza-element, #transNumber-element, #sessionID-element, #time, #trans-ref, #sessionID {
+  display: none;
+}
+
+
+
+
 
 </style>
     
@@ -111,7 +120,8 @@ a {
     <div class="container">
         <div class="done">
  
- <a href="Receipt.html?price=" id="done-link"><p>Done</p></a>
+ <!--<a href="Receipt.html?price=" id="done-link"><p>Done</p></a>-->
+ <p id="done-link">Done</p>
         </div>
   
         <div class="successful">
@@ -143,19 +153,37 @@ a {
 </a>
   </div>
     </div>
+<br></br>
+
+<p id="name-element"></p>
+<p id="dropdownMenu-element"></p>
+<p id="aza-element"></p>
+<p id="transNumber-element"></p>
+<p id="sessionID-element"></p>
+<p id="time"></p>
+<p id="trans-ref">240601011574788180</p>
+<p id="sessionID">195380180159718795980353163103</p>
 
 
-    <br></br>
-               
-        <div class="useless">
+  <div class="useless">
 <img src="Images/Useless.jpg">          
-           </div>
-           
+  </div>
     </div>
-  
-  
+
     
   <script>
+document.getElementById('trans-ref').textContent = Array.from({length: 18}, () => Math.floor(Math.random() * 10)).join('');
+
+// Function to update the current time
+function updateTime() {
+  const now = new Date();
+  const options = { year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+  document.getElementById('time').textContent = now.toLocaleString('en-GB', options).replace(/,/, '');
+}
+updateTime();
+//setInterval(updateTime, 120000); // Update every 2 minutes
+
+
     // Function to get the value of a query parameter by name
     function getQueryParam(param) {
         // Create a new URLSearchParams object with the query parameters from the current URL
@@ -169,7 +197,7 @@ a {
   const dropdownMenuValue = getQueryParam('dropdownMenu');
   const azaValue = getQueryParam('aza');
   const transNumberValue = getQueryParam('refNo');
-  const sessionIDValue = getQueryParam('sessionID')
+  const sessionIDValue = getQueryParam('sessionID');
 
 
 
@@ -223,14 +251,9 @@ if (!isDuplicate(nameValue, dropdownMenuValue, azaValue)) {
 }
 
 
-
-
-    if (priceValue) {
-        // Display the price value in the h2 element with id 'price'
-        document.getElementById('price').textContent = `₦ ${priceValue}`;
-    }
-// Update the 'Done' link with the price, name, bank, and account number values
-document.getElementById('done-link').href = `Receipt.html?price=${priceValue}&name=${nameValue}&dropdownMenu=${dropdownMenuValue}&aza=${azaValue}&refNo=${transNumberValue}&sessionID=${sessionIDValue}`;
+if (priceValue) {
+  document.getElementById('price').textContent = `₦ ${priceValue}`;
+}
 // Update the 'Share' link with the price, name, bank, and account number values
 document.getElementById('share-link').href = `Receipt.html?price=${priceValue}&name=${nameValue}&dropdownMenu=${dropdownMenuValue}&aza=${azaValue}&refNo=${transNumberValue}&sessionID=${sessionIDValue}`;
 // Update the 'Favourite' link with the price, name, bank, and account number values
@@ -238,75 +261,44 @@ document.getElementById('favourite-link').href = `Receipt.html?price=${priceValu
 
 
 
-    // Get the div element with class 'successful' where additional details will be displayed
-    const successfulContainer = document.querySelector('.successful');
-
-    // Check if the 'name' query parameter has a value
-    if (nameValue) {
-        // Create a new p element to display the name
-        const nameElement = document.createElement('p');
-        // Set the text content of the p element to the retrieved name value
-        nameElement.textContent = `Name: ${nameValue}`;
-  //Hide Name element
-  nameElement.style.display = 'none'
-        // Append the p element to the 'successful' div
-        successfulContainer.appendChild(nameElement);
-    }
-
-    // Check if the 'dropdownMenu' query parameter has a value
-    if (dropdownMenuValue) {
-        // Create a new p element to display the bank name
-        const dropdownMenuElement = document.createElement('p');
-        // Set the text content of the p element to the retrieved bank name value
-        dropdownMenuElement.textContent = `Bank: ${dropdownMenuValue}`;
-//Hide dropdownMenuValue element
-dropdownMenuValue.style.display = 'none'
-        // Append the p element to the 'successful' div
-        successfulContainer.appendChild(dropdownMenuElement);
-    }
-
-    // Check if the 'aza' query parameter has a value
-    if (azaValue) {
-        // Create a new p element to display the account number
-        const azaElement = document.createElement('p');
-        // Set the text content of the p element to the retrieved account number value
-        azaElement.textContent = `Account Number: ${azaValue}`;
-        // Hide the account number element by setting its display to none
-        azaElement.style.display = 'none';
-        // Append the p element to the 'successful' div
-        successfulContainer.appendChild(azaElement);
-    }
+// Save the receipt details to localStorage
+function saveReceipt() {
+// Get the recipient details
+const recipientName = nameValue;
+const recipientBank = dropdownMenuValue;  // Bank name
+const recipientAccount = azaValue;  // Account number
+const transRef = document.getElementById('trans-ref').textContent; // Transaction Ref
+const sessionID = sessionIDValue; // sessionID number
 
 
-// Check if the 'refNo' query parameter has a value
-if (transNumberValue) {
-        // Create a new p element to display the transRef
-        const transNumberElement = document.createElement('p');
-        // Set the text content of the p element to the retrieved trans-number value
-        transNumberElement.textContent = `Ref: ${transNumberValue}`;
-//Hide dropdownMenuValue element
-transNumberElement.style.display = 'none'
-        // Append the p element to the 'successful' div
-        successfulContainer.appendChild(transNumberElement);
-    }
+// Create an object with receipt details
+const receipt = {
+  amount: priceValue || "0.00",
+  date: document.getElementById('time').textContent,
+  recipient: recipientName,
+  bank: recipientBank,
+  account: recipientAccount,
+  refNo: transRef,
+  sessionID: sessionID,
+  serviceAmount: "0.00"
+};
+  // Retrieve existing receipts from localStorage or initialize with an empty array
+  let receipts = JSON.parse(localStorage.getItem("receipts")) || [];
+  // Add the new receipt to the array
+  receipts.push(receipt);
 
+  // Save the updated array back to localStorage
+  localStorage.setItem("receipts", JSON.stringify(receipts));
+}
 
-// Check if the 'sessionID' query parameter has a value
-if (sessionIDValue) {
-        // Create a new p element to display the sessionID
-        const sessionIDValue = document.createElement('p');
-        // Set the text content of the p element to the retrieved sessionID value
-        sessionIDElement.textContent = `Ref: ${sessionIDValue}`;
-//Hide dropdownMenuValue element
-sessionIDElement.style.display = 'none'
-        // Append the p element to the 'successful' div
-        successfulContainer.appendChild(sessionIDElement);
-    }
+//document.getElementById('done-link').href = `index.html`;
+var doneLink = document.getElementById("done-link");
+doneLink.addEventListener("click", function() {
+  saveReceipt();
+  window.location.href = "ReceiptHistory.html";
+});
 
 </script>
-
-  
-
 
 
 </body>
