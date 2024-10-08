@@ -346,6 +346,21 @@ if (AuthToken) {
   background-color: #00B875;
 }
 
+.delete-receipt {
+  display: block;
+}
+#delete-receipt {
+  display: block;
+  margin: 0 auto;
+  height: 33px;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 18px;
+  border: none;
+  color: #FFF;
+  background-color: #00B875;
+}
 
 
 .error-for-buttons {
@@ -402,7 +417,7 @@ if (AuthToken) {
 
   <div class="top">
   <p id="top-p"><a href="ReceiptHistory.html">&#x276E;</a> &nbsp;Transaction Details</p>
-  <img src="Images/support-head.jpg" alt="Support">
+  <img src="Images/support-head.jpg" id="Support-Logo" alt="Support">
         </div>
   <br></br>
 
@@ -495,19 +510,11 @@ if (AuthToken) {
 <button id="share-receipt">Share receipt</button>
   </div>
 
-
-
-
-
-
-
-
-
-
+  <div class="delete-receipt">
+<button id="delete-receipt">Delete Receipt</button>
+  </div>
 
         </div>
-
-
 
 <script>
 
@@ -527,20 +534,16 @@ document.addEventListener("DOMContentLoaded", function() {
     errorContainer.style.display = "flex";
   });
 
-  // Hide error message when OK button is clicked
-  okButton.addEventListener("click", function() {
-    errorContainer.style.display = "none";
-  });
+// Hide error message when OK button is clicked
+okButton.addEventListener("click", function() {
+ errorContainer.style.display = "none";
 });
-
+});
 
 </script>
 
 
-
-
 <script>
-
   // Function to get query parameters from the URL
   function getQueryParams() {
   const params = {};
@@ -618,9 +621,36 @@ const params = getQueryParams();
   const imageFilename = `${capitalizedBankName.replace(/\s+/g, '-')}-Logo.png`;
   bankLogoElement.src = `Images/${imageFilename}`;
 }
-
-
 });
+
+
+function deleteReceipt() {
+  // Get the sessionID or refNo from the URL params
+  const params = getQueryParams();
+  const sessionIDToDelete = params.sessionID;
+
+  // Get all receipts from localStorage
+  let receipts = JSON.parse(localStorage.getItem("receipts")) || [];
+
+  // Find the index of the receipt with the matching sessionID
+  const receiptIndex = receipts.findIndex(receipt => receipt.sessionID === sessionIDToDelete);
+
+  if (receiptIndex !== -1) {
+    // Remove the specific receipt
+    receipts.splice(receiptIndex, 1);
+
+    // Save the updated receipts array back to localStorage
+    localStorage.setItem("receipts", JSON.stringify(receipts));
+  alert('Receipt deleted successfully!');
+    window.location.href = 'ReceiptHistory.html';
+  } else {
+    alert('Receipt not found!');
+  }
+}
+
+// Add a delete button in your HTML with an event listener
+document.getElementById('delete-receipt').addEventListener('click', deleteReceipt);
+
 
 </script>
              
