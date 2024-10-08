@@ -347,7 +347,7 @@ if (AuthToken) {
 }
 
 .delete-receipt {
-  display: block;
+  display: none;
 }
 #delete-receipt {
   display: block;
@@ -512,6 +512,7 @@ if (AuthToken) {
 
   <div class="delete-receipt">
 <button id="delete-receipt">Delete Receipt</button>
+<br>
   </div>
 
         </div>
@@ -539,6 +540,25 @@ okButton.addEventListener("click", function() {
  errorContainer.style.display = "none";
 });
 });
+
+
+window.onload = function() {
+  var buttonHidden = true;
+  var supportLogo = document.getElementById("Support-Logo");
+  var deleteReceipt = document.querySelector(".delete-receipt");
+
+  supportLogo.addEventListener("click", function() {
+    if (buttonHidden === true) {
+      deleteReceipt.style.display = "block";
+      buttonHidden = false;
+    } else {
+      deleteReceipt.style.display = "none";
+      buttonHidden = true;
+    }
+  });
+};
+
+
 
 </script>
 
