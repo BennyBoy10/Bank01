@@ -7,6 +7,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="None">
 
+  <script>
+window.addEventListener("DOMContentLoaded", function() {
+  localStorage.setItem("AuthToken", "true");
+  //localStorage.removeItem("AuthToken");
+  var AuthToken = localStorage.getItem("AuthToken");
+if (AuthToken) {
+  //alert("AuthToken Found!");
+} else {
+  //alert("No AuthToken!");
+  window.location.href = "404.html";
+  }
+});
+  </script>
+
   <title>Opay</title>
 
   <style>
@@ -454,7 +468,6 @@ button:hover {
 
 
 <script>
-
 var profileImage = localStorage.getItem('profileImage');
 
 var profilePicture = document.getElementById("profile-picture");
