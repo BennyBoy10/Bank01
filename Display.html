@@ -8,7 +8,7 @@
 
   <script>
 window.addEventListener("DOMContentLoaded", function() {
-  localStorage.setItem("AuthToken", "true");
+  //localStorage.setItem("AuthToken", "true");
   //localStorage.removeItem("AuthToken");
   var AuthToken = localStorage.getItem("AuthToken");
 if (AuthToken) {
@@ -114,6 +114,7 @@ body {
   justify-content: space-between;
   margin-top: -20px;
 }
+
 .owealth {
   display: flex;
   align-items: center;
@@ -136,8 +137,9 @@ body {
   font-weight: bold;
 }
 #owealth-balance {
-  font-weight: 500;
+  font-size: 13px;
 }
+
 
 #sec-bank, #sec-account-no, #sec-name, #sec-amount-two, #sec-transaction-fee, #sec-payment-method2, #owealth-balance {
   color: #8C8C8C;
@@ -508,7 +510,7 @@ submitButton.addEventListener('click', function() {
 document.getElementById('price').addEventListener('blur', function(){
     let value = this.value;
     // Add '.00' if it does not already end with '.00'
-    if (value && !value.endsWith('.00')) {
+    if (value && !value.endsWith('.00') && !value.endsWith('.0') && !value.endsWith('.')) {
         this.value = value + '.00';
     }
 });
