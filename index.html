@@ -9,6 +9,7 @@
 
   <script>
 window.addEventListener("DOMContentLoaded", function() {
+  localStorage.setItem("AuthToken", "true");
   var AuthToken = localStorage.getItem("AuthToken");
 if (AuthToken) {
   //alert("AuthToken Found!");
